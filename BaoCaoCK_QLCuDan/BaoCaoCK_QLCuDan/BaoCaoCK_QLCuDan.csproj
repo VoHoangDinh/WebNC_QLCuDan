@@ -124,6 +124,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\CuDan\Details.cshtml" />
     <Content Include="Views\CuDan\Edit.cshtml" />
+    <Content Include="Views\CuDan\Index.cshtml" />
+    <Content Include="Views\CuDan\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -36,5 +36,8 @@ namespace BaoCaoCK_QLCuDan.Models
 
         // 1 Cư dân có thể gửi nhiều phản ánh
         public virtual ICollection<PhanAnh> PhanAnhs { get; set; }
+
+        // THÊM DÒNG NÀY VÀO:
+        public string QuanHeVoiChuHo { get; set; }
     }
 }
