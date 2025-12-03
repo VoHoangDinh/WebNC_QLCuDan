@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  }
+]
