@@ -1,0 +1,103 @@
+﻿@model BaoCaoCK_QLCuDan.Models.CuDan
+
+@{
+    ViewBag.Title = "Thông tin cư dân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="mb-4 text-dark">Thông tin cư dân</h3>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card card-primary card-outline" style="border-top: 3px solid #007bff;">
+            <div class="card-body box-profile text-center">
+                <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle rounded-circle border p-1"
+                         src="@(string.IsNullOrEmpty(Model.Avatar) ? "https://via.placeholder.com/150" : Model.Avatar)"
+                         alt="User profile picture" style="width: 100px; height: 100px;">
+                </div>
+
+                <h3 class="profile-username text-center mt-3">@Model.HoTen</h3>
+                <p class="text-muted text-center">nnQxW9VV</p>
+
+                <ul class="list-group list-group-unbordered mb-3 text-left">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <b>Phone</b> <span class="text-primary">@Model.SDT</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <b>Email</b> <span class="text-primary">@Model.Email</span>
+                    </li>
+                </ul>
+
+                <a href="#" class="btn btn-primary btn-block"><b>Giới thiệu</b></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-white text-right border-bottom-0 p-3">
+                <a href="/CuDan/Edit/@Model.MaCuDan" class="btn btn-primary btn-sm">
+                    Cập nhật thông tin
+                </a>
+                <button onclick="window.print()" class="btn btn-success btn-sm"><i class="fas fa-print"></i> Print (Xuất File)</button>
+            </div>
+
+            <div class="card-body">
+                <div class="row mb-3 border-bottom pb-2">
+                    <div class="col-md-4 font-weight-bold">Thành phần gia đình</div>
+                    <div class="col-md-8 text-muted">..................................................</div>
+                </div>
+
+                <div class="row mb-3 border-bottom pb-2">
+                    <div class="col-md-4 font-weight-bold">Thành phần bản thân</div>
+                    <div class="col-md-8 text-muted">..................................................</div>
+                </div>
+
+                <div class="row mb-3 border-bottom pb-2">
+                    <div class="col-md-4 font-weight-bold">Ngày và nơi kết nạp Đảng cộng sản Việt Nam</div>
+                    <div class="col-md-8">
+                        @(Model.NgayVaoDang.HasValue ? Model.NgayVaoDang.Value.ToString("dd/MM/yyyy") : "Chưa cập nhật")
+                    </div>
+                </div>
+
+                <div class="row mb-3 border-bottom pb-2">
+                    <div class="col-md-4 font-weight-bold">Ngày và nơi vào đoàn TNCSHCM</div>
+                    <div class="col-md-8">
+                        @(Model.NgayVaoDoan.HasValue ? Model.NgayVaoDoan.Value.ToString("dd/MM/yyyy") : "Chưa cập nhật")
+                    </div>
+                </div>
+
+                <h5 class="font-weight-bold mt-4 border-bottom border-dark d-inline-block pb-1">TRÌNH ĐỘ HỌC VẤN :</h5>
+
+                <div class="mt-3">
+                    <strong>Văn hóa phổ thông</strong>
+                    <p class="text-muted pl-3">@Model.TrinhDoHocVan</p>
+                </div>
+
+                <div class="mt-3">
+                    <strong>Học hàm, học vị cao nhất (thời gian chuyên ngành)</strong>
+                    <p class="text-muted pl-3">@(string.IsNullOrEmpty(Model.HocHamHocVi) ? "(Trống)" : Model.HocHamHocVi)</p>
+                </div>
+
+                <h5 class="font-weight-bold mt-4 border-bottom border-dark d-inline-block pb-1">NHẬN DẠNG (ghi theo giấy CM) :</h5>
+
+                <div class="row mt-3">
+                    <div class="col-12"><strong>Cao</strong></div>
+                    <div class="col-12 pl-4 text-muted">@Model.NhanDang_Cao</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12"><strong>Sống mũi</strong></div>
+                    <div class="col-12 pl-4 text-muted">@Model.NhanDang_SongMui</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12"><strong>Dấu vết đặc biệt</strong></div>
+                    <div class="col-12 pl-4 text-muted">@Model.DauVetDacBiet</div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <h5>I. BẢN THÂN</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

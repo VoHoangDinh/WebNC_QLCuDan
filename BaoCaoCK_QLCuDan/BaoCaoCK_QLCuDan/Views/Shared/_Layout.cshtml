@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Quản lý cư dân</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        /* Sidebar Trái */
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40; /* Màu đen xám */
+            color: #c2c7d0;
+            position: fixed;
+            width: 250px;
+            top: 0;
+            left: 0;
+            padding-top: 0;
+        }
+
+        .sidebar-header {
+            padding: 15px;
+            background-color: #343a40;
+            border-bottom: 1px solid #4b545c;
+            font-weight: bold;
+            font-size: 18px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar a {
+            color: #c2c7d0;
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-bottom: 1px solid #4b545c;
+        }
+
+            .sidebar a:hover {
+                background-color: #494e53;
+                color: #fff;
+            }
+
+            .sidebar a.active {
+                background-color: #007bff;
+                color: #fff;
+            }
+        /* Màu xanh khi chọn */
+        .sidebar i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Phần nội dung chính bên phải */
+        .main-content {
+            margin-left: 250px; /* Chừa chỗ cho sidebar */
+            background-color: #fff;
+        }
+
+        /* Topbar màu xanh */
+        .topbar {
+            background-color: #17a2b8; /* Màu xanh ngọc giống ảnh */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-panel {
+            display: flex;
+            align-items: center;
+        }
+
+            .user-panel img {
+                height: 35px;
+                width: 35px;
+                border-radius: 50%;
+                margin-right: 10px;
+                border: 2px solid white;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-building"></i> Quản lý cư dân
+        </div>
+
+        <div class="p-3">
+            <div class="user-panel mb-3 pb-3 border-bottom border-secondary">
+                <img src="/Content/Images/admin_sidebar.png" class="img-circle elevation-2" alt="Admin Image" style="width: 50px; height: 50px; border-radius: 50%;">
+                <span>Admin</span>
+            </div>
+
+            <a href="#"><i class="fas fa-tachometer-alt"></i> Admin</a>
+            <a href="#"><i class="fas fa-list"></i> Loại hộ gia đình</a>
+            <a href="#"><i class="fas fa-users"></i> Quản lý hộ gia đình</a>
+            <a href="/CuDan/Details/1" class="active"><i class="fas fa-user"></i> Quản lý cư dân</a>
+            <a href="#"><i class="fas fa-id-card"></i> Quản lý thẻ bảo hiểm</a>
+            <a href="#"><i class="fas fa-user-tag"></i> Vai trò</a>
+            <a href="#"><i class="fas fa-search"></i> Tìm kiếm cư dân</a>
+            <a href="#"><i class="fas fa-key"></i> Đổi mật khẩu</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="topbar">
+            <div><i class="fas fa-bars"></i></div>
+            <div class="font-weight-bold">
+                <img src="/Content/Images/admin_header.png" class="rounded-circle" style="border: 1px solid #fff; width: 30px; height: 30px;">
+                admin
+            </div>
+        </div>
+
+        <div class="container-fluid p-4">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
