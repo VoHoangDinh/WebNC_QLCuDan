@@ -12,6 +12,59 @@ namespace BaoCaoCK_QLCuDan.Controllers
 
         // 2. Action hiển thị chi tiết (Giống trong ảnh)
         // Đường dẫn chạy sẽ là: /CuDan/Details/1
+        // 1. GET: Hiển thị danh sách cư dân
+        public ActionResult Index()
+        {
+            // Lấy tất cả cư dân từ Database
+            var danhSach = db.CuDans.ToList();
+            return View(danhSach);
+        }
+        // 2. GET: Hiển thị form thêm mới
+        public ActionResult Create()
+        {
+            // Load danh sách Hộ gia đình để chọn (Dropdown list)
+            ViewBag.MaHo = new SelectList(db.HoGiaDinhs, "MaHo", "MaHo");
+            // Lưu ý: "MaHo" thứ 2 là giá trị lưu xuống DB, "MaHo" thứ 3 là chữ hiển thị lên màn hình
+            // Nếu bảng HoGiaDinh có cột TenChuHo thì sửa thành: new SelectList(db.HoGiaDinhs, "MaHo", "TenChuHo");
+
+            return View();
+        }
+
+        // 3. POST: Xử lý lưu dữ liệu khi bấm nút "Thêm mới"
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CuDan cuDan, HttpPostedFileBase ImageFile)
+        {
+            if (ModelState.IsValid)
+            {
+                // --- XỬ LÝ ẢNH (Tương tự bên Edit) ---
+                if (ImageFile != null && ImageFile.ContentLength > 0)
+                {
+                    string fileName = System.IO.Path.GetFileName(ImageFile.FileName);
+                    string uploadPath = Server.MapPath("~/Content/Images/");
+                    string filePath = System.IO.Path.Combine(uploadPath, fileName);
+                    ImageFile.SaveAs(filePath);
+                    cuDan.Avatar = "/Content/Images/" + fileName;
+                }
+                else
+                {
+                    // Nếu không chọn ảnh thì gán ảnh mặc định
+                    cuDan.Avatar = "/Content/Images/default.jpg";
+                }
+                // --- KẾT THÚC XỬ LÝ ẢNH ---
+
+                // Lưu vào Database
+                db.CuDans.Add(cuDan);
+                db.SaveChanges();
+
+                // Lưu xong thì quay về trang danh sách
+                return RedirectToAction("Index");
+            }
+
+            // Nếu dữ liệu lỗi thì load lại danh sách hộ để hiện lại form
+            ViewBag.MaHo = new SelectList(db.HoGiaDinhs, "MaHo", "MaHo", cuDan.MaHo);
+            return View(cuDan);
+        }
         public ActionResult Details(int id)
         {
             // Tìm cư dân có mã số id

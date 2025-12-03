@@ -1,4 +1,4 @@
--- 1. Tạo Database mới (Nếu có rồi thì xóa đi tạo lại cho sạch)
+-- 1. Tạo Database mới (Xóa cũ tạo mới cho sạch sẽ)
 USE master;
 GO
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'QuanLyChungCuDB')
@@ -12,14 +12,14 @@ GO
 USE QuanLyChungCuDB;
 GO
 
--- 2. Tạo bảng VaiTro (Admin/User)
+-- 2. Tạo bảng VaiTro
 CREATE TABLE VaiTro (
     MaVaiTro INT IDENTITY(1,1) PRIMARY KEY,
     TenVaiTro NVARCHAR(50) NOT NULL
 );
 GO
 
--- 3. Tạo bảng NguoiDung (Để đăng nhập)
+-- 3. Tạo bảng NguoiDung
 CREATE TABLE NguoiDung (
     MaNguoiDung INT IDENTITY(1,1) PRIMARY KEY,
     TaiKhoan VARCHAR(50) NOT NULL UNIQUE,
@@ -45,7 +45,7 @@ CREATE TABLE CanHo (
     SoPhong VARCHAR(20) NOT NULL,
     DienTich FLOAT,
     Tang INT,
-    TrangThai NVARCHAR(50), -- 'Da O', 'Trong'
+    TrangThai NVARCHAR(50),
     MaToaNha INT NOT NULL,
     FOREIGN KEY (MaToaNha) REFERENCES ToaNha(MaToaNha)
 );
@@ -61,7 +61,7 @@ CREATE TABLE HoGiaDinh (
 );
 GO
 
--- 7. Tạo bảng CuDan (Quan trọng: Đầy đủ trường theo ảnh bạn gửi)
+-- 7. Tạo bảng CuDan (ĐÃ SỬA: Thêm cột QuanHeVoiChuHo)
 CREATE TABLE CuDan (
     MaCuDan INT IDENTITY(1,1) PRIMARY KEY,
     HoTen NVARCHAR(100) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE CuDan (
     Email VARCHAR(100),
     Avatar VARCHAR(255),
     
-    -- Các trường đặc thù theo ảnh
+    -- Các trường đặc thù
     TrinhDoHocVan NVARCHAR(100),
     NgayVaoDang DATE,
     NgayVaoDoan DATE,
@@ -79,6 +79,9 @@ CREATE TABLE CuDan (
     NhanDang_Cao NVARCHAR(50),
     NhanDang_SongMui NVARCHAR(50),
     DauVetDacBiet NVARCHAR(200),
+    
+    -- QUAN TRỌNG: Thêm cột này để khớp với lệnh INSERT bên dưới
+    QuanHeVoiChuHo NVARCHAR(50), 
     
     -- Khóa ngoại
     MaHo INT,
@@ -99,30 +102,48 @@ CREATE TABLE PhanAnh (
 GO
 
 -- =============================================
--- BƯỚC 3: THÊM DỮ LIỆU MẪU (ĐỂ TEST ĐƯỢC NGAY)
+-- BƯỚC 3: THÊM DỮ LIỆU MẪU
 -- =============================================
+USE QuanLyChungCuDB;
+GO
 
--- Thêm Vai Trò
 INSERT INTO VaiTro (TenVaiTro) VALUES (N'Admin'), (N'Cư Dân');
+INSERT INTO NguoiDung (TaiKhoan, MatKhau, HoTen, Email, MaVaiTro) VALUES ('admin', '123456', N'Quản Trị Viên', 'admin@gmail.com', 1);
 
--- Thêm Tài khoản Admin (User: admin / Pass: 123456)
-INSERT INTO NguoiDung (TaiKhoan, MatKhau, HoTen, Email, MaVaiTro) 
-VALUES ('admin', '123456', N'Quản Trị Viên', 'admin@gmail.com', 1);
-
--- Thêm Tòa Nhà
-INSERT INTO ToaNha (TenToaNha, DiaChi) VALUES (N'Tòa A', N'123 Đường Láng');
+INSERT INTO ToaNha (TenToaNha, DiaChi) VALUES (N'Tòa A', N'123 Đường Láng'), (N'Tòa B', N'456 Nguyễn Trãi');
 
 -- Thêm Căn Hộ
-INSERT INTO CanHo (SoPhong, DienTich, Tang, TrangThai, MaToaNha) 
-VALUES ('P101', 80.5, 1, N'Đã ở', 1);
+INSERT INTO CanHo (SoPhong, DienTich, Tang, TrangThai, MaToaNha) VALUES 
+('P101', 80.5, 1, N'Đã ở', 1),
+('P102', 75.0, 1, N'Trống', 1),
+('P205', 90.0, 2, N'Đã ở', 1),
+('B101', 110.0, 1, N'Đã ở', 2);
 
--- Thêm Hộ Gia Đình (Ở căn P101)
-INSERT INTO HoGiaDinh (NgayNhanNha, SoThanhVien, MaCanHo) 
-VALUES ('2023-01-01', 4, 1);
+-- Thêm Hộ Gia Đình
+INSERT INTO HoGiaDinh (NgayNhanNha, SoThanhVien, MaCanHo) VALUES 
+('2023-01-01', 4, 1), -- Hộ 1
+('2023-05-15', 3, 3), -- Hộ 2
+('2023-06-20', 2, 4); -- Hộ 3
 
--- Thêm Cư Dân Mẫu (Giống ảnh bạn gửi)
-INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, MaHo) 
+-- Thêm Cư Dân (Hộ 1)
+INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, QuanHeVoiChuHo, MaHo) 
+VALUES (N'Admin', '0928817228', 'admin@gmail.com', '/Content/Images/avatar.jpg', N'Văn hóa phổ thông', N'Cao', N'Thẳng', N'Nốt ruồi đuôi mắt trái', N'Chủ hộ', 1);
+
+INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NgaySinh, GioiTinh, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, QuanHeVoiChuHo, MaHo) 
 VALUES 
-(N'Admin', '0928817228', 'admin@gmail.com', '/Content/Images/avatar.jpg', 
- N'Văn hóa phổ thông', N'Cao', N'Thẳng', N'Nốt ruồi đuôi mắt trái', 1);
+(N'Trần Thị Mai', '0912345678', 'mai.tran@gmail.com', '/Content/Images/default.jpg', N'Đại học Sư phạm', '1995-02-14', N'Nữ', N'1m60', N'Cao', N'Sẹo nhỏ ở tay trái', N'Vợ', 1),
+(N'Nguyễn Văn Tí', '', '', '/Content/Images/default.jpg', N'Mầm non', '2018-09-01', N'Nam', N'1m10', N'Tẹt', N'Bớt xanh ở mông', N'Con', 1);
+
+-- Thêm Cư Dân (Hộ 2)
+INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NgaySinh, GioiTinh, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, QuanHeVoiChuHo, MaHo) 
+VALUES 
+(N'Lê Văn Hùng', '0988777666', 'hung.le@company.com', '/Content/Images/default.jpg', N'Tiến sĩ Kinh tế', '1980-05-20', N'Nam', N'1m75', N'Thẳng', N'Nốt ruồi trên mép phải', N'Chủ hộ', 2),
+(N'Phạm Thu Cúc', '0977888999', 'cuc.pham@shop.com', '/Content/Images/default.jpg', N'Cử nhân Kế toán', '1982-11-10', N'Nữ', N'1m58', N'Thấp', N'Không có', N'Vợ', 2),
+(N'Lê Tuấn Kiệt', '0334445555', 'kiet.le@student.com', '/Content/Images/default.jpg', N'Sinh viên ĐH Bách Khoa', '2003-01-01', N'Nam', N'1m80', N'Cao', N'Cận thị nặng', N'Con', 2);
+
+-- Thêm Cư Dân (Hộ 3)
+INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NgaySinh, GioiTinh, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, QuanHeVoiChuHo, MaHo) 
+VALUES 
+(N'Hoàng Thị Lan', '0909090909', 'lan.hoang@retired.com', '/Content/Images/default.jpg', N'Về hưu', '1960-12-25', N'Nữ', N'1m55', N'Bình thường', N'Tóc bạc trắng', N'Chủ hộ', 3),
+(N'Nguyễn Ngọc Thúy', '0911223344', 'thuy.nguyen@bank.com', '/Content/Images/default.jpg', N'Thạc sĩ Tài chính', '1990-08-15', N'Nữ', N'1m65', N'Thẳng', N'Nốt ruồi son ở cổ', N'Con', 3);
 GO

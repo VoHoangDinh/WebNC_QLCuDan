@@ -23,7 +23,18 @@
                         <label>Họ và tên</label>
                         @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">Giới tính</label>
+                        <div class="col-md-10 p-0">
+                            @Html.DropDownListFor(model => model.GioiTinh, new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Nam", Value = "Nam" },
+                                new SelectListItem { Text = "Nữ", Value = "Nữ" }
+                            }, "--- Chọn giới tính ---", new { @class = "form-control" })
 
+                            @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label>Số điện thoại</label>
                         @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
