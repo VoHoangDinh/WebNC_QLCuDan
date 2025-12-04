@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BaoCaoCK_QLCuDan.Models.TheBaoHiem>
+
+@{
+    ViewBag.Title = "Danh Sách Thẻ Bảo Hiểm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Quản Lý Thẻ Bảo Hiểm</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Thẻ Bảo Hiểm</li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div><i class="fas fa-table me-1"></i> Danh sách thẻ BHYT cư dân</div>
+            <a href="@Url.Action("Create")" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Cấp thẻ mới
+            </a>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover bg-white">
+                <thead class="table-dark">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.CuDan.HoTen)</th>
+                        <th>@Html.DisplayNameFor(model => model.MaSoThe)</th>
+                        <th>@Html.DisplayNameFor(model => model.NoiDangKyKCB)</th>
+                        <th>Thời Hạn</th>
+                        <th>Trạng Thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        bool isExpired = item.NgayHetHan < DateTime.Now;
+                        // Nếu hết hạn thì màu đỏ, còn không thì giữ nguyên (trắng do class bg-white ở table)
+                        string rowClass = isExpired ? "table-danger" : "";
+
+                        <tr class="@rowClass">
+                            <td class="fw-bold text-primary">
+                                @Html.DisplayFor(modelItem => item.CuDan.HoTen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaSoThe)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoiDangKyKCB)
+                            </td>
+                            <td>
+                                @String.Format("{0:dd/MM/yyyy}", item.NgayDangKy) <br />
+
+                                <i class="fas fa-arrow-down text-muted"></i> <br />
+
+                                @String.Format("{0:dd/MM/yyyy}", item.NgayHetHan)
+                            </td>
+                            <td class="text-center">
+                                @if (isExpired)
+                                {
+                                    <span class="badge bg-danger">Đã hết hạn</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-success">Đang hiệu lực</span>
+                                }
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", new { id = item.MaTheBaoHiem })" class="btn btn-sm btn-warning" title="Sửa">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = item.MaTheBaoHiem })" class="btn btn-sm btn-danger" title="Xóa">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
