@@ -11,6 +11,8 @@ namespace BaoCaoCK_QLCuDan
     {
         protected void Application_Start()
         {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback =
+        (sender, cert, chain, sslPolicyErrors) => true;
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

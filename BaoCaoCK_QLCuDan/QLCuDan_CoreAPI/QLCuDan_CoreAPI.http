@@ -1,0 +1,6 @@
+@QLCuDan_CoreAPI_HostAddress = http://localhost:5000
+
+GET {{QLCuDan_CoreAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

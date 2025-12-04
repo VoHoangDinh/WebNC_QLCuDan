@@ -5,6 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Model == null)
+{
+    <div class="alert alert-danger">Model đang bị NULL (Controller chưa trả về List)</div>
+}
+else if (Model.Count() == 0)
+{
+    <div class="alert alert-warning">
+        Model có 0 dòng (Kết nối API thành công nhưng chưa có dữ liệu hoặc API trả về rỗng).
+        <br />
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    </div>
+}
+else
+{
+    <div class="alert alert-success">Đã lấy được @Model.Count() cư dân!</div>
+}
+
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary text-uppercase">Danh sách cư dân</h6>
@@ -44,8 +61,12 @@
                                 <a href="/CuDan/Edit/@item.MaCuDan" class="btn btn-warning btn-sm" title="Sửa">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-sm" title="Xóa">
+                                <a href="/CuDan/DeleteConfirmed/@item.MaCuDan"
+                                   class="btn btn-danger btn-sm"
+                                   title="Xóa"
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa cư dân này không?');">
                                     <i class="fas fa-trash"></i>
+                               
                                 </a>
                             </td>
                         </tr>
