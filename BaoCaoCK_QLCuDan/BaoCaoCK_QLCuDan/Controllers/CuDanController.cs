@@ -5,14 +5,15 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Web; // Thư viện để dùng HttpPostedFileBase
 using System.Web.Mvc;
 
 namespace BaoCaoCK_QLCuDan.Controllers
 {
     public class CuDanController : Controller
     {
-        // --- SỬA LẠI: Chỉ để 1 đường dẫn duy nhất ---
-        private const string BaseUrl = "http://localhost:5000/";
+        // 1. Link API
+        private const string BaseUrl = "https://localhost:7107/";
 
         private HttpClient CreateClient()
         {
@@ -23,7 +24,9 @@ namespace BaoCaoCK_QLCuDan.Controllers
             return client;
         }
 
-        // --- 1. LẤY DANH SÁCH ---
+        // ==========================================
+        // 1. LẤY DANH SÁCH
+        // ==========================================
         public async Task<ActionResult> Index()
         {
             List<CuDan> listCuDan = new List<CuDan>();
@@ -31,33 +34,25 @@ namespace BaoCaoCK_QLCuDan.Controllers
             {
                 using (var client = CreateClient())
                 {
-                    // SỬA: Thêm chữ 's' vào sau CuDan -> api/CuDans (để khớp với Controller bên API)
                     HttpResponseMessage response = await client.GetAsync("api/CuDans");
-
                     if (response.IsSuccessStatusCode)
                     {
                         listCuDan = await response.Content.ReadAsAsync<List<CuDan>>();
                     }
-                    else
-                    {
-                        ModelState.AddModelError("", "Lỗi API: " + response.StatusCode + " - " + response.ReasonPhrase);
-                    }
                 }
             }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", "Lỗi kết nối: " + ex.Message);
-            }
+            catch (Exception) { /* Bỏ qua lỗi để hiện trang trống nếu API chết */ }
             return View(listCuDan);
         }
 
-        // --- 2. XEM CHI TIẾT ---
+        // ==========================================
+        // 2. XEM CHI TIẾT
+        // ==========================================
         public async Task<ActionResult> Details(int id)
         {
             CuDan cuDan = null;
             using (var client = CreateClient())
             {
-                // SỬA: Thêm chữ 's'
                 HttpResponseMessage response = await client.GetAsync("api/CuDans/" + id);
                 if (response.IsSuccessStatusCode)
                 {
@@ -68,7 +63,9 @@ namespace BaoCaoCK_QLCuDan.Controllers
             return View(cuDan);
         }
 
-        // --- 3. THÊM MỚI ---
+        // ==========================================
+        // 3. THÊM MỚI (Đã thêm lại phần xử lý ảnh)
+        // ==========================================
         public ActionResult Create()
         {
             LoadDropdownHoGiaDinh();
@@ -77,11 +74,40 @@ namespace BaoCaoCK_QLCuDan.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(CuDan cuDan)
+        // Thêm tham số ImageFile để nhận file từ View
+        public async Task<ActionResult> Create(CuDan cuDan, HttpPostedFileBase ImageFile)
         {
+            // --- XỬ LÝ ẢNH (Lưu vào thư mục MVC) ---
+            if (ImageFile != null && ImageFile.ContentLength > 0)
+            {
+                // 1. Lấy tên file
+                string fileName = System.IO.Path.GetFileName(ImageFile.FileName);
+
+                // 2. Đường dẫn lưu (Content/Images)
+                string uploadPath = Server.MapPath("~/Content/Images/");
+
+                // Tạo thư mục nếu chưa có
+                if (!System.IO.Directory.Exists(uploadPath))
+                {
+                    System.IO.Directory.CreateDirectory(uploadPath);
+                }
+
+                // 3. Lưu file
+                string filePath = System.IO.Path.Combine(uploadPath, fileName);
+                ImageFile.SaveAs(filePath);
+
+                // 4. Gán đường dẫn vào Model để gửi sang API
+                cuDan.Avatar = "/Content/Images/" + fileName;
+            }
+            else
+            {
+                // Nếu không chọn ảnh -> Lấy ảnh mặc định
+                cuDan.Avatar = "/Content/Images/default.jpg";
+            }
+            // ---------------------------------------
+
             using (var client = CreateClient())
             {
-                // SỬA: Thêm chữ 's'
                 HttpResponseMessage response = await client.PostAsJsonAsync("api/CuDans", cuDan);
                 if (response.IsSuccessStatusCode)
                 {
@@ -89,17 +115,19 @@ namespace BaoCaoCK_QLCuDan.Controllers
                 }
                 ModelState.AddModelError("", "Lỗi API: " + response.ReasonPhrase);
             }
+
             LoadDropdownHoGiaDinh();
             return View(cuDan);
         }
 
-        // --- 4. CẬP NHẬT ---
+        // ==========================================
+        // 4. CẬP NHẬT (Đã thêm lại phần xử lý ảnh)
+        // ==========================================
         public async Task<ActionResult> Edit(int id)
         {
             CuDan cuDan = null;
             using (var client = CreateClient())
             {
-                // SỬA: Thêm chữ 's'
                 HttpResponseMessage response = await client.GetAsync("api/CuDans/" + id);
                 if (response.IsSuccessStatusCode)
                 {
@@ -113,11 +141,24 @@ namespace BaoCaoCK_QLCuDan.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, CuDan cuDan)
+        // Thêm tham số ImageFile
+        public async Task<ActionResult> Edit(int id, CuDan cuDan, HttpPostedFileBase ImageFile)
         {
+            // --- XỬ LÝ ẢNH ---
+            if (ImageFile != null && ImageFile.ContentLength > 0)
+            {
+                // Nếu người dùng chọn ảnh mới -> Lưu và cập nhật đường dẫn mới
+                string fileName = System.IO.Path.GetFileName(ImageFile.FileName);
+                string uploadPath = Server.MapPath("~/Content/Images/");
+                string filePath = System.IO.Path.Combine(uploadPath, fileName);
+                ImageFile.SaveAs(filePath);
+                cuDan.Avatar = "/Content/Images/" + fileName;
+            }
+            // Nếu ImageFile == null, thì cuDan.Avatar vẫn giữ giá trị cũ (do View gửi lên qua HiddenField)
+            // -----------------
+
             using (var client = CreateClient())
             {
-                // SỬA: Thêm chữ 's'
                 HttpResponseMessage response = await client.PutAsJsonAsync("api/CuDans/" + id, cuDan);
                 if (response.IsSuccessStatusCode)
                 {
@@ -128,18 +169,19 @@ namespace BaoCaoCK_QLCuDan.Controllers
             return View(cuDan);
         }
 
-        // --- 5. XÓA ---
+        // ==========================================
+        // 5. XÓA
+        // ==========================================
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             using (var client = CreateClient())
             {
-                // SỬA: Thêm chữ 's'
                 await client.DeleteAsync("api/CuDans/" + id);
             }
             return RedirectToAction("Index");
         }
 
-        // --- HÀM PHỤ ---
+        // Hàm phụ
         private void LoadDropdownHoGiaDinh()
         {
             try

@@ -9,7 +9,7 @@
       {
         "Path": "QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
         "Action": "Start",
-        "DebugTarget": "http"
+        "DebugTarget": "https"
       }
     ]
   }

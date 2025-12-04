@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using QLCuDan_CoreAPI.Models; // <--- Sửa dòng này thành namespace chứa Models của bạn
-
+using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 // ==============================================================
@@ -28,7 +28,8 @@ builder.Services.AddCors(options =>
 });
 
 // Các dịch vụ mặc định khác
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
