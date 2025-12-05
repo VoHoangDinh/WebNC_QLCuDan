@@ -1,0 +1,54 @@
+﻿@model BaoCaoCK_QLCuDan.Models.HoGiaDinh
+@{ ViewBag.Title = "Chi Tiết Hộ"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Thông tin chi tiết Hộ: #@Model.MaHo</h6>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-secondary">Quay lại danh sách</a>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <dl class="row">
+                    <dt class="col-sm-4">Chủ Hộ:</dt>
+                    <dd class="col-sm-8 font-weight-bold">@Model.TenChuHo</dd>
+
+                    <dt class="col-sm-4">Trạng Thái:</dt>
+                    <dd class="col-sm-8">
+                        @if (Model.TrangThai == "Đang ở")
+                        {<span class="badge badge-success">Đang ở</span> }
+                        else
+                        { <span class="badge badge-secondary">@Model.TrangThai</span>}
+                    </dd>
+
+                    <dt class="col-sm-4">Ngày Nhận:</dt>
+                    <dd class="col-sm-8">@(Model.NgayNhanNha.HasValue ? Model.NgayNhanNha.Value.ToString("dd/MM/yyyy") : "Chưa cập nhật")</dd>
+                </dl>
+            </div>
+
+            <div class="col-md-6">
+                <dl class="row">
+                    <dt class="col-sm-4">Căn Hộ:</dt>
+                    <dd class="col-sm-8 text-primary font-weight-bold">
+                        @(Model.CanHo != null ? Model.CanHo.SoPhong : "Chưa gán")
+                    </dd>
+
+                    <dt class="col-sm-4">Loại Hộ:</dt>
+                    <dd class="col-sm-8">
+                        @(Model.LoaiHo != null ? Model.LoaiHo.TenLoai : "---")
+                    </dd>
+
+                    <dt class="col-sm-4">Thành Viên:</dt>
+                    <dd class="col-sm-8">@Model.SoThanhVien người</dd>
+                </dl>
+            </div>
+        </div>
+
+        <hr />
+        <div class="text-right">
+            <a href="@Url.Action("Edit", new { id = Model.MaHo })" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Chỉnh sửa thông tin
+            </a>
+        </div>
+    </div>
+</div>

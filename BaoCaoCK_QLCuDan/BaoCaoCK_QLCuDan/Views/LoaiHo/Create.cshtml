@@ -1,0 +1,19 @@
+﻿@model BaoCaoCK_QLCuDan.Models.LoaiHo
+@{ ViewBag.Title = "Thêm Loại Hộ"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="card shadow" style="max-width: 600px; margin: auto;">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Thêm Loại Hộ Gia Đình Mới</h4>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>Tên Loại Hộ</label>
+                @Html.TextBoxFor(m => m.TenLoai, new { @class = "form-control", placeholder = "Ví dụ: Hộ nghèo, Thường trú..." })
+            </div>
+            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Lưu lại</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+        }
+    </div>
+</div>
