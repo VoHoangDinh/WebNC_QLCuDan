@@ -10,7 +10,7 @@ namespace QLCuDan_CoreAPI.Controllers
     // 1. Định nghĩa đường dẫn là: api/CuDans
     [Route("api/[controller]")]
     [ApiController]
-    // 2. Kế thừa ControllerBase (Chuẩn cho API), KHÔNG phải Controller (Chuẩn cho MVC)
+    // 2. Kế thừa ControllerBase
     public class CuDansController : ControllerBase
     {
         private readonly QuanLyChungCuDbContext _context;
@@ -20,13 +20,42 @@ namespace QLCuDan_CoreAPI.Controllers
             _context = context;
         }
 
-        // GET: api/CuDans
+        // =========================================================================
+        // SỬA ĐOẠN NÀY: GET api/CuDans (Hỗ trợ Tìm kiếm & Phân trang)
+        // =========================================================================
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CuDan>>> GetCuDans()
+        public async Task<IActionResult> GetCuDans(string? keyword, int page = 1, int pageSize = 10)
         {
-            // Trả về dữ liệu thô (JSON), không phải View
-            return await _context.CuDans.ToListAsync();
+            // 1. Khởi tạo truy vấn
+            var query = _context.CuDans.AsQueryable();
+
+            // 2. Tìm kiếm (Nếu có từ khóa)
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                // Tìm theo Tên, SĐT hoặc Email
+                query = query.Where(c => c.HoTen.Contains(keyword) ||
+                                         c.SDT.Contains(keyword) ||
+                                         c.Email.Contains(keyword));
+            }
+
+            // 3. Đếm tổng số kết quả (quan trọng để tính số trang)
+            int totalItems = await query.CountAsync();
+
+            // 4. Phân trang: Bỏ qua (Skip) các trang trước và Lấy (Take) số lượng trang hiện tại
+            var items = await query.Skip((page - 1) * pageSize)
+                                   .Take(pageSize)
+                                   .ToListAsync();
+
+            // 5. Trả về cấu trúc JSON mới gồm cả dữ liệu và thông tin phân trang
+            return Ok(new
+            {
+                TotalItems = totalItems, // Tổng số bản ghi tìm thấy
+                Page = page,             // Trang hiện tại
+                PageSize = pageSize,     // Kích thước trang
+                Items = items            // Danh sách cư dân của trang này
+            });
         }
+        // =========================================================================
 
         // GET: api/CuDans/5
         [HttpGet("{id}")]
@@ -46,7 +75,6 @@ namespace QLCuDan_CoreAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<CuDan>> PostCuDan(CuDan cuDan)
         {
-            // API không cần ValidateAntiForgeryToken (thường dùng JWT hoặc CORS để bảo mật)
             _context.CuDans.Add(cuDan);
             await _context.SaveChangesAsync();
 

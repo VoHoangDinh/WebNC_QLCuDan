@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web; // Thư viện để dùng HttpPostedFileBase
 using System.Web.Mvc;
-
+using PagedList;
 namespace BaoCaoCK_QLCuDan.Controllers
 {
     public class CuDanController : Controller
@@ -27,22 +27,44 @@ namespace BaoCaoCK_QLCuDan.Controllers
         // ==========================================
         // 1. LẤY DANH SÁCH
         // ==========================================
-        public async Task<ActionResult> Index()
+        // SỬA HÀM INDEX NHƯ SAU:
+        public async Task<ActionResult> Index(string keyword, int? page)
         {
-            List<CuDan> listCuDan = new List<CuDan>();
+            int pageSize = 5; // Số dòng mỗi trang
+            int pageNumber = (page ?? 1); // Trang mặc định là 1
+
+            // Tạo danh sách trống mặc định
+            IPagedList<CuDan> pagedList = new StaticPagedList<CuDan>(new List<CuDan>(), pageNumber, pageSize, 0);
+
             try
             {
                 using (var client = CreateClient())
                 {
-                    HttpResponseMessage response = await client.GetAsync("api/CuDans");
+                    // Gọi API kèm tham số tìm kiếm và phân trang
+                    // Link sẽ thành: api/CuDans?keyword=abc&page=1&pageSize=5
+                    string url = $"api/CuDans?keyword={keyword}&page={pageNumber}&pageSize={pageSize}";
+
+                    HttpResponseMessage response = await client.GetAsync(url);
+
                     if (response.IsSuccessStatusCode)
                     {
-                        listCuDan = await response.Content.ReadAsAsync<List<CuDan>>();
+                        // Đọc dữ liệu JSON vào class PhanTrangCuDan
+                        var result = await response.Content.ReadAsAsync<PhanTrangCuDan>();
+
+                        // Tạo đối tượng PagedList để đưa ra View
+                        pagedList = new StaticPagedList<CuDan>(result.Items, pageNumber, pageSize, result.TotalItems);
                     }
                 }
             }
-            catch (Exception) { /* Bỏ qua lỗi để hiện trang trống nếu API chết */ }
-            return View(listCuDan);
+            catch
+            {
+                // Bỏ qua lỗi
+            }
+
+            // Giữ lại từ khóa tìm kiếm để hiện lại trên ô input
+            ViewBag.CurrentFilter = keyword;
+
+            return View(pagedList);
         }
 
         // ==========================================
