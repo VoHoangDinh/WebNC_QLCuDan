@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace QLCuDan_CoreAPI.Models
 {
-    public class QuanLyChungCuDbContext : DbContext
+    public class QuanLyChungCuDbContext : IdentityDbContext<ApplicationUser, IdentityRole, string>
     {
         public QuanLyChungCuDbContext(DbContextOptions<QuanLyChungCuDbContext> options)
             : base(options)

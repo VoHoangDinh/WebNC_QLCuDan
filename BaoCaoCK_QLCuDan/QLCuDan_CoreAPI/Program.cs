@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QLCuDan_CoreAPI.Models; // <--- Sửa dòng này thành namespace chứa Models của bạn
+using QLCuDan_CoreAPI.Repository;
+using QLCuDan_CoreAPI.Service;
 using System.Text;
 using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
@@ -66,7 +69,10 @@ builder.Services.AddSwaggerGen(c =>
 
 
 
-
+//cấu hình security jwt
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<QuanLyChungCuDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddAuthentication(option =>
 {
@@ -95,6 +101,8 @@ builder.Services.AddAuthentication(option =>
 
 //thêm auto mapper
 builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddScoped<IAccountRepository, AccountService>();
 
 var app = builder.Build();
 
