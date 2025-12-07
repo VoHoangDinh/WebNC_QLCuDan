@@ -82,12 +82,12 @@ namespace QLCuDan_CoreAPI.Service
             if (result.Succeeded)
             {
                 // Kiểm tra và tạo role "User" nếu chưa tồn tại
-                if (!await roleManager.RoleExistsAsync(AppRole.Customer))
+                if (!await roleManager.RoleExistsAsync(AppRole.User))
                 {
-                    await roleManager.CreateAsync(new IdentityRole(AppRole.Customer));
+                    await roleManager.CreateAsync(new IdentityRole(AppRole.User));
                 }
                 // Gán role "User" cho user mới tạo
-                await userManager.AddToRoleAsync(user, AppRole.Customer);
+                await userManager.AddToRoleAsync(user, AppRole.User);
             }
 
             return result;

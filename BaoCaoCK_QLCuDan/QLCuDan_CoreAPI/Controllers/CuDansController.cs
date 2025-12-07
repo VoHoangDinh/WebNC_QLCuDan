@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLCuDan_CoreAPI.Models;
@@ -24,6 +25,7 @@ namespace QLCuDan_CoreAPI.Controllers
         // SỬA ĐOẠN NÀY: GET api/CuDans (Hỗ trợ Tìm kiếm & Phân trang)
         // =========================================================================
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetCuDans(string? keyword, int page = 1, int pageSize = 10)
         {
             // 1. Khởi tạo truy vấn
