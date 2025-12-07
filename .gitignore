@@ -1,0 +1,29 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# Build folders
+bin/
+obj/
+Debug/
+Release/
+
+# ASP.NET
+*.dll
+*.pdb
+*.cache
+*.log
+
+# Entity Framework Migrations temp
+*_migration_backup/
+
+# Rider / JetBrains
+.idea/
+*.iml
+
+# Others
+*.db
+*.mdf
+*.ldf
