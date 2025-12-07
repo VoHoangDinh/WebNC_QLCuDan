@@ -283,3 +283,81 @@ VALUES
 (N'Hoàng Thị Lan', '0909090909', 'lan.hoang@retired.com', '/Content/Images/default.jpg', N'Về hưu', '1960-12-25', N'Nữ', N'1m55', N'Bình thường', N'Tóc bạc trắng', N'Chủ hộ', 3),
 (N'Nguyễn Ngọc Thúy', '0911223344', 'thuy.nguyen@bank.com', '/Content/Images/default.jpg', N'Thạc sĩ Tài chính', '1990-08-15', N'Nữ', N'1m65', N'Thẳng', N'Nốt ruồi son ở cổ', N'Con', 3);
 GO
+
+
+-- AspNetRoles (2 rows)
+----------------------------
+INSERT INTO AspNetRoles (Id, Name, NormalizedName, ConcurrencyStamp)
+VALUES
+('role-1', 'Admin', 'ADMIN', NEWID()),
+('role-2', 'User', 'USER', NEWID());
+
+----------------------------
+-- AspNetUsers (2 rows)
+----------------------------
+INSERT INTO AspNetUsers (
+    Id, UserName, NormalizedUserName, Email, NormalizedEmail,
+    EmailConfirmed, PasswordHash, SecurityStamp, ConcurrencyStamp,
+    PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled,
+    LockoutEnd, LockoutEnabled, AccessFailedCount,
+    FirstName, LastName
+)
+VALUES
+('user-1',
+ 'admin@gmail.com', 'ADMIN@GMAIL.COM',
+ 'admin@gmail.com', 'ADMIN@GMAIL.COM',
+ 1, 'TEST_HASH_123', NEWID(), NEWID(),
+ '0123456789', 1, 0,
+ NULL, 1, 0,
+ 'System', 'Admin'),
+
+('user-2',
+ 'user@gmail.com', 'USER@GMAIL.COM',
+ 'user@gmail.com', 'USER@GMAIL.COM',
+ 1, 'TEST_HASH_456', NEWID(), NEWID(),
+ '0987654321', 1, 0,
+ NULL, 1, 0,
+ 'Normal', 'User');
+
+----------------------------
+-- AspNetRoleClaims (2 rows)
+----------------------------
+INSERT INTO AspNetRoleClaims (RoleId, ClaimType, ClaimValue)
+VALUES
+('role-1', 'Permission', 'ManageSystem'),
+('role-2', 'Permission', 'ViewData');
+
+----------------------------
+-- AspNetUserClaims (2 rows)
+----------------------------
+INSERT INTO AspNetUserClaims (UserId, ClaimType, ClaimValue)
+VALUES
+('user-1', 'Permission', 'FullAccess'),
+('user-2', 'Permission', 'LimitedAccess');
+
+----------------------------
+-- AspNetUserLogins (2 rows)
+----------------------------
+INSERT INTO AspNetUserLogins (LoginProvider, ProviderKey, ProviderDisplayName, UserId)
+VALUES
+('Google', 'google-user-1', 'Google', 'user-1'),
+('Facebook', 'fb-user-2', 'Facebook', 'user-2');
+
+----------------------------
+-- AspNetUserRoles (2 rows)
+----------------------------
+INSERT INTO AspNetUserRoles (UserId, RoleId)
+VALUES
+('user-1', 'role-1'),
+('user-2', 'role-2');
+
+----------------------------
+-- AspNetUserTokens (2 rows)
+----------------------------
+INSERT INTO AspNetUserTokens (UserId, LoginProvider, Name, Value)
+VALUES
+('user-1', 'System', 'AuthToken', 'token_123'),
+('user-2', 'System', 'AuthToken', 'token_456');
+
+
+select * from AspNetRoleClaims

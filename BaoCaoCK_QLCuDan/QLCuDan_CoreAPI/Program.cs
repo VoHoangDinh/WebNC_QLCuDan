@@ -104,6 +104,17 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddScoped<IAccountRepository, AccountService>();
 
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ManageUser", policy =>
+        policy.RequireClaim("Permission", "ManageUser"));
+
+    options.AddPolicy("ViewReports", policy =>
+        policy.RequireClaim("Permission", "ViewReports"));
+});
+
+
 var app = builder.Build();
 
 // ==============================================================

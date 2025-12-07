@@ -51,6 +51,16 @@ namespace QLCuDan_CoreAPI.Service
             foreach (var role in roles)
             {
                 authClaim.Add(new System.Security.Claims.Claim(ClaimTypes.Role, role));
+
+                var identityRole = await roleManager.FindByNameAsync(role);
+                var roleClaims = await roleManager.GetClaimsAsync(identityRole);
+
+                // THÊM PERMISSION VÀO TOKEN
+                foreach (var claim in roleClaims)
+                {
+                    if (claim.Type == "Permission")
+                        authClaim.Add(new Claim("Permission", claim.Value));
+                }
             }
 
             var authSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
