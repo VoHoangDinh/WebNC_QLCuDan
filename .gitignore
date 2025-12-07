@@ -1,29 +1,17 @@
-# Visual Studio
 .vs/
 *.user
 *.suo
-*.sln.docstates
 
-# Build folders
+# Build
 bin/
 obj/
-Debug/
-Release/
 
-# ASP.NET
-*.dll
-*.pdb
-*.cache
-*.log
+# Do NOT ignore packages
+# packages/
 
-# Entity Framework Migrations temp
-*_migration_backup/
-
-# Rider / JetBrains
-.idea/
-*.iml
-
-# Others
-*.db
+# Database Generated
 *.mdf
 *.ldf
+
+# Logs
+*.log
