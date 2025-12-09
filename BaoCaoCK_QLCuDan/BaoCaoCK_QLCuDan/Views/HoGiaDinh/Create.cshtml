@@ -1,0 +1,55 @@
+﻿@model BaoCaoCK_QLCuDan.Models.HoGiaDinh
+@{ ViewBag.Title = "Thêm Hộ Mới"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Thêm Hộ Gia Đình Mới</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label>Tên Chủ Hộ (Đại diện)</label>
+                    @Html.TextBoxFor(m => m.TenChuHo, new { @class = "form-control", placeholder = "Nhập tên chủ hộ..." })
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Số Thành Viên</label>
+                    @Html.TextBoxFor(m => m.SoThanhVien, new { @class = "form-control", type = "number" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label>Chọn Căn Hộ</label>
+                    @Html.DropDownListFor(m => m.MaCanHo, (SelectList)ViewBag.MaCanHo, "-- Chọn Căn Hộ --", new { @class = "form-control" })
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Loại Hộ Gia Đình</label>
+                    @Html.DropDownListFor(m => m.MaLoaiHo, (SelectList)ViewBag.MaLoaiHo, "-- Chọn Loại Hộ --", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label>Ngày Nhận Nhà</label>
+                    <input type="date" name="NgayNhanNha" class="form-control" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Trạng Thái</label>
+                    @Html.DropDownList("TrangThai", new List<SelectListItem>
+                    {
+                        new SelectListItem { Text = "Đang ở", Value = "Đang ở", Selected = true },
+                        new SelectListItem { Text = "Đã chuyển đi", Value = "Đã chuyển đi" }
+                    }, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <hr />
+            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Lưu Lại</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+        }
+    </div>
+</div>

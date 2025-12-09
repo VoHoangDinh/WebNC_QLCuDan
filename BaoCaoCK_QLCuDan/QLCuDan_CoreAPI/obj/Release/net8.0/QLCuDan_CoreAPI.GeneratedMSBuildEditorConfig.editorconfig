@@ -1,0 +1,53 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = QLCuDan_CoreAPI
+build_property.RootNamespace = QLCuDan_CoreAPI
+build_property.ProjectDir = F:\HOCTAP\HK125\WebNC_QLCuDan_Github\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\HOCTAP\HK125\WebNC_QLCuDan_Github\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[F:/HOCTAP/HK125/WebNC_QLCuDan_Github/BaoCaoCK_QLCuDan/QLCuDan_CoreAPI/Views/CuDans/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VEYW5zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/HOCTAP/HK125/WebNC_QLCuDan_Github/BaoCaoCK_QLCuDan/QLCuDan_CoreAPI/Views/CuDans/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VEYW5zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/HOCTAP/HK125/WebNC_QLCuDan_Github/BaoCaoCK_QLCuDan/QLCuDan_CoreAPI/Views/CuDans/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VEYW5zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/HOCTAP/HK125/WebNC_QLCuDan_Github/BaoCaoCK_QLCuDan/QLCuDan_CoreAPI/Views/CuDans/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VEYW5zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/HOCTAP/HK125/WebNC_QLCuDan_Github/BaoCaoCK_QLCuDan/QLCuDan_CoreAPI/Views/CuDans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VEYW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/HOCTAP/HK125/WebNC_QLCuDan_Github/BaoCaoCK_QLCuDan/QLCuDan_CoreAPI/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
