@@ -1,0 +1,17 @@
+.vs/
+*.user
+*.suo
+
+# Build
+bin/
+obj/
+
+# Do NOT ignore packages
+# packages/
+
+# Database Generated
+*.mdf
+*.ldf
+
+# Logs
+*.log

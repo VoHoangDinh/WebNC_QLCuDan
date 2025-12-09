@@ -1,0 +1,140 @@
+﻿@model BaoCaoCK_QLCuDan.Models.CuDan
+@{
+    ViewBag.Title = "Thông tin cư dân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .profile-sidebar { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); height: 100%; }
+    .profile-user-img { width: 120px; height: 120px; object-fit: cover; border: 3px solid #d2d6de; margin: 0 auto; display: block; }
+    .profile-username { font-size: 20px; margin-top: 10px; font-weight: 600; text-align: center; }
+    .profile-id { color: #777; font-size: 14px; margin-bottom: 20px; text-align: center; }
+    .profile-list-item { border-bottom: 1px solid #f4f4f4; padding: 10px 0; font-size: 14px; }
+    .profile-list-item strong { display: block; color: #333; }
+
+    .profile-content { background: #fff; padding: 30px; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .section-title { font-size: 16px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #ddd; margin-top: 20px; margin-bottom: 10px; padding-bottom: 5px; }
+
+    /* Print Styles */
+    @@media print {
+        .sidebar, .topbar, .btn, .no-print, footer, header { display: none !important; }
+        body, .main-content, .container-fluid { background-color: white !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+        .row { display: flex !important; }
+        .col-md-3 { width: 30% !important; flex: 0 0 30% !important; border-right: 1px solid #ddd; padding-right: 15px; }
+        .col-md-9 { width: 70% !important; flex: 0 0 70% !important; padding-left: 15px; }
+        .card, .profile-sidebar, .profile-content { box-shadow: none !important; border: none !important; padding: 0 !important; }
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="profile-sidebar">
+            <img class="profile-user-img rounded-circle"
+                 src="@(string.IsNullOrEmpty(Model.Avatar) ? "/Content/Images/default.jpg" : Model.Avatar)"
+                 alt="User profile picture">
+
+            <h3 class="profile-username">@Model.HoTen</h3>
+            <p class="profile-id">@Model.SDT</p>
+
+            <div class="profile-list-item">
+                <strong>Bí danh</strong> <span>@(string.IsNullOrEmpty(Model.BiDanh) ? "Không" : Model.BiDanh)</span>
+            </div>
+            <div class="profile-list-item">
+                <strong>Ngày sinh</strong>
+                <span>@(Model.NgaySinh.HasValue ? Model.NgaySinh.Value.ToString("dd/MM/yyyy") : "--")</span>
+            </div>
+            <div class="profile-list-item">
+                <strong>Phone</strong> <span>@Model.SDT</span>
+            </div>
+            <div class="profile-list-item">
+                <strong>Email</strong> <span>@Model.Email</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="profile-content">
+            <div class="text-right border-bottom pb-3 mb-3 no-print">
+                <a href="@Url.Action("EditMyProfile", "CuDan")" class="btn btn-primary font-weight-bold">
+                    Cập nhật thông tin
+                </a>
+                <button onclick="window.print()" class="btn btn-success font-weight-bold ml-2">
+                    <i class="fas fa-print"></i> Print (Xuất File)
+                </button>
+            </div>
+
+            <div class="mb-3">
+                <strong>Thành phần gia đình</strong>
+                <p class="text-muted">@(string.IsNullOrEmpty(Model.ThanhPhanGiaDinh) ? "..." : Model.ThanhPhanGiaDinh)</p>
+            </div>
+
+            <div class="mb-3">
+                <strong>Thành phần bản thân</strong>
+                <p class="text-muted">@(string.IsNullOrEmpty(Model.ThanhPhanBanThan) ? "..." : Model.ThanhPhanBanThan)</p>
+            </div>
+
+            <div class="border-top pt-2 mb-2">
+                <div class="row">
+                    <div class="col-6 mb-2">
+                        <strong>Ngày và nơi kết nạp Đảng</strong><br />
+                        <span class="text-muted">@(Model.NgayVaoDang.HasValue ? Model.NgayVaoDang.Value.ToString("dd/MM/yyyy") : "Chưa cập nhật")</span>
+                    </div>
+                    <div class="col-6">
+                        <strong>Ngày và nơi vào Đoàn</strong><br />
+                        <span class="text-muted">@(Model.NgayVaoDoan.HasValue ? Model.NgayVaoDoan.Value.ToString("dd/MM/yyyy") : "Chưa cập nhật")</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">TRÌNH ĐỘ HỌC VẤN :</div>
+            <div class="mb-2">
+                <strong>Văn hóa phổ thông</strong><br />
+                <span class="text-muted">@Model.TrinhDoHocVan</span>
+            </div>
+            <div class="mb-2">
+                <strong>Học hàm, học vị cao nhất</strong><br />
+                <span class="text-muted">@Model.HocHamHocVi</span>
+            </div>
+
+            <div class="section-title">NHẬN DẠNG :</div>
+            <div class="row">
+                <div class="col-4">
+                    <strong>Cao</strong><br /><span class="text-muted">@Model.NhanDang_Cao</span>
+                </div>
+                <div class="col-4">
+                    <strong>Sống mũi</strong><br /><span class="text-muted">@Model.NhanDang_SongMui</span>
+                </div>
+                <div class="col-4">
+                    <strong>Dấu vết đặc biệt</strong><br /><span class="text-muted">@Model.DauVetDacBiet</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <h5>I. BẢN THÂN</h5>
+            </div>
+            <div class="text-justify text-muted mb-4">
+                @if (!string.IsNullOrEmpty(Model.TieuSu))
+                {
+                    @Html.Raw(Model.TieuSu.Replace("\n", "<br>"))
+                }
+                else
+                {
+                    <span>(Chưa có tiểu sử)</span>
+                }
+            </div>
+
+            <div class="section-title">Tình hình vợ (chồng)</div>
+            <div class="row">
+                <div class="col-6 mb-2">
+                    <strong>Họ tên:</strong> <span class="text-muted">@Model.HoTenVoChong</span>
+                </div>
+                <div class="col-6 mb-2">
+                    <strong>Sinh ngày:</strong> <span class="text-muted">@(Model.NgaySinhVoChong.HasValue ? Model.NgaySinhVoChong.Value.ToString("dd/MM/yyyy") : "")</span>
+                </div>
+                <div class="col-12 mb-2">
+                    <strong>Quê quán:</strong> <span class="text-muted">@Model.QueQuanVoChong</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

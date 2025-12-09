@@ -1,0 +1,275 @@
+﻿@model BaoCaoCK_QLCuDan.Models.CuDan
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Tabs */
+    .nav-pills .nav-link {
+        border-radius: 0;
+        color: #666;
+        font-weight: 500;
+        padding: 10px 20px;
+    }
+
+        .nav-pills .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+    /* Right Sidebar */
+    .publish-box {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    }
+
+    .publish-header {
+        padding: 10px 15px;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+        color: #333;
+        background: #f8f9fa;
+    }
+
+    .publish-body {
+        padding: 15px;
+    }
+
+    /* Avatar Preview */
+    .avatar-preview {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #ddd;
+        margin: 0 auto 10px;
+        display: block;
+    }
+
+    label {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .text-danger {
+        color: red;
+    }
+</style>
+
+<div class="row mb-2">
+    <div class="col-sm-6">
+        <h4 class="m-0 text-dark"><i class="fas fa-edit"></i> Chỉnh sửa hồ sơ</h4>
+    </div>
+</div>
+
+@using (Html.BeginForm("UpdateMyProfile", "CuDan", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.MaCuDan)
+    @Html.HiddenFor(m => m.AccountId)
+    @Html.HiddenFor(m => m.Avatar)
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card shadow-sm">
+                <div class="card-header p-2 bg-white border-bottom-0">
+                    <ul class="nav nav-pills" id="myTab" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" id="lylich-tab" data-toggle="tab" href="#lylich" role="tab">Lý lịch</a></li>
+                        <li class="nav-item"><a class="nav-link" id="banthan-tab" data-toggle="tab" href="#banthan" role="tab">Bản thân</a></li>
+                        <li class="nav-item"><a class="nav-link" id="giadinh-tab" data-toggle="tab" href="#giadinh" role="tab">Gia đình</a></li>
+                    </ul>
+                </div>
+
+                <div class="card-body">
+                    <div class="tab-content" id="myTabContent">
+
+                        <div class="tab-pane fade show active" id="lylich" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Họ tên thường dùng <span class="text-danger">(*)</span></label>
+                                    @Html.TextBoxFor(m => m.HoTen, new { @class = "form-control", @readonly = "readonly" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Ngày sinh <span class="text-danger">(*)</span></label>
+                                    <input type="date" class="form-control" value="@(Model.NgaySinh.HasValue ? Model.NgaySinh.Value.ToString("yyyy-MM-dd") : "")" readonly />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Bí danh</label>
+                                    @Html.TextBoxFor(m => m.BiDanh, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Tên khác</label>
+                                    @Html.TextBoxFor(m => m.TenKhac, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Quê quán</label>
+                                    @Html.TextBoxFor(m => m.NguyenQuan, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Nơi ở hiện nay</label>
+                                    @Html.TextBoxFor(m => m.NoiOHienNay, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Dân tộc</label>
+                                    @Html.TextBoxFor(m => m.DanToc, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Tôn giáo</label>
+                                    @Html.TextBoxFor(m => m.TonGiao, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="banthan" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Thành phần gia đình</label>
+                                    @Html.TextBoxFor(m => m.ThanhPhanGiaDinh, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Thành phần bản thân</label>
+                                    @Html.TextBoxFor(m => m.ThanhPhanBanThan, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Ngày vào Đảng</label>
+                                    @Html.TextBoxFor(m => m.NgayVaoDang, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Ngày vào Đoàn</label>
+                                    @Html.TextBoxFor(m => m.NgayVaoDoan, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                                </div>
+                            </div>
+
+                            <h6 class="mt-3 font-weight-bold text-primary border-bottom pb-1">Trình độ học vấn</h6>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Văn hóa phổ thông</label>
+                                    @Html.TextBoxFor(m => m.TrinhDoHocVan, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Học hàm/Học vị</label>
+                                    @Html.TextBoxFor(m => m.HocHamHocVi, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <h6 class="mt-3 font-weight-bold text-primary border-bottom pb-1">Đặc điểm nhận dạng</h6>
+                            <div class="row">
+                                <div class="col-md-4 form-group">
+                                    <label>Cao</label>
+                                    @Html.TextBoxFor(m => m.NhanDang_Cao, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label>Sống mũi</label>
+                                    @Html.TextBoxFor(m => m.NhanDang_SongMui, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label>Dấu vết đặc biệt</label>
+                                    @Html.TextBoxFor(m => m.DauVetDacBiet, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label>Tiểu sử bản thân</label>
+                                @Html.TextAreaFor(m => m.TieuSu, new { @class = "form-control", rows = "5" })
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="giadinh" role="tabpanel">
+                            <h5 class="text-primary font-weight-bold mb-3">Tình hình vợ (chồng)</h5>
+
+                            <div class="row">
+                                <div class="col-md-8 form-group">
+                                    <label>Họ tên</label>
+                                    @Html.TextBoxFor(m => m.HoTenVoChong, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label>Ngày sinh</label>
+                                    @Html.TextBoxFor(m => m.NgaySinhVoChong, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Quê quán</label>
+                                @Html.TextBoxFor(m => m.QueQuanVoChong, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nghề nghiệp</label>
+                                @Html.TextBoxFor(m => m.NgheNghiepVoChong, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="publish-box">
+                <div class="publish-header">Xuất bản</div>
+                <div class="publish-body text-center">
+                    <button type="submit" class="btn btn-save w-100 mb-2"><i class="fas fa-save"></i> Lưu dữ liệu</button>
+                    <a href="@Url.Action("EditMyProfile")" class="btn btn-secondary w-100"><i class="fas fa-undo"></i> Reset</a>
+                </div>
+            </div>
+
+            <div class="publish-box">
+                <div class="publish-header">Thông tin nhanh</div>
+                <div class="publish-body">
+                    <div class="form-group">
+                        <label>Email</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        @Html.TextBoxFor(m => m.SDT, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group text-center">
+                        <label class="d-block text-left">Hình ảnh</label>
+                        <img src="@(string.IsNullOrEmpty(Model.Avatar) ? "/Content/Images/default.jpg" : Model.Avatar)" class="avatar-preview" id="previewImg" />
+                        <input type="file" name="ImageFile" id="imageInput" class="form-control-file mt-2" accept="image/*" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Activate Tabs
+            $('#myTab a').on('click', function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            });
+
+            // Image Preview
+            $('#imageInput').change(function (e) {
+                if (e.target.files && e.target.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#previewImg').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+        });
+    </script>
+}

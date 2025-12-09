@@ -1,0 +1,133 @@
+﻿@model BaoCaoCK_QLCuDan.Models.LoginViewModel
+
+@{
+    Layout = null; /* Không dùng Layout chung */
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập hệ thống</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* CSS để giống hệt ảnh bạn gửi */
+        body {
+            background-color: #ecf0f5; /* Màu xám nhạt nền */
+            height: 100vh; /* Chiều cao full màn hình */
+            display: flex;
+            align-items: center; /* Căn giữa dọc */
+            justify-content: center; /* Căn giữa ngang */
+            font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-header {
+            font-size: 30px;
+            color: #444;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .login-box {
+            background: #fff;
+            padding: 20px;
+            border-top: 0;
+            color: #666;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-radius: 4px;
+        }
+
+        .msg {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Tùy chỉnh input để có icon bên phải */
+        .input-group-text {
+            background-color: #fff;
+            border-left: 0;
+            color: #777;
+        }
+
+        .form-control {
+            border-right: 0;
+            height: 45px; /* Cao giống ảnh */
+        }
+
+            .form-control:focus + .input-group-append .input-group-text {
+                border-color: #80bdff;
+            }
+
+        /* Nút đăng nhập màu xanh */
+        .btn-primary {
+            background-color: #007bff; /* Màu xanh dương đậm */
+            border-color: #007bff;
+            height: 40px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+            .btn-primary:hover {
+                background-color: #0069d9;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            Đăng nhập
+        </div>
+
+        <div class="login-box">
+            <p class="msg">Đăng nhập để bắt đầu phiên làm việc</p>
+
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3 small" })
+
+                <div class="form-group has-feedback">
+                    <div class="input-group mb-3">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email (nguyenvanc@gmail.com)" })
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger small text-left d-block" })
+                </div>
+
+                <div class="form-group has-feedback">
+                    <div class="input-group mb-3">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Mật khẩu" })
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger small text-left d-block" })
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</body>
+</html>
