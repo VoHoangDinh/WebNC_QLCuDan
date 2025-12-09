@@ -139,7 +139,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CuDanController.cs" />
+    <Compile Include="DTO\LoginRequest.cs" />
+    <Compile Include="DTO\LoginResponse.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,6 +162,7 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\CuDan\Details.cshtml" />
     <Content Include="Views\CuDan\Edit.cshtml" />
     <Content Include="Views\CuDan\Index.cshtml" />

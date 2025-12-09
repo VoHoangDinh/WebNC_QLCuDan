@@ -16,8 +16,8 @@ namespace BaoCaoCK_QLCuDan
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                // Đổi Home -> CuDan
-                defaults: new { controller = "CuDan", action = "Index", id = UrlParameter.Optional  } 
+                // Trang khởi động đầu tiên là trang đăng nhập
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional  } 
             );
         }
     }
