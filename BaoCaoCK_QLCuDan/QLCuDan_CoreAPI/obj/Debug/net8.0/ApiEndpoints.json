@@ -20,6 +20,95 @@
     ]
   },
   {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.CanHosController",
+    "Method": "PostCanHo",
+    "RelativePath": "api/CanHos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "canHo",
+        "Type": "QLCuDan_CoreAPI.Models.CanHo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "QLCuDan_CoreAPI.Models.CanHo",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.CanHosController",
+    "Method": "PutCanHo",
+    "RelativePath": "api/CanHos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "canHo",
+        "Type": "QLCuDan_CoreAPI.Models.CanHo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.CanHosController",
+    "Method": "DeleteCanHo",
+    "RelativePath": "api/CanHos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.CanHosController",
+    "Method": "GetCanHo",
+    "RelativePath": "api/CanHos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "QLCuDan_CoreAPI.Models.CanHo",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "QLCuDan_CoreAPI.Controllers.CuDansController",
     "Method": "GetCuDans",
     "RelativePath": "api/CuDans",
@@ -345,6 +434,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.ToaNhasController",
+    "Method": "GetToaNhas",
+    "RelativePath": "api/ToaNhas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QLCuDan_CoreAPI.Models.ToaNha, QLCuDan_CoreAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "QLCuDan_CoreAPI.Controllers.WeatherForecastController",

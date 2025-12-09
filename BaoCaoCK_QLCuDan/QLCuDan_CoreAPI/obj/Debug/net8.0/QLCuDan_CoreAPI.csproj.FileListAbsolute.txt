@@ -866,3 +866,4 @@ E:\SV_UTE\125\WebNC\BCCK\WebNC_QLCuDan-develop\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\
 E:\SV_UTE\125\WebNC\BCCK\WebNC_QLCuDan-develop\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\obj\Debug\net8.0\QLCuDan_CoreAPI.pdb
 E:\SV_UTE\125\WebNC\BCCK\WebNC_QLCuDan-develop\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\obj\Debug\net8.0\QLCuDan_CoreAPI.genruntimeconfig.cache
 E:\SV_UTE\125\WebNC\BCCK\WebNC_QLCuDan-develop\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\obj\Debug\net8.0\ref\QLCuDan_CoreAPI.dll
+E:\SV_UTE\125\WebNC\BCCK\WebNC_QLCuDan-develop\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\obj\Debug\net8.0\QLCuDan_CoreAPI.sourcelink.json

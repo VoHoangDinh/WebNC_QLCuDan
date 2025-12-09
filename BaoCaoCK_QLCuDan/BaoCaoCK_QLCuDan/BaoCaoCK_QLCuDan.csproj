@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CanHoController.cs" />
     <Compile Include="Controllers\CuDanController.cs" />
     <Compile Include="Controllers\HoGiaDinhController.cs" />
     <Compile Include="Controllers\LoaiHoController.cs" />
@@ -165,6 +166,9 @@
     <Content Include="Views\HoGiaDinh\Edit.cshtml" />
     <Content Include="Views\HoGiaDinh\Details.cshtml" />
     <Content Include="Views\LoaiHo\Edit.cshtml" />
+    <Content Include="Views\CanHo\Index.cshtml" />
+    <Content Include="Views\CanHo\Create.cshtml" />
+    <Content Include="Views\CanHo\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
