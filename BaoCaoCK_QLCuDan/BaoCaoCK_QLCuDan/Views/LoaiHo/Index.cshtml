@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BaoCaoCK_QLCuDan.Models.LoaiHo>
+
+@{
+    ViewBag.Title = "Quản lý Loại Hộ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow">
+    <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h3 class="mb-0"><i class="fas fa-list text-primary"></i> Danh sách Loại Hộ Gia Đình</h3>
+            </div>
+            <div class="col-4 text-right">
+                <a href="@Url.Action("Create")" class="btn btn-sm btn-success">
+                    <i class="fas fa-plus"></i> Thêm Loại Mới
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Mã Loại</th>
+                    <th>Tên Loại Hộ</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <strong>#@item.MaLoaiHo</strong>
+                            </td>
+                            <td>
+                                <span class="font-weight-bold">@item.TenLoai</span>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", new { id = item.MaLoaiHo })" class="btn btn-sm btn-info" title="Sửa">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = item.MaLoaiHo })" class="btn btn-sm btn-danger"
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa loại hộ này không?');" title="Xóa">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" class="text-center text-muted py-3">Chưa có dữ liệu loại hộ nào.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
