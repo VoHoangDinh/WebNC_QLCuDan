@@ -85,6 +85,79 @@ namespace BaoCaoCK_QLCuDan.Controllers
             }
         }
 
+        // GET: Account/Signup
+        public ActionResult Signup()
+        {
+            return View();
+        }
+
+        // POST: Account/Signup
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Signup(SignUpRequest model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                using (var client = CreateClient())
+                {
+                    var json = JsonConvert.SerializeObject(model);
+                    var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = await client.PostAsync("api/Account/signup", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        // Thành công - chuyển đến trang đăng nhập
+                        TempData["SuccessMessage"] = "Đăng ký thành công! Vui lòng đăng nhập.";
+                        return RedirectToAction("Login", "Account");
+                    }
+                    else
+                    {
+                        // Xử lý lỗi từ API
+                        var errorContent = await response.Content.ReadAsStringAsync();
+                        
+                        try
+                        {
+                            // Thử parse lỗi dạng array
+                            var errors = JsonConvert.DeserializeObject<List<ApiError>>(errorContent);
+                            if (errors != null && errors.Count > 0)
+                            {
+                                foreach (var error in errors)
+                                {
+                                    if (!string.IsNullOrEmpty(error.Description))
+                                    {
+                                        ModelState.AddModelError("", error.Description);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                ModelState.AddModelError("", "Đăng ký thất bại. Vui lòng thử lại.");
+                            }
+                        }
+                        catch
+                        {
+                            // Nếu không parse được, hiển thị lỗi chung
+                            ModelState.AddModelError("", "Đăng ký thất bại. Vui lòng kiểm tra lại thông tin.");
+                        }
+                        
+                        return View(model);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra: " + ex.Message);
+                return View(model);
+            }
+        }
+
         // GET: Account/Logout
         public ActionResult Logout()
         {
@@ -98,5 +171,12 @@ namespace BaoCaoCK_QLCuDan.Controllers
         {
             return View();
         }
+    }
+
+    // Class để deserialize lỗi từ API
+    public class ApiError
+    {
+        public string Code { get; set; }
+        public string Description { get; set; }
     }
 }

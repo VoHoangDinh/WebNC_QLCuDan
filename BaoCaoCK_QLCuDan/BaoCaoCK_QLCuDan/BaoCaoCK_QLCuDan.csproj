@@ -146,6 +146,7 @@
     <Compile Include="Helpers\JwtHelper.cs" />
     <Compile Include="DTO\LoginRequest.cs" />
     <Compile Include="DTO\LoginResponse.cs" />
+    <Compile Include="DTO\SignUpRequest.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +172,7 @@
     <Content Include="Views\CuDan\Index.cshtml" />
     <Content Include="Views\CuDan\Create.cshtml" />
     <Content Include="Views\NguoiDung\Home.cshtml" />
+    <Content Include="Views\Account\Signup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
