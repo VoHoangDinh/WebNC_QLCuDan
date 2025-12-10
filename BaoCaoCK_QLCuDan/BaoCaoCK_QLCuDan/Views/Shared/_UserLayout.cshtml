@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Quản lý cư dân</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Sidebar cho người dùng */
+        .user-sidebar {
+            min-height: 100vh;
+            background: #17a2b8;
+            color: white;
+            position: fixed;
+            width: 250px;
+            top: 0;
+            left: 0;
+            padding-top: 0;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .user-sidebar-header {
+            padding: 20px 15px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-sidebar-header i {
+            margin-right: 10px;
+        }
+
+        .user-sidebar-menu {
+            padding: 20px 0;
+        }
+
+        .user-sidebar-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .user-sidebar-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left-color: white;
+        }
+
+        .user-sidebar-menu a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-left-color: white;
+            font-weight: 600;
+        }
+
+        .user-sidebar-menu i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Header cho người dùng */
+        .user-header {
+            background: #17a2b8;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-left: 250px;
+        }
+
+        .user-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .user-header .logo {
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-header .logo i {
+            margin-right: 10px;
+        }
+
+        .user-header .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-header .user-info .user-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-header .user-info .user-name img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .user-header .logout-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .user-header .logout-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main content */
+        .user-main-content {
+            margin-left: 250px;
+            min-height: calc(100vh - 70px);
+            padding: 30px;
+            background-color: #f4f6f9;
+        }
+
+        .user-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="user-sidebar">
+        <div class="user-sidebar-header">
+            <i class="fas fa-building"></i>
+            Quản lý cư dân
+        </div>
+        <div class="user-sidebar-menu">
+            <a href="@Url.Action("Home", "NguoiDung")" class="@(ViewContext.RouteData.Values["action"].ToString() == "Home" && ViewContext.RouteData.Values["controller"].ToString() == "NguoiDung" ? "active" : "")">
+                <i class="fas fa-home"></i> Trang chủ
+            </a>
+            <a href="@Url.Action("Home", "NguoiDung")">
+                <i class="fas fa-user"></i> Thông tin cá nhân
+            </a>
+            <a href="#">
+                <i class="fas fa-comment-alt"></i> Phản ánh
+            </a>
+            <a href="#">
+                <i class="fas fa-bell"></i> Thông báo
+            </a>
+            <a href="#">
+                <i class="fas fa-key"></i> Đổi mật khẩu
+            </a>
+            <a href="@Url.Action("Logout", "Account")">
+                <i class="fas fa-sign-out-alt"></i> Đăng xuất
+            </a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="user-header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-user-circle"></i>
+                Chào mừng, @(Session["Email"] ?? "Người dùng")
+            </div>
+            <div class="user-info">
+                <div class="user-name">
+                    <img src="/Content/Images/admin_sidebar.png" alt="User" />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="user-main-content">
+        <div class="user-container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

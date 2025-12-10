@@ -1,0 +1,363 @@
+-- 1. Tạo Database mới (Xóa cũ tạo mới cho sạch sẽ)
+USE master;
+GO
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'QuanLyChungCuDB')
+BEGIN
+    ALTER DATABASE QuanLyChungCuDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE QuanLyChungCuDB;
+END
+GO
+CREATE DATABASE QuanLyChungCuDB;
+GO
+USE QuanLyChungCuDB;
+GO
+
+-- 2. Tạo bảng VaiTro
+CREATE TABLE VaiTro (
+    MaVaiTro INT IDENTITY(1,1) PRIMARY KEY,
+    TenVaiTro NVARCHAR(50) NOT NULL
+);
+GO
+
+-- 3. Tạo bảng NguoiDung
+CREATE TABLE NguoiDung (
+    MaNguoiDung INT IDENTITY(1,1) PRIMARY KEY,
+    TaiKhoan VARCHAR(50) NOT NULL UNIQUE,
+    MatKhau VARCHAR(100) NOT NULL,
+    HoTen NVARCHAR(100),
+    Email VARCHAR(100),
+    MaVaiTro INT NOT NULL,
+    FOREIGN KEY (MaVaiTro) REFERENCES VaiTro(MaVaiTro)
+);
+GO
+
+-- 4. Tạo bảng ToaNha
+CREATE TABLE ToaNha (
+    MaToaNha INT IDENTITY(1,1) PRIMARY KEY,
+    TenToaNha NVARCHAR(100) NOT NULL,
+    DiaChi NVARCHAR(200)
+);
+GO
+
+-- 5. Tạo bảng CanHo
+CREATE TABLE CanHo (
+    MaCanHo INT IDENTITY(1,1) PRIMARY KEY,
+    SoPhong VARCHAR(20) NOT NULL,
+    DienTich FLOAT,
+    Tang INT,
+    TrangThai NVARCHAR(50),
+    MaToaNha INT NOT NULL,
+    FOREIGN KEY (MaToaNha) REFERENCES ToaNha(MaToaNha)
+);
+GO
+
+-- 6. Tạo bảng HoGiaDinh
+CREATE TABLE HoGiaDinh (
+    MaHo INT IDENTITY(1,1) PRIMARY KEY,
+    NgayNhanNha DATE,
+    SoThanhVien INT DEFAULT 0,
+    MaCanHo INT,
+    FOREIGN KEY (MaCanHo) REFERENCES CanHo(MaCanHo)
+);
+GO
+
+-- 7. Tạo bảng CuDan (ĐÃ SỬA: Thêm cột QuanHeVoiChuHo)
+CREATE TABLE CuDan (
+    MaCuDan INT IDENTITY(1,1) PRIMARY KEY,
+    HoTen NVARCHAR(100) NOT NULL,
+    NgaySinh DATE,
+    GioiTinh NVARCHAR(10),
+    SDT VARCHAR(20),
+    Email VARCHAR(100),
+    Avatar VARCHAR(255),
+    
+    -- Các trường đặc thù
+    TrinhDoHocVan NVARCHAR(100),
+    NgayVaoDang DATE,
+    NgayVaoDoan DATE,
+    HocHamHocVi NVARCHAR(100),
+    NhanDang_Cao NVARCHAR(50),
+    NhanDang_SongMui NVARCHAR(50),
+    DauVetDacBiet NVARCHAR(200),
+    
+    -- QUAN TRỌNG: Thêm cột này để khớp với lệnh INSERT bên dưới
+    QuanHeVoiChuHo NVARCHAR(50), 
+    
+    -- Khóa ngoại
+    MaHo INT,
+    FOREIGN KEY (MaHo) REFERENCES HoGiaDinh(MaHo)
+);
+GO
+
+-- 8. Tạo bảng PhanAnh
+CREATE TABLE PhanAnh (
+    MaPhanAnh INT IDENTITY(1,1) PRIMARY KEY,
+    TieuDe NVARCHAR(200),
+    NoiDung NVARCHAR(MAX),
+    NgayGui DATETIME DEFAULT GETDATE(),
+    TrangThai NVARCHAR(50),
+    MaCuDan INT,
+    FOREIGN KEY (MaCuDan) REFERENCES CuDan(MaCuDan)
+);
+GO
+/* ============================================
+   ASP.NET Core Identity - FULL TABLE SCRIPT
+   Includes custom fields: FirstName, LastName
+   ============================================ */
+
+-- TABLE: AspNetRoles
+CREATE TABLE [dbo].[AspNetRoles] (
+    [Id] NVARCHAR(450) NOT NULL,
+    [Name] NVARCHAR(256) NULL,
+    [NormalizedName] NVARCHAR(256) NULL,
+    [ConcurrencyStamp] NVARCHAR(MAX) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+GO
+
+-- TABLE: AspNetUsers (with FirstName, LastName)
+CREATE TABLE [dbo].[AspNetUsers] (
+    [Id] NVARCHAR(450) NOT NULL,
+    [UserName] NVARCHAR(256) NULL,
+    [NormalizedUserName] NVARCHAR(256) NULL,
+    [Email] NVARCHAR(256) NULL,
+    [NormalizedEmail] NVARCHAR(256) NULL,
+    [EmailConfirmed] BIT NOT NULL,
+    [PasswordHash] NVARCHAR(MAX) NULL,
+    [SecurityStamp] NVARCHAR(MAX) NULL,
+    [ConcurrencyStamp] NVARCHAR(MAX) NULL,
+    [PhoneNumber] NVARCHAR(MAX) NULL,
+    [PhoneNumberConfirmed] BIT NOT NULL,
+    [TwoFactorEnabled] BIT NOT NULL,
+    [LockoutEnd] DATETIMEOFFSET NULL,
+    [LockoutEnabled] BIT NOT NULL,
+    [AccessFailedCount] INT NOT NULL,
+
+    -- CUSTOM FIELDS
+    [FirstName] NVARCHAR(256) NULL,
+    [LastName] NVARCHAR(256) NULL,
+
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+GO
+
+-- TABLE: AspNetRoleClaims
+CREATE TABLE [dbo].[AspNetRoleClaims] (
+    [Id] INT NOT NULL IDENTITY,
+    [RoleId] NVARCHAR(450) NOT NULL,
+    [ClaimType] NVARCHAR(MAX) NULL,
+    [ClaimValue] NVARCHAR(MAX) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId]
+        FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles]([Id]) ON DELETE CASCADE
+);
+GO
+
+-- TABLE: AspNetUserClaims
+CREATE TABLE [dbo].[AspNetUserClaims] (
+    [Id] INT NOT NULL IDENTITY,
+    [UserId] NVARCHAR(450) NOT NULL,
+    [ClaimType] NVARCHAR(MAX) NULL,
+    [ClaimValue] NVARCHAR(MAX) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId]
+        FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers]([Id]) ON DELETE CASCADE
+);
+GO
+
+-- TABLE: AspNetUserLogins
+CREATE TABLE [dbo].[AspNetUserLogins] (
+    [LoginProvider] NVARCHAR(450) NOT NULL,
+    [ProviderKey] NVARCHAR(450) NOT NULL,
+    [ProviderDisplayName] NVARCHAR(MAX) NULL,
+    [UserId] NVARCHAR(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] 
+        PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId]
+        FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers]([Id]) ON DELETE CASCADE
+);
+GO
+
+-- TABLE: AspNetUserRoles
+CREATE TABLE [dbo].[AspNetUserRoles] (
+    [UserId] NVARCHAR(450) NOT NULL,
+    [RoleId] NVARCHAR(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId]
+        FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers]([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId]
+        FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles]([Id]) ON DELETE CASCADE
+);
+GO
+
+-- TABLE: AspNetUserTokens
+CREATE TABLE [dbo].[AspNetUserTokens] (
+    [UserId] NVARCHAR(450) NOT NULL,
+    [LoginProvider] NVARCHAR(450) NOT NULL,
+    [Name] NVARCHAR(450) NOT NULL,
+    [Value] NVARCHAR(MAX) NULL,
+    CONSTRAINT [PK_AspNetUserTokens]
+        PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId]
+        FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers]([Id]) ON DELETE CASCADE
+);
+GO
+
+/* ============================================
+   INDEXES (Identity required)
+   ============================================ */
+
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] 
+    ON [AspNetRoleClaims] ([RoleId]);
+GO
+
+CREATE UNIQUE INDEX [RoleNameIndex] 
+    ON [AspNetRoles] ([NormalizedName]) 
+    WHERE [NormalizedName] IS NOT NULL;
+GO
+
+CREATE INDEX [IX_AspNetUserClaims_UserId] 
+    ON [AspNetUserClaims] ([UserId]);
+GO
+
+CREATE INDEX [IX_AspNetUserLogins_UserId] 
+    ON [AspNetUserLogins] ([UserId]);
+GO
+
+CREATE INDEX [IX_AspNetUserRoles_RoleId] 
+    ON [AspNetUserRoles] ([RoleId]);
+GO
+
+CREATE INDEX [EmailIndex] 
+    ON [AspNetUsers] ([NormalizedEmail]);
+GO
+
+CREATE UNIQUE INDEX [UserNameIndex] 
+    ON [AspNetUsers] ([NormalizedUserName]) 
+    WHERE [NormalizedUserName] IS NOT NULL;
+GO
+
+-- =============================================
+-- BƯỚC 3: THÊM DỮ LIỆU MẪU
+-- =============================================
+USE QuanLyChungCuDB;
+GO
+
+INSERT INTO VaiTro (TenVaiTro) VALUES (N'Admin'), (N'Cư Dân');
+INSERT INTO NguoiDung (TaiKhoan, MatKhau, HoTen, Email, MaVaiTro) VALUES ('admin', '123456', N'Quản Trị Viên', 'admin@gmail.com', 1);
+
+INSERT INTO ToaNha (TenToaNha, DiaChi) VALUES (N'Tòa A', N'123 Đường Láng'), (N'Tòa B', N'456 Nguyễn Trãi');
+
+-- Thêm Căn Hộ
+INSERT INTO CanHo (SoPhong, DienTich, Tang, TrangThai, MaToaNha) VALUES 
+('P101', 80.5, 1, N'Đã ở', 1),
+('P102', 75.0, 1, N'Trống', 1),
+('P205', 90.0, 2, N'Đã ở', 1),
+('B101', 110.0, 1, N'Đã ở', 2);
+
+-- Thêm Hộ Gia Đình
+INSERT INTO HoGiaDinh (NgayNhanNha, SoThanhVien, MaCanHo) VALUES 
+('2023-01-01', 4, 1), -- Hộ 1
+('2023-05-15', 3, 3), -- Hộ 2
+('2023-06-20', 2, 4); -- Hộ 3
+
+-- Thêm Cư Dân (Hộ 1)
+INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, QuanHeVoiChuHo, MaHo) 
+VALUES (N'Admin', '0928817228', 'admin@gmail.com', '/Content/Images/avatar.jpg', N'Văn hóa phổ thông', N'Cao', N'Thẳng', N'Nốt ruồi đuôi mắt trái', N'Chủ hộ', 1);
+
+INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NgaySinh, GioiTinh, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, QuanHeVoiChuHo, MaHo) 
+VALUES 
+(N'Trần Thị Mai', '0912345678', 'mai.tran@gmail.com', '/Content/Images/default.jpg', N'Đại học Sư phạm', '1995-02-14', N'Nữ', N'1m60', N'Cao', N'Sẹo nhỏ ở tay trái', N'Vợ', 1),
+(N'Nguyễn Văn Tí', '', '', '/Content/Images/default.jpg', N'Mầm non', '2018-09-01', N'Nam', N'1m10', N'Tẹt', N'Bớt xanh ở mông', N'Con', 1);
+
+-- Thêm Cư Dân (Hộ 2)
+INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NgaySinh, GioiTinh, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, QuanHeVoiChuHo, MaHo) 
+VALUES 
+(N'Lê Văn Hùng', '0988777666', 'hung.le@company.com', '/Content/Images/default.jpg', N'Tiến sĩ Kinh tế', '1980-05-20', N'Nam', N'1m75', N'Thẳng', N'Nốt ruồi trên mép phải', N'Chủ hộ', 2),
+(N'Phạm Thu Cúc', '0977888999', 'cuc.pham@shop.com', '/Content/Images/default.jpg', N'Cử nhân Kế toán', '1982-11-10', N'Nữ', N'1m58', N'Thấp', N'Không có', N'Vợ', 2),
+(N'Lê Tuấn Kiệt', '0334445555', 'kiet.le@student.com', '/Content/Images/default.jpg', N'Sinh viên ĐH Bách Khoa', '2003-01-01', N'Nam', N'1m80', N'Cao', N'Cận thị nặng', N'Con', 2);
+
+-- Thêm Cư Dân (Hộ 3)
+INSERT INTO CuDan (HoTen, SDT, Email, Avatar, TrinhDoHocVan, NgaySinh, GioiTinh, NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, QuanHeVoiChuHo, MaHo) 
+VALUES 
+(N'Hoàng Thị Lan', '0909090909', 'lan.hoang@retired.com', '/Content/Images/default.jpg', N'Về hưu', '1960-12-25', N'Nữ', N'1m55', N'Bình thường', N'Tóc bạc trắng', N'Chủ hộ', 3),
+(N'Nguyễn Ngọc Thúy', '0911223344', 'thuy.nguyen@bank.com', '/Content/Images/default.jpg', N'Thạc sĩ Tài chính', '1990-08-15', N'Nữ', N'1m65', N'Thẳng', N'Nốt ruồi son ở cổ', N'Con', 3);
+GO
+
+
+-- AspNetRoles (2 rows)
+----------------------------
+INSERT INTO AspNetRoles (Id, Name, NormalizedName, ConcurrencyStamp)
+VALUES
+('role-1', 'Admin', 'ADMIN', NEWID()),
+('role-2', 'User', 'USER', NEWID());
+
+----------------------------
+-- AspNetUsers (2 rows)
+----------------------------
+INSERT INTO AspNetUsers (
+    Id, UserName, NormalizedUserName, Email, NormalizedEmail,
+    EmailConfirmed, PasswordHash, SecurityStamp, ConcurrencyStamp,
+    PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled,
+    LockoutEnd, LockoutEnabled, AccessFailedCount,
+    FirstName, LastName
+)
+VALUES
+('user-1',
+ 'admin@gmail.com', 'ADMIN@GMAIL.COM',
+ 'admin@gmail.com', 'ADMIN@GMAIL.COM',
+ 1, 'TEST_HASH_123', NEWID(), NEWID(),
+ '0123456789', 1, 0,
+ NULL, 1, 0,
+ 'System', 'Admin'),
+
+('user-2',
+ 'user@gmail.com', 'USER@GMAIL.COM',
+ 'user@gmail.com', 'USER@GMAIL.COM',
+ 1, 'TEST_HASH_456', NEWID(), NEWID(),
+ '0987654321', 1, 0,
+ NULL, 1, 0,
+ 'Normal', 'User');
+
+----------------------------
+-- AspNetRoleClaims (2 rows)
+----------------------------
+INSERT INTO AspNetRoleClaims (RoleId, ClaimType, ClaimValue)
+VALUES
+('role-1', 'Permission', 'ManageSystem'),
+('role-2', 'Permission', 'ViewData');
+
+----------------------------
+-- AspNetUserClaims (2 rows)
+----------------------------
+INSERT INTO AspNetUserClaims (UserId, ClaimType, ClaimValue)
+VALUES
+('user-1', 'Permission', 'FullAccess'),
+('user-2', 'Permission', 'LimitedAccess');
+
+----------------------------
+-- AspNetUserLogins (2 rows)
+----------------------------
+INSERT INTO AspNetUserLogins (LoginProvider, ProviderKey, ProviderDisplayName, UserId)
+VALUES
+('Google', 'google-user-1', 'Google', 'user-1'),
+('Facebook', 'fb-user-2', 'Facebook', 'user-2');
+
+----------------------------
+-- AspNetUserRoles (2 rows)
+----------------------------
+INSERT INTO AspNetUserRoles (UserId, RoleId)
+VALUES
+('user-1', 'role-1'),
+('user-2', 'role-2');
+
+----------------------------
+-- AspNetUserTokens (2 rows)
+----------------------------
+INSERT INTO AspNetUserTokens (UserId, LoginProvider, Name, Value)
+VALUES
+('user-1', 'System', 'AuthToken', 'token_123'),
+('user-2', 'System', 'AuthToken', 'token_456');
+
+
+select * from AspNetRoleClaims
