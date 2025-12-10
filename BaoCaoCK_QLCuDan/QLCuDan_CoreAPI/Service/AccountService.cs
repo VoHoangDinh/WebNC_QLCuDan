@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QLCuDan_CoreAPI.DTO;
 using QLCuDan_CoreAPI.Mapper;
@@ -14,16 +15,22 @@ namespace QLCuDan_CoreAPI.Service
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
-        private readonly IConfiguration configuration;
         private readonly RoleManager<IdentityRole> roleManager;
-        public IMapper _mapper;
+        private readonly IConfiguration configuration;
+        private readonly QuanLyChungCuDbContext _context;
 
-        public AccountService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, RoleManager<IdentityRole> roleManager)
+        public AccountService(
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            RoleManager<IdentityRole> roleManager,
+            IConfiguration configuration,
+            QuanLyChungCuDbContext context)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
-            this.configuration = configuration;
             this.roleManager = roleManager;
+            this.configuration = configuration;
+            _context = context;
         }
 
         public async Task<string> SignInAsync(SignInModel model)
@@ -33,7 +40,7 @@ namespace QLCuDan_CoreAPI.Service
             {
                 return "Invalid Authentication";
             }
-            
+
             var passwordValid = await userManager.CheckPasswordAsync(user, model.Password);
             if (!passwordValid)
             {
@@ -45,7 +52,9 @@ namespace QLCuDan_CoreAPI.Service
             {
                 new System.Security.Claims.Claim(ClaimTypes.Name,model.Email),
                 new System.Security.Claims.Claim(ClaimTypes.Email,model.Email),
-                new System.Security.Claims.Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
+                new Claim("MaCuDan", user.MaCuDan?.ToString() ?? ""), // ✅ Cư dân
+                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+
             };
             var roles = await userManager.GetRolesAsync(user);
             foreach (var role in roles)
@@ -79,28 +88,51 @@ namespace QLCuDan_CoreAPI.Service
 
         public async Task<IdentityResult> SignUpAsync(SignUpModel model)
         {
+            // 1️⃣ Kiểm tra Email có trong bảng CuDan chưa
+            var cuDan = await _context.CuDans
+                .SingleOrDefaultAsync(x => x.Email == model.Email);
+
+            if (cuDan == null)
+            {
+                return IdentityResult.Failed(
+                    new IdentityError { Description = "Email không tồn tại trong danh sách cư dân" }
+                );
+            }
+
+            // 2️⃣ Kiểm tra email đã có tài khoản chưa
+            var existingUser = await userManager.FindByEmailAsync(model.Email);
+            if (existingUser != null)
+            {
+                return IdentityResult.Failed(
+                    new IdentityError { Description = "Email này đã được đăng ký tài khoản" }
+                );
+            }
+
+            // 3️⃣ Tạo user và LIÊN KẾT cư dân ✅
             var user = new ApplicationUser
             {
                 UserName = model.Email,
                 Email = model.Email,
-                FirstName = model.FirstName,   // gán từ model
-                LastName = model.LastName      // gán từ model
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                MaCuDan = cuDan.MaCuDan // ✅ LIÊN KẾT
             };
 
-            // Tạo user với password
             var result = await userManager.CreateAsync(user, model.Password);
+
+            // 4️⃣ Gán role nếu thành công
             if (result.Succeeded)
             {
-                // Kiểm tra và tạo role "User" nếu chưa tồn tại
                 if (!await roleManager.RoleExistsAsync(AppRole.User))
                 {
                     await roleManager.CreateAsync(new IdentityRole(AppRole.User));
                 }
-                // Gán role "User" cho user mới tạo
+
                 await userManager.AddToRoleAsync(user, AppRole.User);
             }
 
             return result;
         }
+
     }
 }

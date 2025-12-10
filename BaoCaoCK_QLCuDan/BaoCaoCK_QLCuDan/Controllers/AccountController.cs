@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using BaoCaoCK_QLCuDan.DTO;
+using BaoCaoCK_QLCuDan.Helpers;
 using Newtonsoft.Json;
 using System.Configuration;
 
@@ -59,8 +60,15 @@ namespace BaoCaoCK_QLCuDan.Controllers
                         Session["Token"] = loginResponse.Token;
                         Session["Email"] = model.Email;
 
-                        // Redirect đến trang chủ hoặc trang quản lý
-                        return RedirectToAction("Index", "CuDan");
+                        // Giải mã token và lấy MaCuDan
+                        var maCuDan = JwtHelper.GetMaCuDanFromToken(loginResponse.Token);
+                        if (maCuDan.HasValue)
+                        {
+                            Session["MaCuDan"] = maCuDan.Value;
+                        }
+
+                        // Redirect đến trang Home
+                        return RedirectToAction("Home", "NguoiDung");
                     }
                     else
                     {
