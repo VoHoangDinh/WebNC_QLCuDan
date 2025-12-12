@@ -1,0 +1,74 @@
+@{
+    ViewBag.Title = "Thêm thành viên vào hộ gia đình";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-4">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-success text-white">
+            <h6 class="m-0 font-weight-bold">
+                <i class="fas fa-user-plus"></i> Thêm thành viên vào hộ: @ViewBag.TenHo
+            </h6>
+        </div>
+        <div class="card-body">
+            @if (ViewBag.ListCuDan == null || ((SelectList)ViewBag.ListCuDan).Count() == 0)
+            {
+                <div class="alert alert-warning">
+                    <h5><i class="fas fa-exclamation-triangle"></i> Không có cư dân nào có thể thêm</h5>
+                    <p>Hiện tại không có cư dân nào chưa thuộc hộ gia đình nào. Vui lòng thêm cư dân mới trước khi thêm vào hộ.</p>
+                    <a href="@Url.Action("Details", new { id = ViewBag.MaHo })" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            }
+            else
+            {
+                using (Html.BeginForm("AddMember", "HoGiaDinh", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="MaHo" value="@ViewBag.MaHo" />
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Chọn cư dân <span class="text-danger">*</span></label>
+                                @Html.DropDownList("MaCuDan", (SelectList)ViewBag.ListCuDan, "-- Chọn cư dân --", new { @class = "form-control", required = "required" })
+                                <small class="form-text text-muted">Chọn từ danh sách cư dân chưa thuộc hộ gia đình nào</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Quan hệ với chủ hộ <span class="text-danger">*</span></label>
+                                <select class="form-control" name="QuanHeVoiChuHo" required>
+                                    <option value="">-- Chọn quan hệ --</option>
+                                    <option value="Vợ">Vợ</option>
+                                    <option value="Chồng">Chồng</option>
+                                    <option value="Con">Con</option>
+                                    <option value="Cha">Cha</option>
+                                    <option value="Mẹ">Mẹ</option>
+                                    <option value="Anh">Anh</option>
+                                    <option value="Chị">Chị</option>
+                                    <option value="Em">Em</option>
+                                    <option value="Khác">Khác</option>
+                                </select>
+                                <small class="form-text text-muted">Lưu ý: Chủ hộ đã được chọn khi tạo hộ</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="form-group text-right">
+                        <a href="@Url.Action("Details", new { id = ViewBag.MaHo })" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Hủy bỏ
+                        </a>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Thêm thành viên
+                        </button>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

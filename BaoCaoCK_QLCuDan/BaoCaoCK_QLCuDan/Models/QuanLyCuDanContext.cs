@@ -17,5 +17,6 @@ namespace BaoCaoCK_QLCuDan.Models
         public virtual DbSet<HoGiaDinh> HoGiaDinhs { get; set; }
         public virtual DbSet<CuDan> CuDans { get; set; }
         public virtual DbSet<PhanAnh> PhanAnhs { get; set; }
+        public virtual DbSet<LoaiHo> LoaiHos { get; set; }
     }
 }

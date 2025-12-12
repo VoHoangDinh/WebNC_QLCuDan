@@ -4,6 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Model == null)
+{
+    <div class="container-fluid mt-4">
+        <div class="alert alert-warning">
+            <h4>Không tìm thấy thông tin hộ gia đình</h4>
+            <p>Hộ gia đình bạn đang tìm không tồn tại hoặc đã bị xóa.</p>
+            <a href="@Url.Action("Index")" class="btn btn-primary">Quay lại danh sách</a>
+        </div>
+    </div>
+}
+else
+{
 <div class="container-fluid mt-4">
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-white border-0">
@@ -72,6 +84,12 @@
             <h6 class="m-0 font-weight-bold text-dark">
                 <i class="fas fa-users text-info"></i> Danh sách thành viên
             </h6>
+            @if (Model != null && Model.MaHo > 0)
+            {
+                <a href="@Url.Action("AddMember", new { id = Model.MaHo })" class="btn btn-sm shadow-sm" style="background-color: #ff8c00; border-color: #ff8c00; color: white;">
+                    <i class="fas fa-user-plus"></i> Thêm thành viên
+                </a>
+            }
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
@@ -87,13 +105,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (Model.CuDans != null && Model.CuDans.Any())
+                        @{
+                            var members = ViewBag.Members as List<BaoCaoCK_QLCuDan.Models.CuDan>;
+                            if (members == null && Model.CuDans != null)
+                            {
+                                members = Model.CuDans.ToList();
+                            }
+                            var totalMembers = ViewBag.TotalMembers ?? (Model.CuDans?.Count() ?? 0);
+                            var currentPage = ViewBag.CurrentPage ?? 1;
+                            var totalPages = ViewBag.TotalPages ?? (totalMembers > 5 ? (int)Math.Ceiling(totalMembers / 5.0) : 1);
+                        }
+                        @if (members != null && members.Count > 0)
                         {
-                            foreach (var item in Model.CuDans)
+                            foreach (var item in members)
                             {
                                 <tr>
                                     <td class="text-center align-middle">
-                                        <img src="@item.Avatar" class="rounded-circle border"
+                                        <img src="@(string.IsNullOrEmpty(item.Avatar) ? "/Content/Images/default.jpg" : item.Avatar)" class="rounded-circle border"
                                              style="width: 45px; height: 45px; object-fit: cover;"
                                              onerror="this.src='/Content/Images/default.jpg'" />
                                     </td>
@@ -115,7 +143,7 @@
                                         }
                                         else
                                         {
-                                            <span class="badge badge-info px-2">@item.QuanHeVoiChuHo</span>
+                                            <span class="badge badge-info px-2">@(item.QuanHeVoiChuHo ?? "Không rõ")</span>
                                         }
                                     </td>
                                     <td class="align-middle text-muted small">
@@ -136,6 +164,39 @@
                     </tbody>
                 </table>
             </div>
+            @if (totalMembers > 5)
+            {
+                <div class="card-footer bg-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-muted">Hiển thị @((currentPage - 1) * 5 + 1) - @(Math.Min(currentPage * 5, totalMembers)) trong tổng số @totalMembers thành viên</span>
+                        </div>
+                        <nav>
+                            <ul class="pagination pagination-sm mb-0">
+                                @if (currentPage > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Details", new { id = Model.MaHo, page = currentPage - 1 })">Trước</a>
+                                    </li>
+                                }
+                                @for (int i = 1; i <= totalPages; i++)
+                                {
+                                    <li class="page-item @(i == currentPage ? "active" : "")">
+                                        <a class="page-link" href="@Url.Action("Details", new { id = Model.MaHo, page = i })">@i</a>
+                                    </li>
+                                }
+                                @if (currentPage < totalPages)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("Details", new { id = Model.MaHo, page = currentPage + 1 })">Sau</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>
+}

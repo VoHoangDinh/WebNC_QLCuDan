@@ -303,8 +303,8 @@
         "IsRequired": true
       },
       {
-        "Name": "hoGiaDinh",
-        "Type": "QLCuDan_CoreAPI.Models.HoGiaDinh",
+        "Name": "updateDto",
+        "Type": "QLCuDan_CoreAPI.Controllers.HoGiaDinhsController\u002BHoGiaDinhUpdateDto",
         "IsRequired": true
       }
     ],
@@ -322,6 +322,32 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.HoGiaDinhsController",
+    "Method": "GetHoGiaDinhMembers",
+    "RelativePath": "api/HoGiaDinhs/{id}/Members",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -1,23 +1,45 @@
 ﻿@model BaoCaoCK_QLCuDan.Models.HoGiaDinh
 @{ ViewBag.Title = "Cập Nhật Hộ"; Layout = "~/Views/Shared/_Layout.cshtml"; }
 
+@if (Model == null)
+{
+    <div class="container-fluid mt-4">
+        <div class="alert alert-warning">
+            <h4>Không tìm thấy thông tin hộ gia đình</h4>
+            <p>Hộ gia đình bạn đang tìm không tồn tại hoặc đã bị xóa.</p>
+            <a href="@Url.Action("Index")" class="btn btn-primary">Quay lại danh sách</a>
+        </div>
+    </div>
+}
+else
+{
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Cập nhật thông tin Hộ: #@Model.MaHo</h6>
     </div>
     <div class="card-body">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+        }
+        
         @using (Html.BeginForm())
         {
+            @Html.AntiForgeryToken()
             @Html.HiddenFor(m => m.MaHo) // Giữ lại ID để update
 
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label>Tên Chủ Hộ</label>
-                    @Html.TextBoxFor(m => m.TenChuHo, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.TenChuHo, new { @class = "form-control", @readonly = "readonly" })
+                    <small class="form-text text-muted">Tên chủ hộ được tự động cập nhật từ cư dân</small>
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Số Thành Viên</label>
-                    @Html.TextBoxFor(m => m.SoThanhVien, new { @class = "form-control", type = "number" })
+                    @Html.TextBoxFor(m => m.SoThanhVien, new { @class = "form-control", type = "number", @readonly = "readonly" })
+                    <small class="form-text text-muted">Số thành viên được tự động cập nhật</small>
                 </div>
             </div>
 
@@ -49,7 +71,8 @@
 
             <hr />
             <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Cập nhật</button>
-            <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy bỏ</a>
+            <a href="@Url.Action("Details", new { id = Model.MaHo })" class="btn btn-secondary">Hủy bỏ</a>
         }
     </div>
 </div>
+}

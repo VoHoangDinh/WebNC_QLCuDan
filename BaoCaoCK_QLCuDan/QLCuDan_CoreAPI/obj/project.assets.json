@@ -8199,23 +8199,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HuyHoang\\.nuget\\packages\\": {},
+    "C:\\Users\\TechCare\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\SV_UTE\\125\\WebNC\\BCCK\\WebNC_QLCuDan-develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
+      "projectUniqueName": "E:\\New folder (5)\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
       "projectName": "QLCuDan_CoreAPI",
-      "projectPath": "E:\\SV_UTE\\125\\WebNC\\BCCK\\WebNC_QLCuDan-develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
-      "packagesPath": "C:\\Users\\HuyHoang\\.nuget\\packages\\",
-      "outputPath": "E:\\SV_UTE\\125\\WebNC\\BCCK\\WebNC_QLCuDan-develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\obj\\",
+      "projectPath": "E:\\New folder (5)\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
+      "packagesPath": "C:\\Users\\TechCare\\.nuget\\packages\\",
+      "outputPath": "E:\\New folder (5)\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\HuyHoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TechCare\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8293,7 +8293,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLCuDan_CoreAPI.Models;
+using System.Data;
+using Microsoft.Data.SqlClient;
 
 namespace QLCuDan_CoreAPI.Controllers
 {
@@ -46,11 +48,73 @@ namespace QLCuDan_CoreAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<CuDan>> PostCuDan(CuDan cuDan)
         {
-            // API không cần ValidateAntiForgeryToken (thường dùng JWT hoặc CORS để bảo mật)
-            _context.CuDans.Add(cuDan);
-            await _context.SaveChangesAsync();
+            try
+            {
+                // Sử dụng raw SQL để tránh lỗi OUTPUT clause với trigger
+                var sql = @"INSERT INTO CuDan (HoTen, NgaySinh, GioiTinh, SDT, Email, Avatar, TrinhDoHocVan, 
+                            NgayVaoDang, NgayVaoDoan, HocHamHocVi, NhanDang_Cao, NhanDang_SongMui, 
+                            DauVetDacBiet, QuanHeVoiChuHo, MaHo)
+                           VALUES (@HoTen, @NgaySinh, @GioiTinh, @SDT, @Email, @Avatar, @TrinhDoHocVan,
+                            @NgayVaoDang, @NgayVaoDoan, @HocHamHocVi, @NhanDang_Cao, @NhanDang_SongMui,
+                            @DauVetDacBiet, @QuanHeVoiChuHo, @MaHo);";
 
-            return CreatedAtAction("GetCuDan", new { id = cuDan.MaCuDan }, cuDan);
+                var parameters = new[]
+                {
+                    new SqlParameter("@HoTen", cuDan.HoTen ?? (object)DBNull.Value),
+                    new SqlParameter("@NgaySinh", cuDan.NgaySinh ?? (object)DBNull.Value),
+                    new SqlParameter("@GioiTinh", cuDan.GioiTinh ?? (object)DBNull.Value),
+                    new SqlParameter("@SDT", cuDan.SDT ?? (object)DBNull.Value),
+                    new SqlParameter("@Email", cuDan.Email ?? (object)DBNull.Value),
+                    new SqlParameter("@Avatar", cuDan.Avatar ?? (object)DBNull.Value),
+                    new SqlParameter("@TrinhDoHocVan", cuDan.TrinhDoHocVan ?? (object)DBNull.Value),
+                    new SqlParameter("@NgayVaoDang", cuDan.NgayVaoDang ?? (object)DBNull.Value),
+                    new SqlParameter("@NgayVaoDoan", cuDan.NgayVaoDoan ?? (object)DBNull.Value),
+                    new SqlParameter("@HocHamHocVi", cuDan.HocHamHocVi ?? (object)DBNull.Value),
+                    new SqlParameter("@NhanDang_Cao", cuDan.NhanDang_Cao ?? (object)DBNull.Value),
+                    new SqlParameter("@NhanDang_SongMui", cuDan.NhanDang_SongMui ?? (object)DBNull.Value),
+                    new SqlParameter("@DauVetDacBiet", cuDan.DauVetDacBiet ?? (object)DBNull.Value),
+                    new SqlParameter("@QuanHeVoiChuHo", cuDan.QuanHeVoiChuHo ?? (object)DBNull.Value),
+                    new SqlParameter("@MaHo", cuDan.MaHo ?? (object)DBNull.Value)
+                };
+
+                // Lưu MaHo và HoTen để query lại
+                var maHoValue = cuDan.MaHo;
+                var hoTenValue = cuDan.HoTen;
+                
+                await _context.Database.ExecuteSqlRawAsync(sql, parameters);
+                
+                // Query lại từ database để lấy dữ liệu đầy đủ
+                // Tìm record mới nhất có cùng MaHo và HoTen (nếu có MaHo)
+                CuDan savedCuDan = null;
+                if (maHoValue.HasValue)
+                {
+                    savedCuDan = await _context.CuDans
+                        .AsNoTracking()
+                        .Where(c => c.MaHo == maHoValue && c.HoTen == hoTenValue)
+                        .OrderByDescending(c => c.MaCuDan)
+                        .FirstOrDefaultAsync();
+                }
+                
+                // Fallback: lấy record mới nhất
+                if (savedCuDan == null)
+                {
+                    savedCuDan = await _context.CuDans
+                        .AsNoTracking()
+                        .OrderByDescending(c => c.MaCuDan)
+                        .FirstOrDefaultAsync();
+                }
+
+                if (savedCuDan == null)
+                {
+                    return StatusCode(500, new { message = "Không thể lấy lại dữ liệu sau khi lưu" });
+                }
+
+                return CreatedAtAction("GetCuDan", new { id = savedCuDan.MaCuDan }, savedCuDan);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi khi thêm cư dân: " + ex.Message + " | Inner: " + ex.InnerException?.Message });
+            }
         }
 
         // PUT: api/CuDans/5
@@ -62,25 +126,61 @@ namespace QLCuDan_CoreAPI.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(cuDan).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CuDanExists(id))
+                // Kiểm tra cư dân có tồn tại không
+                var existingCuDan = await _context.CuDans.FindAsync(id);
+                if (existingCuDan == null)
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
+                // Dùng raw SQL để tránh trigger conflict
+                var sql = @"UPDATE CuDan SET 
+                           HoTen = @HoTen, 
+                           NgaySinh = @NgaySinh, 
+                           GioiTinh = @GioiTinh, 
+                           SDT = @SDT, 
+                           Email = @Email, 
+                           Avatar = @Avatar, 
+                           TrinhDoHocVan = @TrinhDoHocVan,
+                           NgayVaoDang = @NgayVaoDang, 
+                           NgayVaoDoan = @NgayVaoDoan, 
+                           HocHamHocVi = @HocHamHocVi,
+                           NhanDang_Cao = @NhanDang_Cao, 
+                           NhanDang_SongMui = @NhanDang_SongMui,
+                           DauVetDacBiet = @DauVetDacBiet, 
+                           QuanHeVoiChuHo = @QuanHeVoiChuHo, 
+                           MaHo = @MaHo
+                           WHERE MaCuDan = @MaCuDan;";
+
+                var parameters = new[]
+                {
+                    new SqlParameter("@HoTen", cuDan.HoTen ?? (object)DBNull.Value),
+                    new SqlParameter("@NgaySinh", cuDan.NgaySinh ?? (object)DBNull.Value),
+                    new SqlParameter("@GioiTinh", cuDan.GioiTinh ?? (object)DBNull.Value),
+                    new SqlParameter("@SDT", cuDan.SDT ?? (object)DBNull.Value),
+                    new SqlParameter("@Email", cuDan.Email ?? (object)DBNull.Value),
+                    new SqlParameter("@Avatar", cuDan.Avatar ?? (object)DBNull.Value),
+                    new SqlParameter("@TrinhDoHocVan", cuDan.TrinhDoHocVan ?? (object)DBNull.Value),
+                    new SqlParameter("@NgayVaoDang", cuDan.NgayVaoDang ?? (object)DBNull.Value),
+                    new SqlParameter("@NgayVaoDoan", cuDan.NgayVaoDoan ?? (object)DBNull.Value),
+                    new SqlParameter("@HocHamHocVi", cuDan.HocHamHocVi ?? (object)DBNull.Value),
+                    new SqlParameter("@NhanDang_Cao", cuDan.NhanDang_Cao ?? (object)DBNull.Value),
+                    new SqlParameter("@NhanDang_SongMui", cuDan.NhanDang_SongMui ?? (object)DBNull.Value),
+                    new SqlParameter("@DauVetDacBiet", cuDan.DauVetDacBiet ?? (object)DBNull.Value),
+                    new SqlParameter("@QuanHeVoiChuHo", cuDan.QuanHeVoiChuHo ?? (object)DBNull.Value),
+                    new SqlParameter("@MaHo", cuDan.MaHo ?? (object)DBNull.Value),
+                    new SqlParameter("@MaCuDan", id)
+                };
+
+                await _context.Database.ExecuteSqlRawAsync(sql, parameters);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi khi cập nhật cư dân: " + ex.Message + " | Inner: " + ex.InnerException?.Message });
+            }
         }
 
         // DELETE: api/CuDans/5
