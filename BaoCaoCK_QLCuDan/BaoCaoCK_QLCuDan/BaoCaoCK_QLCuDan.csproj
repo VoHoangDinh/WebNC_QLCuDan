@@ -169,6 +169,8 @@
     <Content Include="Views\CanHo\Index.cshtml" />
     <Content Include="Views\CanHo\Create.cshtml" />
     <Content Include="Views\CanHo\Edit.cshtml" />
+    <Content Include="Views\HoGiaDinh\AddMember.cshtml" />
+    <Content Include="Views\HoGiaDinh\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

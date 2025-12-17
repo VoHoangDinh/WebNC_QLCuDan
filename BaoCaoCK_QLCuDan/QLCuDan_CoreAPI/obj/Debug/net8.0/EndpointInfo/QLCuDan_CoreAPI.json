@@ -517,17 +517,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/HoGiaDinh"
+                "$ref": "#/components/schemas/HoGiaDinhUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/HoGiaDinh"
+                "$ref": "#/components/schemas/HoGiaDinhUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/HoGiaDinh"
+                "$ref": "#/components/schemas/HoGiaDinhUpdateDto"
               }
             }
           }
@@ -550,6 +550,47 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/HoGiaDinhs/{id}/Members": {
+      "get": {
+        "tags": [
+          "HoGiaDinhs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 5
             }
           }
         ],
@@ -971,12 +1012,43 @@
           },
           "maLoaiHoNavigation": {
             "$ref": "#/components/schemas/LoaiHo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HoGiaDinhUpdateDto": {
+        "type": "object",
+        "properties": {
+          "maHo": {
+            "type": "integer",
+            "format": "int32"
           },
-          "cuDans": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CuDan"
-            },
+          "ngayNhanNha": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "soThanhVien": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tenChuHo": {
+            "type": "string",
+            "nullable": true
+          },
+          "trangThai": {
+            "type": "string",
+            "nullable": true
+          },
+          "maCanHo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maLoaiHo": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },

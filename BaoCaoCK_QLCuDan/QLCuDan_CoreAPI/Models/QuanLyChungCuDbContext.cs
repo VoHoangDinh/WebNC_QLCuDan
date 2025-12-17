@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace QLCuDan_CoreAPI.Models
 {
@@ -17,6 +18,6 @@ namespace QLCuDan_CoreAPI.Models
         public virtual DbSet<ToaNha> ToaNhas { get; set; }
         public virtual DbSet<VaiTro> VaiTros { get; set; }
         public DbSet<LoaiHo> LoaiHos { get; set; }
-        //public DbSet<CanHo> CanHos { get; set; }
+
     }
 }

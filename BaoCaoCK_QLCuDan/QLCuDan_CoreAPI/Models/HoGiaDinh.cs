@@ -27,6 +27,7 @@ namespace QLCuDan_CoreAPI.Models
         public virtual LoaiHo? MaLoaiHoNavigation { get; set; }
 
         // --- BẮT BUỘC THÊM DÒNG NÀY ĐỂ API LẤY ĐƯỢC THÀNH VIÊN ---
-        public virtual ICollection<CuDan> CuDans { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
+        public virtual ICollection<CuDan>? CuDans { get; set; }
     }
 }

@@ -12,12 +12,24 @@
 
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label>Tên Chủ Hộ (Đại diện)</label>
-                    @Html.TextBoxFor(m => m.TenChuHo, new { @class = "form-control", placeholder = "Nhập tên chủ hộ..." })
+                    <label>Chọn Chủ Hộ (Cư dân) <span class="text-danger">*</span></label>
+                    @if (ViewBag.MaCuDanChuHo != null)
+                    {
+                        @Html.DropDownList("MaCuDanChuHo", (SelectList)ViewBag.MaCuDanChuHo, "-- Chọn cư dân làm chủ hộ --", new { @class = "form-control", required = "required" })
+                    }
+                    else
+                    {
+                        <select name="MaCuDanChuHo" class="form-control" required>
+                            <option value="">-- Chọn cư dân làm chủ hộ --</option>
+                        </select>
+                        <small class="form-text text-danger">Không có cư dân nào chưa thuộc hộ. Vui lòng thêm cư dân trước.</small>
+                    }
+                    <small class="form-text text-muted">Chọn từ danh sách cư dân đã có trong hệ thống (chưa thuộc hộ nào)</small>
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Số Thành Viên</label>
-                    @Html.TextBoxFor(m => m.SoThanhVien, new { @class = "form-control", type = "number" })
+                    @Html.TextBoxFor(m => m.SoThanhVien, new { @class = "form-control", type = "number", @readonly = "readonly", @Value = "1" })
+                    <small class="form-text text-muted">Sẽ tự động cập nhật khi thêm thành viên</small>
                 </div>
             </div>
 

@@ -248,7 +248,9 @@ GO
 INSERT INTO CuDan (HoTen, NgaySinh, GioiTinh, SDT, Email, QuanHeVoiChuHo, MaHo, TrinhDoHocVan) VALUES 
 (N'Nguyễn Văn A', '1980-05-10', N'Nam', '0909123456', 'nguyenvana@gmail.com', N'Chủ hộ', 1, N'Đại học'),
 (N'Trần Thị B', '1995-08-20', N'Nữ', '0909654321', 'tranthib@gmail.com', N'Chủ hộ', 2, N'Thạc sĩ'),
-(N'Lê Văn C', '1990-12-05', N'Nam', '0912345678', 'levanc@gmail.com', N'Con', 3, N'Cao đẳng');
+(N'Lê Văn C', '1990-12-05', N'Nam', '0912345678', 'levanc@gmail.com', N'', NULL, N'Cao đẳng'),
+(N'Lê Văn E', '1990-12-05', N'Nam', '0912345678', 'levanc@gmail.com', N'',NULL, N'Cao đẳng'),
+(N'Lê Văn D', '1990-12-05', N'Nam', '0912345678', 'levanc@gmail.com', N'',NULL, N'Cao đẳng');
 GO
 
 -- 5. Thêm Phản Ánh (Liên kết Cư Dân)
@@ -334,7 +336,7 @@ ADD FOREIGN KEY (MaLoaiHo) REFERENCES LoaiHo(MaLoaiHo);
 GO
 
 -- 4. Thêm dữ liệu mẫu
-INSERT INTO LoaiHo (TenLoai) VALUES (N'Thường trú'), (N'Tạm trú'), (N'Hộ nghèo');
+INSERT INTO LoaiHo (TenLoai) VALUES (N'Bình thường'), (N'Cận nghèo'), (N'Hộ nghèo');
 UPDATE HoGiaDinh SET MaLoaiHo = 1; -- Set mặc định
 GO
 select * from HoGiaDinh
@@ -404,7 +406,9 @@ GO
 DROP TRIGGER IF EXISTS trg_TuDongCapNhat_HoGiaDinh;
 GO
 
--- Tạo Trigger mới
+-- ==========================================================================
+-- TRIGGER: Tự động cập nhật TenChuHo và SoThanhVien khi có thay đổi trong bảng CuDan
+-- ==========================================================================
 CREATE TRIGGER trg_TuDongCapNhat_HoGiaDinh
 ON CuDan
 AFTER INSERT, UPDATE, DELETE
@@ -417,26 +421,33 @@ BEGIN
     DECLARE @DanhSachHoCanUpdate TABLE (MaHo INT);
 
     INSERT INTO @DanhSachHoCanUpdate
-    SELECT MaHo FROM inserted WHERE MaHo IS NOT NULL
+    SELECT DISTINCT MaHo FROM inserted WHERE MaHo IS NOT NULL
     UNION
-    SELECT MaHo FROM deleted WHERE MaHo IS NOT NULL;
+    SELECT DISTINCT MaHo FROM deleted WHERE MaHo IS NOT NULL;
 
-    -- 2. Thực hiện cập nhật lại thông tin cho các hộ đó
+    -- 2. Thực hiện cập nhật lại thông tin cho các hộ bị ảnh hưởng
     UPDATE h
     SET 
-        -- Tự động đếm lại số thành viên
+        -- Tự động đếm lại số thành viên từ bảng CuDan
         h.SoThanhVien = (
             SELECT COUNT(*) 
             FROM CuDan c 
             WHERE c.MaHo = h.MaHo
         ),
-        -- Tự động tìm tên chủ hộ mới nhất
+        -- Tự động lấy tên chủ hộ từ cư dân có QuanHeVoiChuHo = 'Chủ hộ'
+        -- Đây là logic chính: Lấy tên từ cư dân làm chủ hộ
         h.TenChuHo = (
             SELECT TOP 1 c.HoTen 
             FROM CuDan c 
-            WHERE c.MaHo = h.MaHo AND c.QuanHeVoiChuHo = N'Chủ hộ'
+            WHERE c.MaHo = h.MaHo 
+                AND c.QuanHeVoiChuHo = N'Chủ hộ'
+            ORDER BY c.MaCuDan ASC  -- Lấy chủ hộ đầu tiên nếu có nhiều
         )
     FROM HoGiaDinh h
     INNER JOIN @DanhSachHoCanUpdate list ON h.MaHo = list.MaHo;
 END;
 GO
+
+select * from LoaiHo
+select * from HoGiaDinh
+select * from CuDan
