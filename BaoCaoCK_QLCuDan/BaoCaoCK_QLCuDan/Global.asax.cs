@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -11,8 +7,11 @@ namespace BaoCaoCK_QLCuDan
     {
         protected void Application_Start()
         {
+            // --- THÊM DÒNG NÀY ---
             System.Net.ServicePointManager.ServerCertificateValidationCallback =
-        (sender, cert, chain, sslPolicyErrors) => true;
+                (sender, cert, chain, sslPolicyErrors) => true;
+            // ---------------------
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

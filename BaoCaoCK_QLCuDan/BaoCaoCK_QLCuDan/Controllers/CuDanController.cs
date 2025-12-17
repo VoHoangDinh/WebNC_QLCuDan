@@ -93,52 +93,52 @@ namespace BaoCaoCK_QLCuDan.Controllers
             LoadDropdownHoGiaDinh();
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        // Thêm tham số ImageFile để nhận file từ View
         public async Task<ActionResult> Create(CuDan cuDan, HttpPostedFileBase ImageFile)
         {
-            // --- XỬ LÝ ẢNH (Lưu vào thư mục MVC) ---
+            // --- 1. XỬ LÝ ẢNH (Giữ nguyên) ---
             if (ImageFile != null && ImageFile.ContentLength > 0)
             {
-                // 1. Lấy tên file
                 string fileName = System.IO.Path.GetFileName(ImageFile.FileName);
-
-                // 2. Đường dẫn lưu (Content/Images)
                 string uploadPath = Server.MapPath("~/Content/Images/");
-
-                // Tạo thư mục nếu chưa có
                 if (!System.IO.Directory.Exists(uploadPath))
-                {
                     System.IO.Directory.CreateDirectory(uploadPath);
-                }
 
-                // 3. Lưu file
                 string filePath = System.IO.Path.Combine(uploadPath, fileName);
                 ImageFile.SaveAs(filePath);
-
-                // 4. Gán đường dẫn vào Model để gửi sang API
                 cuDan.Avatar = "/Content/Images/" + fileName;
             }
             else
             {
-                // Nếu không chọn ảnh -> Lấy ảnh mặc định
                 cuDan.Avatar = "/Content/Images/default.jpg";
             }
-            // ---------------------------------------
 
+            // --- 2. QUAN TRỌNG: ÉP MÃ HỘ BẰNG NULL ---
+            // Để API không bị lỗi khóa ngoại (vì chưa có hộ nào mã 0)
+            cuDan.MaHo = null;
+
+            // Xóa HoGiaDinh ảo để tránh lỗi vòng lặp khi gửi JSON
+            cuDan.HoGiaDinh = null;
+
+            // --- 3. GỬI SANG API ---
             using (var client = CreateClient())
             {
                 HttpResponseMessage response = await client.PostAsJsonAsync("api/CuDans", cuDan);
+
                 if (response.IsSuccessStatusCode)
                 {
                     return RedirectToAction("Index");
                 }
-                ModelState.AddModelError("", "Lỗi API: " + response.ReasonPhrase);
+                else
+                {
+                    // Đọc lỗi chi tiết từ API để biết tại sao sai
+                    string errorContent = await response.Content.ReadAsStringAsync();
+                    ModelState.AddModelError("", "Lỗi API (" + response.StatusCode + "): " + errorContent);
+                }
             }
 
-            LoadDropdownHoGiaDinh();
+            // Nếu lỗi thì quay lại form
             return View(cuDan);
         }
 
@@ -204,21 +204,40 @@ namespace BaoCaoCK_QLCuDan.Controllers
         }
 
         // Hàm phụ
+        // --- HÀM PHỤ ĐỂ LOAD DROPDOWN (SỬA LẠI) ---
         private void LoadDropdownHoGiaDinh()
         {
             try
             {
                 using (var db = new QuanLyCuDanContext())
                 {
-                    var list = db.HoGiaDinhs.ToList();
+                    // Lấy danh sách hộ gia đình
+                    // Kết hợp Mã Hộ + Tên Chủ Hộ để hiển thị cho dễ nhìn (VD: "1 - Nguyễn Văn A")
+                    var list = db.HoGiaDinhs
+                        .Select(h => new
+                        {
+                            MaHo = h.MaHo,
+                            // Nếu chưa có tên chủ hộ (hộ mới) thì hiện "Chưa có chủ hộ"
+                            HienThi = h.MaHo.ToString() + " - " + (string.IsNullOrEmpty(h.TenChuHo) ? "Chưa có chủ hộ" : h.TenChuHo)
+                        })
+                        .ToList();
+
                     if (list.Count == 0)
-                        ViewBag.MaHo = new SelectList(new List<object> { new { MaHo = 0, MaHoHienThi = "Trống" } }, "MaHo", "MaHoHienThi");
+                    {
+                        ModelState.AddModelError("", "Cảnh báo: Bảng Hộ Gia Đình đang trống!");
+                        ViewBag.MaHo = new SelectList(new List<object> { new { MaHo = 0, HienThi = "Trống" } }, "MaHo", "HienThi");
+                    }
                     else
-                        ViewBag.MaHo = new SelectList(list, "MaHo", "MaHo");
+                    {
+                        // Chọn trường "HienThi" làm text, "MaHo" làm value
+                        ViewBag.MaHo = new SelectList(list, "MaHo", "HienThi");
+                    }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                // Ghi log lỗi ra console để debug nếu cần
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 ViewBag.MaHo = new SelectList(new List<string>());
             }
         }

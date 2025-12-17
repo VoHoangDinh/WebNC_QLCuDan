@@ -1,19 +1,27 @@
-﻿<!DOCTYPE html>
+﻿@{
+    // Lấy tên Controller hiện tại để so sánh và active menu
+    string currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Quản lý cư dân</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <style>
         body {
-            background-color: #f4f6f9;
-            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #f8f9fc;
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Sidebar Trái */
+        /* --- SIDEBAR --- */
         .sidebar {
             min-height: 100vh;
             background-color: #343a40; /* Màu đen xám */
@@ -22,113 +30,182 @@
             width: 250px;
             top: 0;
             left: 0;
-            padding-top: 0;
+            z-index: 1000;
         }
 
         .sidebar-header {
-            padding: 15px;
-            background-color: #343a40;
-            border-bottom: 1px solid #4b545c;
-            font-weight: bold;
-            font-size: 18px;
-            color: #fff;
+            padding: 1rem;
             display: flex;
             align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
         }
 
         .sidebar a {
-            color: #c2c7d0;
+            color: rgba(255,255,255,0.8);
             display: block;
-            padding: 12px 20px;
+            padding: 1rem;
             text-decoration: none;
-            border-bottom: 1px solid #4b545c;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            font-weight: 600;
         }
 
             .sidebar a:hover {
-                background-color: #494e53;
                 color: #fff;
+                background-color: rgba(255,255,255,0.1);
             }
 
             .sidebar a.active {
-                background-color: #007bff;
                 color: #fff;
+                background-color: rgba(255,255,255,0.2);
+                border-left: 4px solid #fff;
             }
-        /* Màu xanh khi chọn */
+
         .sidebar i {
-            margin-right: 10px;
             width: 20px;
             text-align: center;
-        }
-
-        /* Phần nội dung chính bên phải */
-        .main-content {
-            margin-left: 250px; /* Chừa chỗ cho sidebar */
-            background-color: #fff;
-        }
-
-        /* Topbar màu xanh */
-        .topbar {
-            background-color: #17a2b8; /* Màu xanh ngọc giống ảnh */
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-right: 10px;
         }
 
         .user-panel {
-            display: flex;
-            align-items: center;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
         }
 
-            .user-panel img {
-                height: 35px;
-                width: 35px;
-                border-radius: 50%;
-                margin-right: 10px;
-                border: 2px solid white;
-            }
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            margin-left: 250px;
+            background-color: #f8f9fc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- TOPBAR --- */
+        .topbar {
+            height: 70px;
+            background-color: #fff;
+            box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Đẩy menu sang phải */
+            padding: 0 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Avatar User */
+        .img-profile {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #d1d3e2;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            right: 0;
+            left: auto;
+            border: none;
+            box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+        }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
         <div class="sidebar-header">
-            <i class="fas fa-building"></i> Quản lý cư dân
+            <i class="fas fa-building mr-2"></i> QL Chung Cư
         </div>
 
-        <div class="p-3">
-            <div class="user-panel mb-3 pb-3 border-bottom border-secondary">
-                <img src="/Content/Images/admin_sidebar.png" class="img-circle elevation-2" alt="Admin Image" style="width: 50px; height: 50px; border-radius: 50%;">
-                <span>Admin</span>
-            </div>
+        <div>
+            <a href="/Home/Index" class="@(currentController == "Home" ? "active" : "")">
+                <i class="fas fa-fw fa-tachometer-alt"></i> Trang chủ
+            </a>
 
-            <a href="#"><i class="fas fa-tachometer-alt"></i> Admin</a>
-            <a href="#"><i class="fas fa-list"></i> Loại hộ gia đình</a>
-            <a href="#"><i class="fas fa-users"></i> Quản lý hộ gia đình</a>
-            <a href="/CuDan/Index" class="active"><i class="fas fa-user"></i> Quản lý cư dân</a>
-            <a href="#"><i class="fas fa-id-card"></i> Quản lý thẻ bảo hiểm</a>
-            <a href="#"><i class="fas fa-user-tag"></i> Vai trò</a>
-            <a href="#"><i class="fas fa-search"></i> Tìm kiếm cư dân</a>
-            <a href="#"><i class="fas fa-key"></i> Đổi mật khẩu</a>
+            <a href="#" class="@(currentController == "LoaiHo" ? "active" : "")">
+                <i class="fas fa-fw fa-list"></i> Loại hộ gia đình
+            </a>
+
+            <a href="#" class="@(currentController == "HoGiaDinh" ? "active" : "")">
+                <i class="fas fa-fw fa-users"></i> Quản lý hộ gia đình
+            </a>
+
+            <a href="/CuDan/Index" class="@(currentController == "CuDan" ? "active" : "")">
+                <i class="fas fa-fw fa-user"></i> Quản lý cư dân
+            </a>
+
+            <a href="#"><i class="fas fa-fw fa-id-card"></i> Quản lý thẻ bảo hiểm</a>
+            <a href="#"><i class="fas fa-fw fa-user-tag"></i> Vai trò</a>
+            <a href="#"><i class="fas fa-fw fa-search"></i> Tìm kiếm cư dân</a>
+            <a href="#"><i class="fas fa-fw fa-key"></i> Đổi mật khẩu</a>
         </div>
     </div>
 
     <div class="main-content">
-        <div class="topbar">
-            <div><i class="fas fa-bars"></i></div>
-            <div class="font-weight-bold">
-                <img src="/Content/Images/admin_header.png" class="rounded-circle" style="border: 1px solid #fff; width: 30px; height: 30px;">
-                admin
-            </div>
-        </div>
+        <nav class="topbar">
+            <ul class="navbar-nav ml-auto">
+                <div class="topbar-divider d-none d-sm-block"></div>
 
-        <div class="container-fluid p-4">
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="color:#555; fontWeight:bold">Admin</span>
+                        <img class="img-profile rounded-circle" src="/Content/Images/admin_header.png">
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Thông tin cá nhân
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Cài đặt
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Nhật ký hoạt động
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
+                            Đăng xuất
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container-fluid">
             @RenderBody()
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận đăng xuất?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Chọn "Đăng xuất" nếu bạn muốn kết thúc phiên làm việc.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                    <a class="btn btn-primary" href="/Account/Login">Đăng xuất</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

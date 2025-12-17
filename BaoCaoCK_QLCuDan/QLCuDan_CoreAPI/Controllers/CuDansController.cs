@@ -3,6 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
+using System;
+using System.Data;
 using QLCuDan_CoreAPI.Models;
 
 namespace QLCuDan_CoreAPI.Controllers
@@ -75,8 +78,66 @@ namespace QLCuDan_CoreAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<CuDan>> PostCuDan(CuDan cuDan)
         {
-            _context.CuDans.Add(cuDan);
-            await _context.SaveChangesAsync();
+            // Sử dụng raw SQL để INSERT vì bảng CuDan có trigger
+            // SQL Server không cho phép OUTPUT clause với trigger
+            var sql = @"
+                INSERT INTO CuDan (HoTen, NgaySinh, GioiTinh, SDT, Email, Avatar, 
+                                  TrinhDoHocVan, NgayVaoDang, NgayVaoDoan, HocHamHocVi, 
+                                  NhanDang_Cao, NhanDang_SongMui, DauVetDacBiet, 
+                                  QuanHeVoiChuHo, MaHo)
+                VALUES (@HoTen, @NgaySinh, @GioiTinh, @SDT, @Email, @Avatar, 
+                        @TrinhDoHocVan, @NgayVaoDang, @NgayVaoDoan, @HocHamHocVi, 
+                        @NhanDang_Cao, @NhanDang_SongMui, @DauVetDacBiet, 
+                        @QuanHeVoiChuHo, @MaHo);
+                SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+            var parameters = new[]
+            {
+                new SqlParameter("@HoTen", cuDan.HoTen ?? (object)DBNull.Value),
+                new SqlParameter("@NgaySinh", cuDan.NgaySinh ?? (object)DBNull.Value),
+                new SqlParameter("@GioiTinh", cuDan.GioiTinh ?? (object)DBNull.Value),
+                new SqlParameter("@SDT", cuDan.SDT ?? (object)DBNull.Value),
+                new SqlParameter("@Email", cuDan.Email ?? (object)DBNull.Value),
+                new SqlParameter("@Avatar", cuDan.Avatar ?? (object)DBNull.Value),
+                new SqlParameter("@TrinhDoHocVan", cuDan.TrinhDoHocVan ?? (object)DBNull.Value),
+                new SqlParameter("@NgayVaoDang", cuDan.NgayVaoDang ?? (object)DBNull.Value),
+                new SqlParameter("@NgayVaoDoan", cuDan.NgayVaoDoan ?? (object)DBNull.Value),
+                new SqlParameter("@HocHamHocVi", cuDan.HocHamHocVi ?? (object)DBNull.Value),
+                new SqlParameter("@NhanDang_Cao", cuDan.NhanDang_Cao ?? (object)DBNull.Value),
+                new SqlParameter("@NhanDang_SongMui", cuDan.NhanDang_SongMui ?? (object)DBNull.Value),
+                new SqlParameter("@DauVetDacBiet", cuDan.DauVetDacBiet ?? (object)DBNull.Value),
+                new SqlParameter("@QuanHeVoiChuHo", cuDan.QuanHeVoiChuHo ?? (object)DBNull.Value),
+                new SqlParameter("@MaHo", cuDan.MaHo ?? (object)DBNull.Value)
+            };
+
+            // Thực thi SQL và lấy ID mới
+            var connection = _context.Database.GetDbConnection();
+            var wasOpen = connection.State == ConnectionState.Open;
+            
+            if (!wasOpen)
+            {
+                await connection.OpenAsync();
+            }
+
+            try
+            {
+                using var command = connection.CreateCommand();
+                command.CommandText = sql;
+                command.Parameters.AddRange(parameters);
+                
+                var newId = await command.ExecuteScalarAsync();
+                if (newId != null && newId != DBNull.Value)
+                {
+                    cuDan.MaCuDan = Convert.ToInt32(newId);
+                }
+            }
+            finally
+            {
+                if (!wasOpen)
+                {
+                    await connection.CloseAsync();
+                }
+            }
 
             return CreatedAtAction("GetCuDan", new { id = cuDan.MaCuDan }, cuDan);
         }
@@ -90,21 +151,80 @@ namespace QLCuDan_CoreAPI.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(cuDan).State = EntityState.Modified;
+            // Kiểm tra xem cư dân có tồn tại không
+            if (!CuDanExists(id))
+            {
+                return NotFound();
+            }
+
+            // Sử dụng raw SQL để UPDATE vì bảng CuDan có trigger
+            // SQL Server không cho phép OUTPUT clause với trigger
+            var sql = @"
+                UPDATE CuDan 
+                SET HoTen = @HoTen,
+                    NgaySinh = @NgaySinh,
+                    GioiTinh = @GioiTinh,
+                    SDT = @SDT,
+                    Email = @Email,
+                    Avatar = @Avatar,
+                    TrinhDoHocVan = @TrinhDoHocVan,
+                    NgayVaoDang = @NgayVaoDang,
+                    NgayVaoDoan = @NgayVaoDoan,
+                    HocHamHocVi = @HocHamHocVi,
+                    NhanDang_Cao = @NhanDang_Cao,
+                    NhanDang_SongMui = @NhanDang_SongMui,
+                    DauVetDacBiet = @DauVetDacBiet,
+                    QuanHeVoiChuHo = @QuanHeVoiChuHo,
+                    MaHo = @MaHo
+                WHERE MaCuDan = @MaCuDan;";
+
+            var parameters = new[]
+            {
+                new SqlParameter("@MaCuDan", cuDan.MaCuDan),
+                new SqlParameter("@HoTen", cuDan.HoTen ?? (object)DBNull.Value),
+                new SqlParameter("@NgaySinh", cuDan.NgaySinh ?? (object)DBNull.Value),
+                new SqlParameter("@GioiTinh", cuDan.GioiTinh ?? (object)DBNull.Value),
+                new SqlParameter("@SDT", cuDan.SDT ?? (object)DBNull.Value),
+                new SqlParameter("@Email", cuDan.Email ?? (object)DBNull.Value),
+                new SqlParameter("@Avatar", cuDan.Avatar ?? (object)DBNull.Value),
+                new SqlParameter("@TrinhDoHocVan", cuDan.TrinhDoHocVan ?? (object)DBNull.Value),
+                new SqlParameter("@NgayVaoDang", cuDan.NgayVaoDang ?? (object)DBNull.Value),
+                new SqlParameter("@NgayVaoDoan", cuDan.NgayVaoDoan ?? (object)DBNull.Value),
+                new SqlParameter("@HocHamHocVi", cuDan.HocHamHocVi ?? (object)DBNull.Value),
+                new SqlParameter("@NhanDang_Cao", cuDan.NhanDang_Cao ?? (object)DBNull.Value),
+                new SqlParameter("@NhanDang_SongMui", cuDan.NhanDang_SongMui ?? (object)DBNull.Value),
+                new SqlParameter("@DauVetDacBiet", cuDan.DauVetDacBiet ?? (object)DBNull.Value),
+                new SqlParameter("@QuanHeVoiChuHo", cuDan.QuanHeVoiChuHo ?? (object)DBNull.Value),
+                new SqlParameter("@MaHo", cuDan.MaHo ?? (object)DBNull.Value)
+            };
+
+            // Thực thi SQL
+            var connection = _context.Database.GetDbConnection();
+            var wasOpen = connection.State == ConnectionState.Open;
+            
+            if (!wasOpen)
+            {
+                await connection.OpenAsync();
+            }
 
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CuDanExists(id))
+                using var command = connection.CreateCommand();
+                command.CommandText = sql;
+                command.Parameters.AddRange(parameters);
+                
+                var rowsAffected = await command.ExecuteNonQueryAsync();
+                
+                if (rowsAffected == 0)
                 {
                     return NotFound();
                 }
-                else
+            }
+            finally
+            {
+                if (!wasOpen)
                 {
-                    throw;
+                    await connection.CloseAsync();
                 }
             }
 
@@ -115,14 +235,47 @@ namespace QLCuDan_CoreAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCuDan(int id)
         {
-            var cuDan = await _context.CuDans.FindAsync(id);
-            if (cuDan == null)
+            // Kiểm tra xem cư dân có tồn tại không
+            if (!CuDanExists(id))
             {
                 return NotFound();
             }
 
-            _context.CuDans.Remove(cuDan);
-            await _context.SaveChangesAsync();
+            // Sử dụng raw SQL để DELETE vì bảng CuDan có trigger
+            // SQL Server không cho phép OUTPUT clause với trigger
+            var sql = "DELETE FROM CuDan WHERE MaCuDan = @MaCuDan;";
+
+            var parameter = new SqlParameter("@MaCuDan", id);
+
+            // Thực thi SQL
+            var connection = _context.Database.GetDbConnection();
+            var wasOpen = connection.State == ConnectionState.Open;
+            
+            if (!wasOpen)
+            {
+                await connection.OpenAsync();
+            }
+
+            try
+            {
+                using var command = connection.CreateCommand();
+                command.CommandText = sql;
+                command.Parameters.Add(parameter);
+                
+                var rowsAffected = await command.ExecuteNonQueryAsync();
+                
+                if (rowsAffected == 0)
+                {
+                    return NotFound();
+                }
+            }
+            finally
+            {
+                if (!wasOpen)
+                {
+                    await connection.CloseAsync();
+                }
+            }
 
             return NoContent();
         }

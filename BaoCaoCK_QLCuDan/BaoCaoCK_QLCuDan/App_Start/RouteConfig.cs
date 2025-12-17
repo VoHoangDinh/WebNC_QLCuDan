@@ -16,8 +16,8 @@ namespace BaoCaoCK_QLCuDan
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                // Đổi Home -> CuDan
-                defaults: new { controller = "CuDan", action = "Index", id = UrlParameter.Optional  } 
+               // Đổi Home -> CuDan
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional   } 
             );
         }
     }
