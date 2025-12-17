@@ -1,8 +1,0 @@
-.vs/
-bin/
-obj/
-*.dll
-*.exe
-*.pdb
-*.cache
-*.user

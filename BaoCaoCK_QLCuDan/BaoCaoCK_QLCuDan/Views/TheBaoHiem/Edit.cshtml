@@ -1,0 +1,150 @@
+﻿@model BaoCaoCK_QLCuDan.Models.TheBaoHiem
+
+@{
+    ViewBag.Title = "Cập Nhật Thẻ BHYT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Hiệu ứng Focus cho ô nhập liệu */
+    .form-control:focus, .form-select:focus {
+        border-color: #fd7e14; /* Màu cam khi focus */
+        box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.15);
+    }
+
+    /* Style cho Input Group (Icon dính liền ô nhập) */
+    .input-group-text {
+        background-color: #fff;
+        border-right: none;
+        color: #fd7e14; /* Icon màu cam */
+    }
+
+    .form-control, .form-select {
+        border-left: none;
+    }
+
+    .input-group:focus-within .input-group-text {
+        border-color: #fd7e14;
+    }
+
+    /* Gradient Header cho trang Edit */
+    .card-header-edit {
+        background: linear-gradient(135deg, #f0ad4e 0%, #fd7e14 100%);
+        color: white;
+    }
+</style>
+
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <h1 class="h3 text-gray-800">Cập Nhật Thẻ BHYT</h1>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index")" class="text-decoration-none text-warning">Bảo Hiểm</a></li>
+            <li class="breadcrumb-item active">Cập Nhật</li>
+        </ol>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0 rounded-3 mb-5">
+                <div class="card-header card-header-edit py-3 rounded-top-3">
+                    <h5 class="m-0 fw-bold">
+                        <i class="fas fa-edit me-2"></i>Sửa thông tin thẻ: <span class="text-white bg-dark px-2 rounded small">@Model.MaSoThe</span>
+                    </h5>
+                </div>
+
+                <div class="card-body p-4 bg-white">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.MaTheBaoHiem)
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-secondary small text-uppercase">Chủ thẻ</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
+                                    @Html.DropDownList("MaCuDan", null, htmlAttributes: new { @class = "form-select form-select-lg" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.MaCuDan, "", new { @class = "text-danger small mt-1" })
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold text-secondary small text-uppercase">Mã số thẻ</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                        @Html.EditorFor(model => model.MaSoThe, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập mã số..." } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.MaSoThe, "", new { @class = "text-danger small mt-1" })
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold text-secondary small text-uppercase">Nơi ĐK KCB</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-hospital-alt"></i></span>
+                                        @Html.EditorFor(model => model.NoiDangKyKCB, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold text-secondary small text-uppercase">Ngày hiệu lực</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-calendar-check"></i></span>
+                                        @* Sử dụng Flatpickr *@
+                                        @Html.EditorFor(model => model.NgayDangKy, new { htmlAttributes = new { @class = "form-control flatpickr ps-2", @type = "text", @placeholder = "Chọn ngày..." } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.NgayDangKy, "", new { @class = "text-danger small mt-1" })
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold text-secondary small text-uppercase">Ngày hết hạn</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-calendar-times"></i></span>
+                                        @* Sử dụng Flatpickr *@
+                                        @Html.EditorFor(model => model.NgayHetHan, new { htmlAttributes = new { @class = "form-control flatpickr ps-2", @type = "text", @placeholder = "Chọn ngày..." } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.NgayHetHan, "", new { @class = "text-danger small mt-1" })
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-secondary small text-uppercase">Ghi chú</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-sticky-note"></i></span>
+                                    @Html.TextAreaFor(model => model.GhiChu, new { @class = "form-control", @rows = "3" })
+                                </div>
+                            </div>
+
+                            <hr class="my-4" />
+
+                            <div class="d-flex justify-content-end" style="gap: 20px;">
+                                <a href="@Url.Action("Index")" class="btn btn-light border px-4" style="margin-right: 15px;">
+                                    <i class="fas fa-arrow-left"style="margin-right: 5px;"></i>Hủy
+                                </a>
+                                <button type="submit" class="btn btn-warning px-4 shadow-sm text-white">
+                                    <i class="fas fa-save"style="margin-right: 5px;"></i>Cập Nhật
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr(".flatpickr", {
+                locale: "vn",
+                dateFormat: "Y-m-d",      // Định dạng gửi về Server (Năm-Tháng-Ngày)
+                altInput: true,           // Hiển thị đẹp cho người dùng
+                altFormat: "d/m/Y",       // Định dạng hiển thị (Ngày/Tháng/Năm)
+                allowInput: true,
+                disableMobile: "true"
+            });
+        });
+    </script>

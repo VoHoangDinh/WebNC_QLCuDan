@@ -11,10 +11,12 @@ namespace QLCuDan_CoreAPI.Models
 
         public virtual DbSet<CanHo> CanHos { get; set; }
         public virtual DbSet<CuDan> CuDans { get; set; }
+        public virtual DbSet<TheBaoHiem> TheBaoHiems { get; set; }
         public virtual DbSet<HoGiaDinh> HoGiaDinhs { get; set; }
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
         public virtual DbSet<PhanAnh> PhanAnhs { get; set; }
         public virtual DbSet<ToaNha> ToaNhas { get; set; }
         public virtual DbSet<VaiTro> VaiTros { get; set; }
+       
     }
 }

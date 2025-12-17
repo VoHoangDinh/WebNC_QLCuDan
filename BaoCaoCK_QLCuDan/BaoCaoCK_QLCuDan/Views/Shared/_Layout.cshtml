@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/vn.js"></script>
 
     <style>
         body {
@@ -139,7 +142,10 @@
                 <i class="fas fa-fw fa-user"></i> Quản lý cư dân
             </a>
 
-            <a href="#"><i class="fas fa-fw fa-id-card"></i> Quản lý thẻ bảo hiểm</a>
+            <a href="@Url.Action("Index", "TheBaoHiem")"
+               class="@(currentController == "TheBaoHiem" ? "active" : "")">
+                <i class="fas fa-id-card"></i> Quản lý thẻ bảo hiểm
+            </a>
             <a href="#"><i class="fas fa-fw fa-user-tag"></i> Vai trò</a>
             <a href="#"><i class="fas fa-fw fa-search"></i> Tìm kiếm cư dân</a>
             <a href="#"><i class="fas fa-fw fa-key"></i> Đổi mật khẩu</a>
