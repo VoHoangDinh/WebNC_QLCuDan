@@ -141,6 +141,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CuDanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TheBaoHiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,6 +152,7 @@
     <Compile Include="Models\PhanAnh.cs" />
     <Compile Include="Models\PhanTrangCuDan.cs" />
     <Compile Include="Models\QuanLyCuDanContext.cs" />
+    <Compile Include="Models\TheBaoHiem.cs" />
     <Compile Include="Models\ToaNha.cs" />
     <Compile Include="Models\VaiTro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +167,10 @@
     <Content Include="Views\CuDan\Index.cshtml" />
     <Content Include="Views\CuDan\Create.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\TheBaoHiem\Create.cshtml" />
+    <Content Include="Views\TheBaoHiem\Delete.cshtml" />
+    <Content Include="Views\TheBaoHiem\Edit.cshtml" />
+    <Content Include="Views\TheBaoHiem\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

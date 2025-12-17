@@ -1,0 +1,269 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\wnc\\baocaock_qlcudan\\qlcudan_coreapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\wnc\\baocaock_qlcudan\\qlcudan_coreapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|f:\\125\\xml\\wnc\\baocaock_qlcudan\\baocaock_qlcudan\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\wnc\\baocaock_qlcudan\\qlcudan_coreapi\\controllers\\cudanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\controllers\\cudanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\views\\thebaohiem\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\thebaohiem\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\controllers\\thebaohiemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\controllers\\thebaohiemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\wnc\\baocaock_qlcudan\\qlcudan_coreapi\\controllers\\thebaohiemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\controllers\\thebaohiemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\controllers\\cudancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\controllers\\cudancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\wnc\\baocaock_qlcudan\\qlcudan_coreapi\\models\\thebaohiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\models\\thebaohiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\wnc\\baocaock_qlcudan\\qlcudan_coreapi\\models\\quanlychungcudbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\models\\quanlychungcudbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\models\\thebaohiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\models\\thebaohiem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\models\\quanlycudancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\models\\quanlycudancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CuDanController.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\CuDanController.cs",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Controllers\\CuDanController.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\CuDanController.cs",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Controllers\\CuDanController.cs",
+              "ViewState": "AgIAANUAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:55:34.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T15:59:41.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\WeatherForecast.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\WeatherForecast.cs",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:14:47.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "web.config",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\web.config",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\web.config",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\web.config",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-17T16:00:05.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Web.config",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAACuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-17T16:14:06.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CuDansController.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\CuDansController.cs",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Controllers\\CuDansController.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\CuDansController.cs",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\Controllers\\CuDansController.cs",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAowB8BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:56:16.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\appsettings.json",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAACVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-17T16:00:17.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\TheBaoHiem\\Create.cshtml",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\TheBaoHiem\\Create.cshtml",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\TheBaoHiem\\Create.cshtml",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\TheBaoHiem\\Create.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T17:13:22.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TheBaoHiemsController.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\TheBaoHiemsController.cs",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Controllers\\TheBaoHiemsController.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\TheBaoHiemsController.cs",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\Controllers\\TheBaoHiemsController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwGQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:42:06.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TheBaoHiemController.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\TheBaoHiemController.cs",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Controllers\\TheBaoHiemController.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\TheBaoHiemController.cs",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Controllers\\TheBaoHiemController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAswFcAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:34:09.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Controllers\\HomeController.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:55:32.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TheBaoHiem.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\TheBaoHiem.cs",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\TheBaoHiem.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\TheBaoHiem.cs",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\Models\\TheBaoHiem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:40:54.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "QuanLyChungCuDbContext.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:39:29.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "QuanLyCuDanContext.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:41:13.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TheBaoHiem.cs",
+              "DocumentMoniker": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\TheBaoHiem.cs",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Models\\TheBaoHiem.cs",
+              "ToolTip": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\TheBaoHiem.cs",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Models\\TheBaoHiem.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T16:41:18.726Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+﻿@model BaoCaoCK_QLCuDan.Models.TheBaoHiem
+
+@{
+    ViewBag.Title = "Cấp Thẻ Bảo Hiểm Mới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .form-control:focus, .form-select:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    }
+
+    .input-group-text {
+        background-color: #f8f9fa;
+        border-right: none;
+    }
+
+    .form-control, .form-select {
+        border-left: none;
+    }
+    /* Fix viền khi input group focus */
+    .input-group:focus-within .input-group-text {
+        border-color: #0d6efd;
+    }
+
+    .card-hover {
+        transition: transform 0.2s;
+    }
+
+    .card-header-custom {
+        background: linear-gradient(45deg, #0d6efd, #0dcaf0);
+        color: white;
+    }
+</style>
+
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <h1 class="h3 text-gray-800">Cấp Thẻ BHYT Mới</h1>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index")" class="text-decoration-none">Bảo Hiểm</a></li>
+            <li class="breadcrumb-item active">Thêm Mới</li>
+        </ol>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0 rounded-3 mb-5">
+                <div class="card-header card-header-custom py-3 rounded-top-3">
+                    <h5 class="m-0 fw-bold"><i class="fas fa-file-medical me-2"></i>Thông tin thẻ bảo hiểm</h5>
+                </div>
+                <div class="card-body p-4 bg-white">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-secondary small text-uppercase">Thông tin chủ thẻ</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user text-primary"></i></span>
+                                    @Html.DropDownList("MaCuDan", null, "--- Chọn Cư Dân ---", htmlAttributes: new { @class = "form-select form-select-lg" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.MaCuDan, "", new { @class = "text-danger small mt-1" })
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold text-secondary small text-uppercase">Mã số thẻ</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-id-card text-primary"></i></span>
+                                        @Html.EditorFor(model => model.MaSoThe, new { htmlAttributes = new { @class = "form-control", @placeholder = "VD: DN479..." } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.MaSoThe, "", new { @class = "text-danger small mt-1" })
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold text-secondary small text-uppercase">Nơi ĐK KCB</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-hospital text-danger"></i></span>
+                                        @Html.EditorFor(model => model.NoiDangKyKCB, new { htmlAttributes = new { @class = "form-control", @placeholder = "VD: Bệnh viện Đa Khoa..." } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.NoiDangKyKCB, "", new { @class = "text-danger small mt-1" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold text-secondary small text-uppercase">Ngày hiệu lực</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white"><i class="fas fa-calendar-check text-success"></i></span>
+                                        @Html.EditorFor(model => model.NgayDangKy, new { htmlAttributes = new { @class = "form-control flatpickr ps-2", @type = "text", @placeholder = "Chọn ngày bắt đầu..." } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.NgayDangKy, "", new { @class = "text-danger small mt-1" })
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label fw-bold text-secondary small text-uppercase">Ngày hết hạn</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-white"><i class="fas fa-calendar-times text-warning"></i></span>
+                                        @Html.EditorFor(model => model.NgayHetHan, new { htmlAttributes = new { @class = "form-control flatpickr ps-2", @type = "text", @placeholder = "Chọn ngày kết thúc..." } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.NgayHetHan, "", new { @class = "text-danger small mt-1" })
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-secondary small text-uppercase">Ghi chú thêm</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-sticky-note text-muted"></i></span>
+                                    @Html.TextAreaFor(model => model.GhiChu, new { @class = "form-control", @rows = "3", @placeholder = "Nhập ghi chú nếu có..." })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger small mt-1" })
+                            </div>
+
+                            <hr class="my-4" />
+
+                            <div class="d-flex justify-content-end" style="gap: 20px;">
+
+                                <a href="@Url.Action("Index")" class="btn btn-light border px-4" style="margin-right: 15px;">
+                                    <i class="fas fa-arrow-left"style="margin-right: 5px;"></i> Quay lại
+                                </a>
+
+                                <button type="submit" class="btn btn-primary px-4 shadow-sm">
+                                    <i class="fas fa-save"style="margin-right: 5px;"></i> Lưu Dữ Liệu
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr(".flatpickr", {
+                locale: "vn",
+                dateFormat: "Y-m-d",
+                altInput: true,
+                altFormat: "d/m/Y",
+                allowInput: true,
+                disableMobile: "true"
+            });
+        });
+    </script>

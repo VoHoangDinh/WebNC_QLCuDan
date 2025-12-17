@@ -1,0 +1,116 @@
+﻿@model BaoCaoCK_QLCuDan.Models.TheBaoHiem
+
+@{
+    ViewBag.Title = "Xác Nhận Xóa Thẻ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Gradient đỏ cho Header cảnh báo */
+    .card-header-danger {
+        background: linear-gradient(135deg, #dc3545 0%, #e35d6a 100%);
+        color: white;
+    }
+
+    /* Style cho các dòng thông tin */
+    .info-row {
+        border-bottom: 1px dashed #dee2e6;
+        padding-bottom: 12px; /* Giảm khoảng cách một chút */
+        margin-bottom: 12px;
+    }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+    .info-label {
+        font-weight: 600;
+        color: #6c757d;
+        text-transform: uppercase;
+        font-size: 0.85rem; /* [ĐÃ GIẢM] Chữ tiêu đề nhỏ hơn */
+    }
+
+    .info-value {
+        font-weight: 600; /* Giảm độ đậm một chút cho nhẹ nhàng */
+        color: #212529;
+        font-size: 1rem; /* [ĐÃ GIẢM] Về cỡ chữ chuẩn (16px) thay vì to đùng */
+    }
+</style>
+
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <h1 class="h3 text-danger fw-bold">Xác Nhận Xóa</h1>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="@Url.Action("Index")" class="text-decoration-none text-danger">Bảo Hiểm</a></li>
+            <li class="breadcrumb-item active">Xóa</li>
+        </ol>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0 rounded-3 mb-5">
+                <div class="card-header card-header-danger py-4 text-center rounded-top-3">
+                    <i class="fas fa-exclamation-triangle fa-4x mb-3"></i>
+                    <h4 class="m-0 fw-bold">Bạn có chắc chắn muốn xóa thẻ này?</h4>
+                    <p class="text-white-50 mb-0 fs-6">Hành động này không thể hoàn tác.</p>
+                </div>
+
+                <div class="card-body p-5 bg-white">
+                    <div class="alert alert-light border-danger border-start border-4 shadow-sm mb-5 p-4">
+                        <div class="row info-row align-items-center">
+                            <div class="col-md-3 info-label">
+                                <i class="fas fa-user text-danger"style="margin-right: 5px;"></i>Chủ thẻ
+                            </div>
+                            <div class="col-md-9 info-value text-primary">
+                                @Html.DisplayFor(model => model.CuDan.HoTen)
+                            </div>
+                        </div>
+
+                        <div class="row info-row align-items-center">
+                            <div class="col-md-3 info-label">
+                                <i class="fas fa-id-card text-danger"style="margin-right: 5px;"></i>Mã số
+                            </div>
+                            <div class="col-md-9 info-value">
+                                <span class="badge bg-secondary">@Html.DisplayFor(model => model.MaSoThe)</span>
+                            </div>
+                        </div>
+
+                        <div class="row info-row align-items-center">
+                            <div class="col-md-3 info-label">
+                                <i class="fas fa-hospital text-danger"style="margin-right: 5px;"></i>Nơi KCB
+                            </div>
+                            <div class="col-md-9 info-value">
+                                @Html.DisplayFor(model => model.NoiDangKyKCB)
+                            </div>
+                        </div>
+
+                        <div class="row info-row align-items-center">
+                            <div class="col-md-3 info-label">
+                                <i class="fas fa-calendar-alt text-danger"style="margin-right: 5px;"></i>Hạn dùng
+                            </div>
+                            <div class="col-md-9 info-value">
+                                @String.Format("{0:dd/MM/yyyy}", Model.NgayDangKy)
+                                <i class="fas fa-long-arrow-alt-right mx-3 text-muted"></i>
+                                @String.Format("{0:dd/MM/yyyy}", Model.NgayHetHan)
+                            </div>
+                        </div>
+                    </div>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                <div class="d-flex justify-content-center mt-5" style="gap: 30px;">
+                    <a href="@Url.Action("Index")" class="btn btn-light border px-4 py-2" style="margin-right: 15px;">
+                        <i class="fas fa-times"style="margin-right: 5px;"></i>Hủy bỏ
+                    </a>
+                    <button type="submit" class="btn btn-danger px-4 py-2 shadow-sm">
+                        <i class="fas fa-trash-alt"style="margin-right: 5px;"></i>Xác nhận Xóa
+                    </button>
+                </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
