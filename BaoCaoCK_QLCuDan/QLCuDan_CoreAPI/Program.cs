@@ -42,6 +42,7 @@ var app = builder.Build();
 // Bật Swagger để test API (chỉ hiện khi chạy Debug)
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
