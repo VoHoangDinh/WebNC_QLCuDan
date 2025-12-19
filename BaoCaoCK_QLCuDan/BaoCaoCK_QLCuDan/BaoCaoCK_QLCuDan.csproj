@@ -144,6 +144,7 @@
     <Compile Include="Controllers\HoGiaDinhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiHoController.cs" />
+    <Compile Include="Controllers\PhanAnhController.cs" />
     <Compile Include="Controllers\TheBaoHiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -187,6 +188,8 @@
     <Content Include="Views\LoaiHo\Create.cshtml" />
     <Content Include="Views\LoaiHo\Edit.cshtml" />
     <Content Include="Views\LoaiHo\Index.cshtml" />
+    <Content Include="Views\PhanAnh\Index.cshtml" />
+    <Content Include="Views\PhanAnh\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

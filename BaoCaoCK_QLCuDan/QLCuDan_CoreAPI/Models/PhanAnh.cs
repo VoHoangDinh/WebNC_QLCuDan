@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace QLCuDan_CoreAPI.Models
 {
@@ -14,5 +15,9 @@ namespace QLCuDan_CoreAPI.Models
         public DateTime? NgayGui { get; set; }
         public string? TrangThai { get; set; }
         public int? MaCuDan { get; set; }
+
+        [ForeignKey("MaCuDan")]
+
+        public virtual CuDan? CuDan { get; set; }
     }
 }

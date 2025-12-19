@@ -1,0 +1,193 @@
+﻿@model IEnumerable<BaoCaoCK_QLCuDan.Models.PhanAnh>
+
+@{
+    ViewData["Title"] = "Quản lý phản ánh";
+}
+
+<style>
+    /* --- CSS CHO CARD --- */
+    .ticket-card {
+        border: none;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        border-left: 5px solid #ccc;
+    }
+
+        .ticket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+    /* Viền trái thẻ */
+    .status-new {
+        border-left-color: #e74a3b !important;
+    }
+
+    .status-process {
+        border-left-color: #f6c23e !important;
+    }
+
+    .status-done {
+        border-left-color: #1cc88a !important;
+    }
+
+    .ticket-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 0.85rem;
+        color: #858796;
+    }
+
+    /* --- CSS CHO BADGE TRẠNG THÁI --- */
+    .ticket-badge {
+        padding: 4px 15px;
+        border-radius: 6px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-left: 10px;
+        white-space: nowrap;
+    }
+
+    .badge-new {
+        background-color: #e74a3b;
+        color: #ffffff !important;
+    }
+
+    .badge-process {
+        background-color: #f6c23e;
+        color: #2e2e2e !important;
+    }
+
+    .badge-done {
+        background-color: #1cc88a;
+        color: #ffffff !important;
+    }
+
+    .ticket-title {
+        font-size: 1.2rem; /* Tăng cỡ chữ tiêu đề lên 1 xíu cho cân đối với thẻ to */
+        font-weight: 700;
+        color: #4e73df;
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        height: 3rem; /* Tăng chiều cao vùng tiêu đề */
+    }
+
+    .ticket-user {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed #e3e6f0;
+    }
+
+    .user-avatar {
+        width: 45px; /* Avatar to hơn chút */
+        height: 45px;
+        background-color: #eaecf4;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4e73df;
+        font-weight: bold;
+        margin-right: 12px;
+        font-size: 1.3rem;
+    }
+
+    .btn-action {
+        width: 100%;
+        border-radius: 20px;
+        font-weight: 600;
+        margin-top: 15px;
+        background: #4e73df;
+        border: none;
+        padding: 8px 0; /* Nút cao hơn chút cho dễ bấm */
+    }
+
+        .btn-action:hover {
+            background: #2e59d9;
+        }
+</style>
+
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <div>
+            <h2 class="mb-0 text-gray-800" style="font-weight: 700;">📋 Quản lý phản ánh</h2>
+            <p class="text-muted small mb-0">Theo dõi và xử lý ý kiến cư dân</p>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            string borderClass = "status-done";
+            string badgeClass = "badge-done";
+
+            if (item.TrangThai == "Mới tiếp nhận")
+            {
+                borderClass = "status-new";
+                badgeClass = "badge-new";
+            }
+            else if (item.TrangThai == "Đang xử lý")
+            {
+                borderClass = "status-process";
+                badgeClass = "badge-process";
+            }
+
+            /* [THAY ĐỔI QUAN TRỌNG Ở ĐÂY]
+               col-xl-4: Trên màn hình lớn sẽ hiển thị 3 cột (thay vì 4 như cũ) -> Thẻ sẽ to hơn 33%
+            */
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="ticket-card @borderClass p-4">
+                    <div class="ticket-header">
+                        <span><i class="far fa-clock me-1"></i> @(item.NgayGui.HasValue ? item.NgayGui.Value.ToString("dd/MM/yyyy") : "--")</span>
+
+                        <span class="ticket-badge @badgeClass">
+                            @item.TrangThai
+                        </span>
+                    </div>
+
+                    <h5 class="ticket-title" title="@item.TieuDe">
+                        @item.TieuDe
+                    </h5>
+
+                    <small class="text-muted d-block mb-2">Ticket ID: #@item.MaPhanAnh</small>
+
+                    <div class="ticket-user">
+                        <div class="user-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div style="line-height: 1.2; overflow: hidden;">
+                            @if (item.CuDan != null)
+                            {
+                                <div class="fw-bold text-dark text-truncate" style="max-width: 200px;">@item.CuDan.HoTen</div>
+                                <small class="text-muted" style="font-size: 0.75rem;">Phòng: @(item.MaCuDan)</small>
+                            }
+                            else
+                            {
+                                <div class="text-muted fst-italic">Ẩn danh / Đã xóa</div>
+                                <small class="text-muted">ID: @item.MaCuDan</small>
+                            }
+                        </div>
+                    </div>
+
+                    <a href="@Url.Action("Edit", "PhanAnh", new { id = item.MaPhanAnh })" class="btn btn-primary btn-sm btn-action">
+                        <i class="fas fa-edit me-1"></i> Xem chi tiết & Xử lý
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

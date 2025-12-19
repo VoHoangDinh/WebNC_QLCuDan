@@ -787,6 +787,124 @@
         }
       }
     },
+    "/api/PhanAnhApi": {
+      "get": {
+        "tags": [
+          "PhanAnhApi"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PhanAnh"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PhanAnh"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PhanAnh"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PhanAnhApi/{id}": {
+      "get": {
+        "tags": [
+          "PhanAnhApi"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhanAnh"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhanAnh"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PhanAnh"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PhanAnhApi"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhanAnh"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhanAnh"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PhanAnh"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/TheBaoHiems": {
       "get": {
         "tags": [
@@ -1299,6 +1417,41 @@
           "tenLoai": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PhanAnh": {
+        "type": "object",
+        "properties": {
+          "maPhanAnh": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tieuDe": {
+            "type": "string",
+            "nullable": true
+          },
+          "noiDung": {
+            "type": "string",
+            "nullable": true
+          },
+          "ngayGui": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "trangThai": {
+            "type": "string",
+            "nullable": true
+          },
+          "maCuDan": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cuDan": {
+            "$ref": "#/components/schemas/CuDan"
           }
         },
         "additionalProperties": false

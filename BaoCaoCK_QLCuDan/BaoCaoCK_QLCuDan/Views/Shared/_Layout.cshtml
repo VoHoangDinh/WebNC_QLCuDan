@@ -154,6 +154,10 @@
                class="@(currentController == "TheBaoHiem" ? "active" : "")">
                 <i class="fas fa-id-card"></i> Quản lý thẻ bảo hiểm
             </a>
+            <a href="@Url.Action("Index", "PhanAnh")"
+               class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "PhanAnh" ? "active" : "")">
+                <i class="fas fa-bullhorn"></i> Quản lý phản ánh
+            </a>
             <a href="#"><i class="fas fa-fw fa-user-tag"></i> Vai trò</a>
             <a href="#"><i class="fas fa-fw fa-search"></i> Tìm kiếm cư dân</a>
             <a href="#"><i class="fas fa-fw fa-key"></i> Đổi mật khẩu</a>
