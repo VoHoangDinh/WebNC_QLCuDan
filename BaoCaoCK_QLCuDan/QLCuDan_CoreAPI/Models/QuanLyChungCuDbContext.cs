@@ -17,6 +17,8 @@ namespace QLCuDan_CoreAPI.Models
         public virtual DbSet<PhanAnh> PhanAnhs { get; set; }
         public virtual DbSet<ToaNha> ToaNhas { get; set; }
         public virtual DbSet<VaiTro> VaiTros { get; set; }
-       
+        public DbSet<LoaiHo> LoaiHos { get; set; }
+
+
     }
 }

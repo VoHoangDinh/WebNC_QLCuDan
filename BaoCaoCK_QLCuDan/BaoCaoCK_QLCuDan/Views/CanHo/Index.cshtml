@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BaoCaoCK_QLCuDan.Models.CanHo>
+
+@{
+    ViewBag.Title = "Danh sách Căn hộ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Quản lý Căn hộ</h6>
+        <a href="@Url.Action("Create")" class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i> Thêm mới
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Số phòng</th>
+                        <th>Diện tích (m2)</th>
+                        <th>Tầng</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SoPhong</td>
+                                <td>@item.DienTich</td>
+                                <td>@item.Tang</td>
+                                <td>
+                                    @if (item.TrangThai == "Đã bàn giao" || item.TrangThai == "Đang ở")
+                                    {
+                                        <span class="badge badge-success">@item.TrangThai</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-warning">@item.TrangThai</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("Edit", new { id = item.MaCanHo })" class="btn btn-warning btn-sm text-white">
+                                        <i class="fas fa-edit"></i> Sửa
+                                    </a>
+
+                                    <a href="@Url.Action("Delete", new { id = item.MaCanHo })"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('Bạn có chắc muốn xóa không?');">
+                                        <i class="fas fa-trash"></i> Xóa
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

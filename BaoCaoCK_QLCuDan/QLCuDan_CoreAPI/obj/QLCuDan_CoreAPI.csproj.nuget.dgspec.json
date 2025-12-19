@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj": {}
+    "C:\\Users\\TechCare\\Desktop\\Clonedev\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj": {}
   },
   "projects": {
-    "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj": {
+    "C:\\Users\\TechCare\\Desktop\\Clonedev\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
+        "projectUniqueName": "C:\\Users\\TechCare\\Desktop\\Clonedev\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
         "projectName": "QLCuDan_CoreAPI",
-        "projectPath": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "F:\\125\\xml\\wnc\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\obj\\",
+        "projectPath": "C:\\Users\\TechCare\\Desktop\\Clonedev\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
+        "packagesPath": "C:\\Users\\TechCare\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TechCare\\Desktop\\Clonedev\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\visual1\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TechCare\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
