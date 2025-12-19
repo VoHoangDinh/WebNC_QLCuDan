@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.AccountController",
+    "Method": "SignIn",
+    "RelativePath": "api/Account/SignIn",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "signInModel",
+        "Type": "QLCuDan_CoreAPI.DTO.SignInModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.AccountController",
+    "Method": "SignUp",
+    "RelativePath": "api/Account/signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "signUpModel",
+        "Type": "QLCuDan_CoreAPI.DTO.SignUpModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QLCuDan_CoreAPI.Controllers.CanHosController",
     "Method": "GetCanHos",
     "RelativePath": "api/CanHos",
@@ -463,6 +495,27 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.RoleController",
+    "Method": "AddPermission",
+    "RelativePath": "api/Role/add-permission",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "permission",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

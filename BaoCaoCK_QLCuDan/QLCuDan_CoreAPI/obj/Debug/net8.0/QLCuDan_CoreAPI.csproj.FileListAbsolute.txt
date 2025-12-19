@@ -2316,3 +2316,11 @@ E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\obj\Debug
 E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\obj\Debug\net8.0\QLCuDan_CoreAPI.pdb
 E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\obj\Debug\net8.0\QLCuDan_CoreAPI.genruntimeconfig.cache
 E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\obj\Debug\net8.0\ref\QLCuDan_CoreAPI.dll
+E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\bin\Debug\net8.0\AutoMapper.dll
+E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+E:\ASP .net\QLDCdevelop\WebNC_QLCuDan\BaoCaoCK_QLCuDan\QLCuDan_CoreAPI\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
