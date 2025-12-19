@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TechCare\\Desktop\\Clonedev\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\",
-  "Documents": [],
+  "WorkspaceRootPath": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,87 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\appsettings.json",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAACUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-19T13:53:34.735Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{25f7e850-ffa1-11d0-b63f-00a0c922e851}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 405,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3fd5e0cc-709a-4f8c-94c3-7f0f8dff5bb2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 405,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Web.config",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-12-19T13:53:16.33Z",
+              "EditorCaption": ""
             }
           ]
         }
