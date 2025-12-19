@@ -130,13 +130,21 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i> Trang chủ
             </a>
 
-            <a href="#" class="@(currentController == "LoaiHo" ? "active" : "")">
-                <i class="fas fa-fw fa-list"></i> Loại hộ gia đình
+            <a href="@Url.Action("Index", "LoaiHo")"
+               class="@(ViewContext.RouteData.Values["controller"].ToString() == "LoaiHo" ? "active" : "")">
+                <i class="fas fa-list"></i> Loại hộ gia đình
             </a>
 
-            <a href="#" class="@(currentController == "HoGiaDinh" ? "active" : "")">
-                <i class="fas fa-fw fa-users"></i> Quản lý hộ gia đình
+            <a href="@Url.Action("Index", "HoGiaDinh")"
+               class="@(ViewContext.RouteData.Values["controller"].ToString() == "HoGiaDinh" ? "active" : "")">
+                <i class="fas fa-users"></i> Quản lý hộ gia đình
             </a>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Index", "CanHo")">
+                    <i class="fas fa-fw fa-building"></i>
+                    <span>Quản lý Căn hộ</span>
+                </a>
+            </li>
 
             <a href="/CuDan/Index" class="@(currentController == "CuDan" ? "active" : "")">
                 <i class="fas fa-fw fa-user"></i> Quản lý cư dân

@@ -5,6 +5,191 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/CanHos": {
+      "get": {
+        "tags": [
+          "CanHos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CanHo"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CanHo"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CanHo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CanHos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CanHo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CanHo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CanHo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CanHo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CanHo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CanHo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CanHos/{id}": {
+      "put": {
+        "tags": [
+          "CanHos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CanHo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CanHo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CanHo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CanHos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CanHos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CanHo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CanHo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CanHo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/CuDans": {
       "get": {
         "tags": [
@@ -172,6 +357,417 @@
       "delete": {
         "tags": [
           "CuDans"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/HoGiaDinhs": {
+      "get": {
+        "tags": [
+          "HoGiaDinhs"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HoGiaDinh"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HoGiaDinh"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HoGiaDinh"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "HoGiaDinhs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HoGiaDinh"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HoGiaDinh"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HoGiaDinh"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HoGiaDinh"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HoGiaDinh"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HoGiaDinh"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HoGiaDinhs/{id}": {
+      "get": {
+        "tags": [
+          "HoGiaDinhs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HoGiaDinh"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HoGiaDinh"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HoGiaDinh"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "HoGiaDinhs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HoGiaDinhUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HoGiaDinhUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HoGiaDinhUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "HoGiaDinhs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/HoGiaDinhs/{id}/Members": {
+      "get": {
+        "tags": [
+          "HoGiaDinhs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 4
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoaiHos": {
+      "get": {
+        "tags": [
+          "LoaiHos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LoaiHo"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LoaiHo"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LoaiHo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "LoaiHos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoaiHo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoaiHo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoaiHo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoaiHo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoaiHo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoaiHo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/LoaiHos/{id}": {
+      "get": {
+        "tags": [
+          "LoaiHos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoaiHo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoaiHo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoaiHo"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LoaiHos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoaiHo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoaiHo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoaiHo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "LoaiHos"
         ],
         "parameters": [
           {
@@ -425,6 +1021,44 @@
         }
       }
     },
+    "/api/ToaNhas": {
+      "get": {
+        "tags": [
+          "ToaNhas"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ToaNha"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ToaNha"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ToaNha"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -467,6 +1101,38 @@
   },
   "components": {
     "schemas": {
+      "CanHo": {
+        "type": "object",
+        "properties": {
+          "maCanHo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "soPhong": {
+            "type": "string",
+            "nullable": true
+          },
+          "dienTich": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tang": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trangThai": {
+            "type": "string",
+            "nullable": true
+          },
+          "maToaNha": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "CuDan": {
         "type": "object",
         "properties": {
@@ -541,6 +1207,102 @@
         },
         "additionalProperties": false
       },
+      "HoGiaDinh": {
+        "type": "object",
+        "properties": {
+          "maHo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ngayNhanNha": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "soThanhVien": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tenChuHo": {
+            "type": "string",
+            "nullable": true
+          },
+          "trangThai": {
+            "type": "string",
+            "nullable": true
+          },
+          "maCanHo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maLoaiHo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maCanHoNavigation": {
+            "$ref": "#/components/schemas/CanHo"
+          },
+          "maLoaiHoNavigation": {
+            "$ref": "#/components/schemas/LoaiHo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HoGiaDinhUpdateDto": {
+        "type": "object",
+        "properties": {
+          "maHo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ngayNhanNha": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "soThanhVien": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tenChuHo": {
+            "type": "string",
+            "nullable": true
+          },
+          "trangThai": {
+            "type": "string",
+            "nullable": true
+          },
+          "maCanHo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maLoaiHo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoaiHo": {
+        "type": "object",
+        "properties": {
+          "maLoaiHo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenLoai": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "TheBaoHiem": {
         "required": [
           "maSoThe",
@@ -584,6 +1346,24 @@
           },
           "cuDan": {
             "$ref": "#/components/schemas/CuDan"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ToaNha": {
+        "type": "object",
+        "properties": {
+          "maToaNha": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenToaNha": {
+            "type": "string",
+            "nullable": true
+          },
+          "diaChi": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

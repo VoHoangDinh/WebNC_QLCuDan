@@ -248,7 +248,7 @@ GO
 INSERT INTO CuDan (HoTen, NgaySinh, GioiTinh, SDT, Email, QuanHeVoiChuHo, MaHo, TrinhDoHocVan) VALUES 
 (N'Nguyễn Văn A', '1980-05-10', N'Nam', '0909123456', 'nguyenvana@gmail.com', N'Chủ hộ', 1, N'Đại học'),
 (N'Trần Thị B', '1995-08-20', N'Nữ', '0909654321', 'tranthib@gmail.com', N'Chủ hộ', 2, N'Thạc sĩ'),
-(N'Lê Văn C', '1990-12-05', N'Nam', '0912345678', 'levanc@gmail.com', N'Con', 3, N'Cao đẳng');
+(N'Lê Văn C', '1990-12-05', N'Nam', '0912345678', 'levanc@gmail.com', N'Chủ hộ', 3, N'Cao đẳng');
 GO
 
 -- 5. Thêm Phản Ánh (Liên kết Cư Dân)
@@ -441,3 +441,7 @@ BEGIN
 END;
 
 select * from CuDan
+select * from HoGiaDinh
+select * from CanHo
+select * from TheBaoHiem
+select * from PhanAnh

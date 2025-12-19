@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization; // <--- Thêm thư viện này
 
 namespace QLCuDan_CoreAPI.Models
 {
@@ -16,7 +17,6 @@ namespace QLCuDan_CoreAPI.Models
         public string? Email { get; set; }
         public string? Avatar { get; set; }
 
-        // Các trường bổ sung
         public string? TrinhDoHocVan { get; set; }
         public DateTime? NgayVaoDang { get; set; }
         public DateTime? NgayVaoDoan { get; set; }
@@ -26,10 +26,12 @@ namespace QLCuDan_CoreAPI.Models
         public string? DauVetDacBiet { get; set; }
         public string? QuanHeVoiChuHo { get; set; }
 
+        // --- KHÓA NGOẠI ---
         public int? MaHo { get; set; }
 
-        // Có thể bỏ qua khóa ngoại nếu chỉ làm API đơn giản, hoặc thêm vào nếu cần include
-        // [ForeignKey("MaHo")]
-        // public virtual HoGiaDinh? HoGiaDinh { get; set; }
+        // --- BẮT BUỘC MỞ LẠI ĐOẠN NÀY ĐỂ EF HIỂU LIÊN KẾT ---
+        [ForeignKey("MaHo")] // Chỉ định rõ MaHo là khóa ngoại
+        [JsonIgnore]         // Thêm cái này để cắt vòng lặp vô tận (Ho -> Dan -> Ho...)
+        public virtual HoGiaDinh? HoGiaDinh { get; set; }
     }
 }

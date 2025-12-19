@@ -181,6 +181,15 @@ namespace BaoCaoCK_QLCuDan.Controllers
 
             using (var client = CreateClient())
             {
+                // Lấy lại thông tin hiện tại để giữ nguyên MaHo & QuanHeVoiChuHo
+                HttpResponseMessage getResponse = await client.GetAsync("api/CuDans/" + id);
+                if (getResponse.IsSuccessStatusCode)
+                {
+                    var existing = await getResponse.Content.ReadAsAsync<CuDan>();
+                    cuDan.MaHo = existing.MaHo;
+                    cuDan.QuanHeVoiChuHo = existing.QuanHeVoiChuHo;
+                }
+
                 HttpResponseMessage response = await client.PutAsJsonAsync("api/CuDans/" + id, cuDan);
                 if (response.IsSuccessStatusCode)
                 {
