@@ -92,10 +92,7 @@ builder.Services.AddAuthentication(option =>
             ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
                                    .GetBytes(builder.Configuration["JWT:Secret"]))
-
-
         };
-
     }
     );
 
