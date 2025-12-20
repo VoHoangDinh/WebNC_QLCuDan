@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using QLCuDan_CoreAPI.Authorization;
 using QLCuDan_CoreAPI.Models; // <--- Sửa dòng này thành namespace chứa Models của bạn
 using QLCuDan_CoreAPI.Repository;
 using QLCuDan_CoreAPI.Service;
@@ -101,16 +103,19 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddScoped<IAccountRepository, AccountService>();
 
+// Đăng ký Authorization Handler để check DB
+builder.Services.AddScoped<IAuthorizationHandler, PermissionHandler>();
 
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ManageUser", policy =>
-        policy.RequireClaim("Permission", "ManageUser"));
+        policy.Requirements.Add(new PermissionRequirement("ManageUser")));
 
     options.AddPolicy("ViewReports", policy =>
-        policy.RequireClaim("Permission", "ViewReports"));
+        policy.Requirements.Add(new PermissionRequirement("ViewReports")));
+    
     options.AddPolicy("UpdateUser", policy =>
-        policy.RequireClaim("Permission", "updateUser"));
+        policy.Requirements.Add(new PermissionRequirement("updateUser")));
 });
 
 
