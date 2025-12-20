@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using QLCuDan_CoreAPI.Models;
 
@@ -92,22 +94,57 @@ namespace QLCuDan_CoreAPI.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(cuDan).State = EntityState.Modified;
-
-            try
+            // Lấy thông tin cư dân hiện tại từ database
+            var existingCuDan = await _context.CuDans.AsNoTracking().FirstOrDefaultAsync(c => c.MaCuDan == id);
+            if (existingCuDan == null)
             {
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
-            catch (DbUpdateConcurrencyException)
+
+            // Bảo vệ MaCuDan, HoTen (không cho phép cập nhật)
+            cuDan.MaCuDan = existingCuDan.MaCuDan;
+            cuDan.HoTen = existingCuDan.HoTen;
+
+            // Thực hiện UPDATE thuần SQL để tránh OUTPUT clause (bảng có trigger)
+            var sql = @"
+UPDATE CuDan
+SET NgaySinh = @NgaySinh,
+    GioiTinh = @GioiTinh,
+    SDT = @SDT,
+    Email = @Email,
+    Avatar = @Avatar,
+    TrinhDoHocVan = @TrinhDoHocVan,
+    NgayVaoDang = @NgayVaoDang,
+    NgayVaoDoan = @NgayVaoDoan,
+    HocHamHocVi = @HocHamHocVi,
+    NhanDang_Cao = @NhanDang_Cao,
+    NhanDang_SongMui = @NhanDang_SongMui,
+    DauVetDacBiet = @DauVetDacBiet,
+    QuanHeVoiChuHo = @QuanHeVoiChuHo
+WHERE MaCuDan = @MaCuDan";
+
+            var parameters = new[]
             {
-                if (!CuDanExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                new SqlParameter("@NgaySinh", (object?)cuDan.NgaySinh ?? DBNull.Value),
+                new SqlParameter("@GioiTinh", (object?)cuDan.GioiTinh ?? DBNull.Value),
+                new SqlParameter("@SDT", (object?)cuDan.SDT ?? DBNull.Value),
+                new SqlParameter("@Email", (object?)cuDan.Email ?? DBNull.Value),
+                new SqlParameter("@Avatar", (object?)cuDan.Avatar ?? DBNull.Value),
+                new SqlParameter("@TrinhDoHocVan", (object?)cuDan.TrinhDoHocVan ?? DBNull.Value),
+                new SqlParameter("@NgayVaoDang", (object?)cuDan.NgayVaoDang ?? DBNull.Value),
+                new SqlParameter("@NgayVaoDoan", (object?)cuDan.NgayVaoDoan ?? DBNull.Value),
+                new SqlParameter("@HocHamHocVi", (object?)cuDan.HocHamHocVi ?? DBNull.Value),
+                new SqlParameter("@NhanDang_Cao", (object?)cuDan.NhanDang_Cao ?? DBNull.Value),
+                new SqlParameter("@NhanDang_SongMui", (object?)cuDan.NhanDang_SongMui ?? DBNull.Value),
+                new SqlParameter("@DauVetDacBiet", (object?)cuDan.DauVetDacBiet ?? DBNull.Value),
+                new SqlParameter("@QuanHeVoiChuHo", (object?)cuDan.QuanHeVoiChuHo ?? DBNull.Value),
+                new SqlParameter("@MaCuDan", cuDan.MaCuDan)
+            };
+
+            var affected = await _context.Database.ExecuteSqlRawAsync(sql, parameters);
+            if (affected == 0)
+            {
+                return NotFound();
             }
 
             return NoContent();

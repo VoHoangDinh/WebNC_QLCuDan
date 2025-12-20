@@ -96,6 +96,159 @@ namespace BaoCaoCK_QLCuDan.Controllers
                 return View();
             }
         }
+
+        // GET: NguoiDung/Edit
+        public async Task<ActionResult> Edit()
+        {
+            // Kiểm tra đăng nhập
+            if (Session["Token"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Lấy MaCuDan từ Session
+            int? maCuDan = null;
+            if (Session["MaCuDan"] != null)
+            {
+                maCuDan = (int)Session["MaCuDan"];
+            }
+            else
+            {
+                var token = Session["Token"]?.ToString();
+                maCuDan = JwtHelper.GetMaCuDanFromToken(token);
+                if (maCuDan.HasValue)
+                {
+                    Session["MaCuDan"] = maCuDan.Value;
+                }
+            }
+
+            if (!maCuDan.HasValue)
+            {
+                ViewBag.ErrorMessage = "Không tìm thấy mã cư dân. Vui lòng đăng nhập lại.";
+                return View();
+            }
+
+            try
+            {
+                // Gọi API để lấy thông tin cư dân
+                using (var client = CreateClient())
+                {
+                    var response = await client.GetAsync($"api/CuDans/{maCuDan.Value}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var content = await response.Content.ReadAsStringAsync();
+                        var cuDan = JsonConvert.DeserializeObject<CuDan>(content);
+                        return View(cuDan);
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        ViewBag.ErrorMessage = "Không tìm thấy thông tin cư dân.";
+                        return View();
+                    }
+                    else
+                    {
+                        ViewBag.ErrorMessage = "Có lỗi xảy ra khi tải thông tin cư dân.";
+                        return View();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "Có lỗi xảy ra: " + ex.Message;
+                return View();
+            }
+        }
+
+        // POST: NguoiDung/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(CuDan cuDan)
+        {
+            // Kiểm tra đăng nhập
+            if (Session["Token"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Lấy MaCuDan từ Session
+            int? maCuDan = null;
+            if (Session["MaCuDan"] != null)
+            {
+                maCuDan = (int)Session["MaCuDan"];
+            }
+            else
+            {
+                var token = Session["Token"]?.ToString();
+                maCuDan = JwtHelper.GetMaCuDanFromToken(token);
+                if (maCuDan.HasValue)
+                {
+                    Session["MaCuDan"] = maCuDan.Value;
+                }
+            }
+
+            if (!maCuDan.HasValue)
+            {
+                ViewBag.ErrorMessage = "Không tìm thấy mã cư dân. Vui lòng đăng nhập lại.";
+                return View(cuDan);
+            }
+
+            // Đảm bảo MaCuDan và HoTen không bị thay đổi
+            cuDan.MaCuDan = maCuDan.Value;
+            
+            // Lấy thông tin cũ để giữ nguyên HoTen
+            try
+            {
+                using (var client = CreateClient())
+                {
+                    var getResponse = await client.GetAsync($"api/CuDans/{maCuDan.Value}");
+                    if (getResponse.IsSuccessStatusCode)
+                    {
+                        var content = await getResponse.Content.ReadAsStringAsync();
+                        var cuDanCu = JsonConvert.DeserializeObject<CuDan>(content);
+                        cuDan.HoTen = cuDanCu.HoTen; // Giữ nguyên tên cư dân
+                    }
+                }
+            }
+            catch
+            {
+                ViewBag.ErrorMessage = "Không thể lấy thông tin cư dân hiện tại.";
+                return View(cuDan);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(cuDan);
+            }
+
+            try
+            {
+                // Gọi API để cập nhật thông tin
+                using (var client = CreateClient())
+                {
+                    var json = JsonConvert.SerializeObject(cuDan);
+                    var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+                    var response = await client.PutAsync($"api/CuDans/{maCuDan.Value}", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
+                        return RedirectToAction("Home");
+                    }
+                    else
+                    {
+                        var errorContent = await response.Content.ReadAsStringAsync();
+                        ViewBag.ErrorMessage = "Có lỗi xảy ra khi cập nhật: " + errorContent;
+                        return View(cuDan);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "Có lỗi xảy ra: " + ex.Message;
+                return View(cuDan);
+            }
+        }
     }
 }
 
