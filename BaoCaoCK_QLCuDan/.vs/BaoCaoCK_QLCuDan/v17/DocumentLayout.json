@@ -1,49 +1,49 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\",
+  "WorkspaceRootPath": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\baocaock_qlcudan\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\baocaock_qlcudan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\qlcudan_coreapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldc\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\qlcudan_coreapi\\models\\quanlychungcudbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|e:\\asp .net\\qldc\\webnc_qlcudan\\baocaock_qlcudan\\baocaock_qlcudan\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldc\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\models\\quanlychungcudbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\models\\quanlychungcudbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\qlcudan_coreapi\\controllers\\phananhapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldc\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\controllers\\phananhapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\controllers\\phananhapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\qlcudan_coreapi\\models\\phananh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldc\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\models\\phananh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\models\\phananh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\baocaock_qlcudan\\views\\phananh\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\views\\phananh\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\phananh\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\baocaock_qlcudan\\views\\phananh\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\views\\phananh\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\phananh\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\baocaock_qlcudan\\models\\quanlycudancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\models\\quanlycudancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\models\\quanlycudancontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\baocaock_qlcudan\\controllers\\phananhcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\controllers\\phananhcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\controllers\\phananhcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|f:\\125\\xml\\develop\\baocaock_qlcudan\\baocaock_qlcudan\\models\\phananh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\baocaock_qlcudan\\models\\phananh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\models\\phananh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -54,19 +54,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAIYAAAAAAAAAAAAAAKMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -75,26 +75,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Web.config",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Web.config",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
-              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAACMAAAAAAAAAA==",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config*",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Web.config*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-12-19T21:56:36.284Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\appsettings.json",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
-              "RelativeToolTip": "QLCuDan_CoreAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAB1AAAAAAAAAA==",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json*",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\appsettings.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAACSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-12-19T21:56:10.767Z",
               "EditorCaption": ""
@@ -103,105 +103,97 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "QuanLyChungCuDbContext.cs",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
               "RelativeToolTip": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:55:43.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:55:43.345Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "PhanAnhApiController.cs",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\PhanAnhApiController.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\PhanAnhApiController.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Controllers\\PhanAnhApiController.cs",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\PhanAnhApiController.cs",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\PhanAnhApiController.cs",
               "RelativeToolTip": "QLCuDan_CoreAPI\\Controllers\\PhanAnhApiController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:55:07.191Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:55:07.191Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "PhanAnh.cs",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\PhanAnh.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\PhanAnh.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\PhanAnh.cs",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\PhanAnh.cs",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\PhanAnh.cs",
               "RelativeToolTip": "QLCuDan_CoreAPI\\Models\\PhanAnh.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:54:00.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:54:00.675Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Edit.cshtml",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Edit.cshtml",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Edit.cshtml",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Edit.cshtml",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Edit.cshtml",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Edit.cshtml",
               "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Edit.cshtml",
               "ViewState": "AgIAAJ8AAAAAAAAAAAAAAMEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-19T21:53:34.062Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:53:34.062Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Index.cshtml",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Index.cshtml",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Index.cshtml",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Index.cshtml",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Index.cshtml",
               "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\PhanAnh\\Index.cshtml",
               "ViewState": "AgIAAJ4AAAAAAAAAAADwv8AAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-19T21:52:49.082Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:52:49.082Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "QuanLyCuDanContext.cs",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
               "RelativeToolTip": "BaoCaoCK_QLCuDan\\Models\\QuanLyCuDanContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:52:03.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:52:03.658Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "PhanAnhController.cs",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\PhanAnhController.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\PhanAnhController.cs",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Controllers\\PhanAnhController.cs",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\PhanAnhController.cs",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\PhanAnhController.cs",
               "RelativeToolTip": "BaoCaoCK_QLCuDan\\Controllers\\PhanAnhController.cs",
               "ViewState": "AgIAAFoAAAAAAAAAAAAswHIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:51:22.414Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:51:22.414Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "PhanAnh.cs",
-              "DocumentMoniker": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\PhanAnh.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\PhanAnh.cs",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Models\\PhanAnh.cs",
-              "ToolTip": "F:\\125\\xml\\develop\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\PhanAnh.cs",
+              "ToolTip": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Models\\PhanAnh.cs",
               "RelativeToolTip": "BaoCaoCK_QLCuDan\\Models\\PhanAnh.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAzwB4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:50:03.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:50:03.94Z"
             }
           ]
         }
