@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\baocaock_qlcudan\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\baocaock_qlcudan\\views\\role\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\role\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -67,19 +71,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Controllers\\RoleController.cs",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Controllers\\RoleController.cs",
+              "ViewState": "AgIAAMEAAAAAAAAAAADwv5QAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T14:25:55.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "index.cshtml",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Role\\index.cshtml",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\Role\\index.cshtml",
               "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Role\\index.cshtml",
               "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\Role\\index.cshtml",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAcwK8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-20T14:17:52.086Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
@@ -92,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "QLCuDan_CoreAPI.csproj",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
@@ -105,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AccountController.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Controllers\\AccountController.cs",
@@ -118,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "RoleController.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\RoleController.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Controllers\\RoleController.cs",
@@ -131,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IAccountRepository.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Repository\\IAccountRepository.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Repository\\IAccountRepository.cs",
@@ -144,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Program.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Program.cs",
@@ -157,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\appsettings.json",
@@ -170,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "QuanLyChungCuDbContext.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
@@ -183,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
@@ -196,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AccountService.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Service\\AccountService.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Service\\AccountService.cs",
@@ -209,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Web.config",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Web.config",
