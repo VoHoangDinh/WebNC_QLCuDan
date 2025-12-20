@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H6F05KIVXH8=",
+  "dgSpecHash": "bDHOV+hT+eg=",
   "success": true,
-  "projectFilePath": "E:\\ASP .net\\QLDC\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
+  "projectFilePath": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FPT\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\FPT\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
