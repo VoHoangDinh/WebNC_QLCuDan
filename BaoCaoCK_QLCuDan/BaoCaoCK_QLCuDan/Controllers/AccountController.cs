@@ -15,7 +15,7 @@ namespace BaoCaoCK_QLCuDan.Controllers
 {
     public class AccountController : Controller
     {
-        private const string BaseUrl = "https://localhost:7107/";
+        private const string BaseUrl = "https://localhost:7108/";
 
         private HttpClient CreateClient()
         {

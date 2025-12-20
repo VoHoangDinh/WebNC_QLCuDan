@@ -1,3 +1,8 @@
+@using BaoCaoCK_QLCuDan.Helpers
+@{
+    var token = Session["Token"]?.ToString();
+    var hasUpdatePermission = token != null && JwtHelper.HasPermission(token, "updateUser");
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -161,9 +166,12 @@
             <a href="@Url.Action("Home", "NguoiDung")" class="@(ViewContext.RouteData.Values["action"].ToString() == "Home" && ViewContext.RouteData.Values["controller"].ToString() == "NguoiDung" ? "active" : "")">
                 <i class="fas fa-home"></i> Trang chủ
             </a>
-            <a href="@Url.Action("Home", "NguoiDung")">
-                <i class="fas fa-user"></i> Thông tin cá nhân
-            </a>
+            @if (hasUpdatePermission)
+            {
+                <a href="@Url.Action("Edit", "NguoiDung")" class="@(ViewContext.RouteData.Values["action"].ToString() == "Edit" && ViewContext.RouteData.Values["controller"].ToString() == "NguoiDung" ? "active" : "")">
+                    <i class="fas fa-user-edit"></i> Cập nhật thông tin cá nhân
+                </a>
+            }
             <a href="#">
                 <i class="fas fa-comment-alt"></i> Phản ánh
             </a>

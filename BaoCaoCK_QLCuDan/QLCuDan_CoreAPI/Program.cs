@@ -109,6 +109,8 @@ builder.Services.AddAuthorization(options =>
 
     options.AddPolicy("ViewReports", policy =>
         policy.RequireClaim("Permission", "ViewReports"));
+    options.AddPolicy("UpdateUser", policy =>
+        policy.RequireClaim("Permission", "updateUser"));
 });
 
 
@@ -135,5 +137,9 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Cấu hình URL để chạy trên port 7108 (HTTPS) và 5001 (HTTP)
+app.Urls.Add("https://localhost:7108");
+app.Urls.Add("http://localhost:5001");
 
 app.Run();

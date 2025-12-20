@@ -13,7 +13,7 @@ namespace BaoCaoCK_QLCuDan.Controllers
     public class CuDanController : Controller
     {
         // 1. Link API
-        private const string BaseUrl = "https://localhost:7107/";
+        private const string BaseUrl = "https://localhost:7108/";
 
         private HttpClient CreateClient()
         {

@@ -14,7 +14,7 @@ namespace BaoCaoCK_QLCuDan.Controllers
 {
     public class NguoiDungController : Controller
     {
-        private const string BaseUrl = "https://localhost:7107/";
+        private const string BaseUrl = "https://localhost:7108/";
 
         private HttpClient CreateClient()
         {
@@ -234,6 +234,11 @@ namespace BaoCaoCK_QLCuDan.Controllers
                     {
                         TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
                         return RedirectToAction("Home");
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                    {
+                        ViewBag.ErrorMessage = "Bạn không có quyền được cập nhật.";
+                        return View(cuDan);
                     }
                     else
                     {

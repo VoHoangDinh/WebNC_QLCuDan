@@ -84,8 +84,8 @@ namespace QLCuDan_CoreAPI.Controllers
 
             return CreatedAtAction("GetCuDan", new { id = cuDan.MaCuDan }, cuDan);
         }
-
         // PUT: api/CuDans/5
+        [Authorize(Policy = "UpdateUser")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCuDan(int id, CuDan cuDan)
         {
