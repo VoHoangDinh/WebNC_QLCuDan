@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\baocaock_qlcudan\\views\\role\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\role\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\baocaock_qlcudan\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{31AD94DE-CE4B-48C2-BCBE-FAC9F02DC013}|BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj|solutionrelative:baocaock_qlcudan\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\repository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\repository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\qlcudan_coreapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\qlcudan_coreapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,22 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\repository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\repository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\qlcudan_coreapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|solutionrelative:qlcudan_coreapi\\qlcudan_coreapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46A935D8-4B66-4797-AD95-459568189821}|QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj|e:\\asp .net\\qldcdevelop\\webnc_qlcudan\\baocaock_qlcudan\\qlcudan_coreapi\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,21 +66,34 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "QuanLyChungCuDbContext.cs",
-              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
-              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
-              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
-              "RelativeToolTip": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T15:56:31.158Z",
+              "DocumentIndex": 0,
+              "Title": "index.cshtml",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Role\\index.cshtml",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\Role\\index.cshtml",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Role\\index.cshtml",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\Role\\index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T14:17:52.086Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "QLCuDan_CoreAPI",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BaoCaoCK_QLCuDan\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAJwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T13:51:46.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QLCuDan_CoreAPI.csproj",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
               "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
@@ -84,39 +105,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Program.cs",
-              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Program.cs",
-              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Program.cs",
-              "RelativeToolTip": "QLCuDan_CoreAPI\\Program.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAAH8AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T15:40:10.968Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\appsettings.json",
-              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
-              "RelativeToolTip": "QLCuDan_CoreAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-19T13:53:34.735Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
               "Title": "AccountController.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Controllers\\AccountController.cs",
               "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\AccountController.cs",
               "RelativeToolTip": "QLCuDan_CoreAPI\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T15:46:19.442Z",
               "EditorCaption": ""
@@ -124,32 +119,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
-              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T15:50:35.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "RoleController.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\RoleController.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Controllers\\RoleController.cs",
               "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Controllers\\RoleController.cs",
               "RelativeToolTip": "QLCuDan_CoreAPI\\Controllers\\RoleController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAEUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T15:46:11.202Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "IAccountRepository.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Repository\\IAccountRepository.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Repository\\IAccountRepository.cs",
@@ -162,7 +144,59 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Program.cs",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Program.cs",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Program.cs",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T15:40:10.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\appsettings.json",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\appsettings.json",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-19T13:53:34.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "QuanLyChungCuDbContext.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\Models\\QuanLyChungCuDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T15:56:31.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
+              "ToolTip": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "QLCuDan_CoreAPI\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T15:50:35.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "AccountService.cs",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\QLCuDan_CoreAPI\\Service\\AccountService.cs",
               "RelativeDocumentMoniker": "QLCuDan_CoreAPI\\Service\\AccountService.cs",
@@ -175,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Web.config",
               "DocumentMoniker": "E:\\ASP .net\\QLDCdevelop\\WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan\\Web.config",
               "RelativeDocumentMoniker": "BaoCaoCK_QLCuDan\\Web.config",

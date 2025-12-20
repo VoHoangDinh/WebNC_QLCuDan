@@ -521,6 +521,110 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.RoleController",
+    "Method": "AssignRoleToUser",
+    "RelativePath": "api/Role/assign-role-to-user",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.RoleController",
+    "Method": "DeletePermission",
+    "RelativePath": "api/Role/delete-permission",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "permission",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.RoleController",
+    "Method": "GetAllRoles",
+    "RelativePath": "api/Role/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.RoleController",
+    "Method": "GetPermissions",
+    "RelativePath": "api/Role/get-permissions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.RoleController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Role/get-users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLCuDan_CoreAPI.Controllers.RoleController",
+    "Method": "UpdatePermission",
+    "RelativePath": "api/Role/update-permission",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "oldPermission",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "newPermission",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QLCuDan_CoreAPI.Controllers.TheBaoHiemsController",
     "Method": "GetTheBaoHiems",
     "RelativePath": "api/TheBaoHiems",

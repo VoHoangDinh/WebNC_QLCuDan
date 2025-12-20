@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QLCuDan_CoreAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e19eb31725e6ab8e8cc685ff1e427d7bac353fb6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ff4f163f7f52da46724c70a6c6d7ab4a5f0acbf")]
 [assembly: System.Reflection.AssemblyProductAttribute("QLCuDan_CoreAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QLCuDan_CoreAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

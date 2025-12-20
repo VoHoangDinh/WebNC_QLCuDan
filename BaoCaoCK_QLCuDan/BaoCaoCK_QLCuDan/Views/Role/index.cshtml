@@ -1,0 +1,194 @@
+﻿@model List<BaoCaoCK_QLCuDan.Controllers.RoleViewModel>
+@using System
+
+@{
+    ViewBag.Title = "Quản lý Vai trò";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .badge-purple {
+        background-color: #6f42c1;
+        color: white;
+        padding: 0.5em 0.75em;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+    
+    .btn-purple {
+        background-color: #6f42c1;
+        border-color: #6f42c1;
+        color: white;
+    }
+    
+    .btn-purple:hover {
+        background-color: #5a32a3;
+        border-color: #5a32a3;
+        color: white;
+    }
+    
+    .card-header-purple {
+        background-color: #6f42c1;
+        color: white;
+    }
+    
+    .text-purple {
+        color: #6f42c1 !important;
+    }
+    
+    .permission-checkbox {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-purple">Quản lý Vai trò và Quyền</h1>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @ViewBag.Error
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 card-header-purple">
+                    <h6 class="m-0 font-weight-bold">Quản lý Quyền cho Vai trò User</h6>
+                </div>
+                <div class="card-body">
+                    <form id="permissionForm">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Vai trò: <span class="text-primary">user</span></label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input permission-checkbox" type="checkbox" id="updateUserPermission" 
+                                       @if (Model != null && Model.Any(r => r.Name != null && r.Name.Equals("user", StringComparison.OrdinalIgnoreCase) && r.Permissions != null && r.Permissions.Contains("updateUser"))) { <text>checked</text> }>
+                                <label class="form-check-label ml-2" for="updateUserPermission" style="font-size: 1rem; cursor: pointer;">
+                                    Cập nhật thông tin cư dân
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-purple btn-block mt-3">
+                            <i class="fas fa-save"></i> Cập nhật quyền
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 card-header-purple">
+                    <h6 class="m-0 font-weight-bold">Trạng thái hiện tại</h6>
+                </div>
+                <div class="card-body">
+                    @{
+                        var userRole = Model?.FirstOrDefault(r => r.Name != null && r.Name.Equals("user", StringComparison.OrdinalIgnoreCase));
+                        var hasPermission = userRole != null && userRole.Permissions != null && userRole.Permissions.Contains("updateUser");
+                    }
+                    
+                    <p><strong>Vai trò:</strong> user</p>
+                    <p><strong>Quyền hiện có:</strong></p>
+                    @if (hasPermission)
+                    {
+                        <span class="badge badge-purple">Cập nhật thông tin cư dân</span>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Chưa có quyền nào</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('#permissionForm').on('submit', function (e) {
+                e.preventDefault();
+                
+                var isChecked = $('#updateUserPermission').is(':checked');
+                var roleName = 'user';
+                var permission = 'updateUser';
+                
+                console.log('Form submitted. Checked:', isChecked);
+                
+                if (isChecked) {
+                    // Thêm permission
+                    console.log('Adding permission...');
+                    $.ajax({
+                        url: '@Url.Action("AddPermission", "Role")',
+                        type: 'POST',
+                        data: { roleName: roleName, permission: permission },
+                        success: function (response) {
+                            console.log('Response:', response);
+                            if (response && response.success) {
+                                alert('Đã thêm quyền thành công!');
+                                location.reload();
+                            } else {
+                                // Có thể permission đã tồn tại, không sao
+                                var msg = response ? response.message : 'Không có phản hồi';
+                                if (msg && (msg.indexOf('đã tồn tại') > -1 || msg.indexOf('đã có') > -1)) {
+                                    alert('Quyền đã được cấp từ trước.');
+                                    location.reload();
+                                } else {
+                                    alert(msg || 'Có lỗi xảy ra');
+                                }
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            console.error('Status:', status);
+                            console.error('Response:', xhr.responseText);
+                            alert('Có lỗi xảy ra khi thêm quyền. Vui lòng kiểm tra console để biết chi tiết.');
+                        }
+                    });
+                } else {
+                    // Xóa permission
+                    if (!confirm('Bạn có chắc chắn muốn xóa quyền "Cập nhật thông tin cư dân" không?')) {
+                        $('#updateUserPermission').prop('checked', true);
+                        return;
+                    }
+                    
+                    console.log('Deleting permission...');
+                    $.ajax({
+                        url: '@Url.Action("DeletePermission", "Role")',
+                        type: 'POST',
+                        data: { roleName: roleName, permission: permission },
+                        success: function (response) {
+                            console.log('Response:', response);
+                            if (response && response.success) {
+                                alert('Đã xóa quyền thành công!');
+                                location.reload();
+                            } else {
+                                var msg = response ? response.message : 'Không có phản hồi';
+                                alert(msg || 'Có lỗi xảy ra');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            console.error('Status:', status);
+                            console.error('Response:', xhr.responseText);
+                            alert('Có lỗi xảy ra khi xóa quyền. Vui lòng kiểm tra console để biết chi tiết.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
