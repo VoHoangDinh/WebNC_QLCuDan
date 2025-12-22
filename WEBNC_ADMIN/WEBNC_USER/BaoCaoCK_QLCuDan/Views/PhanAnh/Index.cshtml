@@ -1,0 +1,95 @@
+@model IEnumerable<BaoCaoCK_QLCuDan.Models.PhanAnh>
+@{
+    ViewBag.Title = "Danh sách phản ánh";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="mb-2"><i class="fas fa-list"></i> Danh sách phản ánh</h2>
+        <p class="text-muted">Xem tất cả phản ánh bạn đã gửi và trạng thái xử lý</p>
+    </div>
+    <a href="@Url.Action("Create", "PhanAnh")" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Gửi phản ánh mới
+    </a>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fas fa-exclamation-circle"></i> @TempData["ErrorMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (Model != null && Model.Any())
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100 @(item.TrangThai == "Mới tiếp nhận" ? "border-left-danger" : item.TrangThai == "Đang xử lý" ? "border-left-warning" : "border-left-success")" 
+                     style="border-left-width: 4px;">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="fas fa-bullhorn text-info"></i> @item.TieuDe
+                        </h5>
+                        <span class="badge @(item.TrangThai == "Mới tiếp nhận" ? "badge-danger" : item.TrangThai == "Đang xử lý" ? "badge-warning" : "badge-success")">
+                            @item.TrangThai
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            @if (item.NoiDung != null && item.NoiDung.Length > 150)
+                            {
+                                @item.NoiDung.Substring(0, 150)<text>...</text>
+                            }
+                            else
+                            {
+                                @item.NoiDung
+                            }
+                        </p>
+                        <div class="text-muted small mb-3">
+                            <i class="fas fa-calendar"></i> Ngày gửi: @item.NgayGui.ToString("dd/MM/yyyy HH:mm")
+                        </div>
+                        <a href="@Url.Action("Details", "PhanAnh", new { id = item.MaPhanAnh })" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-eye"></i> Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i> Bạn chưa có phản ánh nào. 
+        <a href="@Url.Action("Create", "PhanAnh")" class="alert-link">Gửi phản ánh đầu tiên</a>
+    </div>
+}
+
+<style>
+    .border-left-danger {
+        border-left-color: #e74a3b !important;
+    }
+    .border-left-warning {
+        border-left-color: #f6c23e !important;
+    }
+    .border-left-success {
+        border-left-color: #1cc88a !important;
+    }
+</style>
+

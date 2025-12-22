@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "WebNC_QLCuDan\\QLCuDan_CoreAPI\\QLCuDan_CoreAPI.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "WebNC_QLCuDan\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "WEBNC_USER\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan_User.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

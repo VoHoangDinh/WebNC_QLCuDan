@@ -1,0 +1,101 @@
+@model BaoCaoCK_QLCuDan.Models.PhanAnh
+@{
+    ViewBag.Title = "Chi tiết phản ánh";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="mb-4">
+    <h2 class="mb-2"><i class="fas fa-eye"></i> Chi tiết phản ánh</h2>
+    <p class="text-muted">Xem thông tin chi tiết về phản ánh của bạn</p>
+</div>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fas fa-exclamation-circle"></i> @TempData["ErrorMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (Model != null)
+{
+    <div class="card shadow-sm">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0"><i class="fas fa-bullhorn text-info"></i> @Model.TieuDe</h4>
+            <span class="badge @(Model.TrangThai == "Mới tiếp nhận" ? "badge-danger" : Model.TrangThai == "Đang xử lý" ? "badge-warning" : "badge-success") badge-lg">
+                @Model.TrangThai
+            </span>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <strong><i class="fas fa-calendar text-muted"></i> Ngày gửi:</strong>
+                    <p class="mb-0">@Model.NgayGui.ToString("dd/MM/yyyy HH:mm")</p>
+                </div>
+                <div class="col-md-6">
+                    <strong><i class="fas fa-info-circle text-muted"></i> Mã phản ánh:</strong>
+                    <p class="mb-0">#@Model.MaPhanAnh</p>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="mb-3">
+                <strong><i class="fas fa-file-alt text-muted"></i> Nội dung phản ánh:</strong>
+                <div class="mt-2 p-3 bg-light rounded">
+                    @Html.Raw(Model.NoiDung?.Replace("\n", "<br/>"))
+                </div>
+            </div>
+
+            @if (Model.TrangThai == "Đã xong")
+            {
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> <strong>Phản ánh đã được xử lý!</strong> Ban quản lý đã xem xét và hoàn tất xử lý phản ánh của bạn.
+                </div>
+            }
+            else if (Model.TrangThai == "Đang xử lý")
+            {
+                <div class="alert alert-warning">
+                    <i class="fas fa-clock"></i> <strong>Đang xử lý</strong> Ban quản lý đang xem xét và xử lý phản ánh của bạn. Vui lòng chờ thông báo.
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    <i class="fas fa-hourglass-half"></i> <strong>Mới tiếp nhận</strong> Phản ánh của bạn đã được gửi thành công. Ban quản lý sẽ xem xét trong thời gian sớm nhất.
+                </div>
+            }
+
+            <div class="mt-4">
+                <a href="@Url.Action("Index", "PhanAnh")" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Quay lại danh sách
+                </a>
+                @if (Model.TrangThai == "Mới tiếp nhận")
+                {
+                    <a href="@Url.Action("Create", "PhanAnh")" class="btn btn-primary ml-2">
+                        <i class="fas fa-plus"></i> Gửi phản ánh mới
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        <i class="fas fa-exclamation-triangle"></i> Không tìm thấy thông tin phản ánh.
+    </div>
+    <a href="@Url.Action("Index", "PhanAnh")" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Quay lại danh sách
+    </a>
+}
+
+<style>
+    .badge-lg {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+</style>
+

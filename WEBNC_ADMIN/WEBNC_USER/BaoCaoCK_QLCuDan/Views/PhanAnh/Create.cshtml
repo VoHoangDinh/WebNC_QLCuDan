@@ -1,0 +1,89 @@
+@model BaoCaoCK_QLCuDan.Models.PhanAnh
+@{
+    ViewBag.Title = "Gửi phản ánh";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="mb-4">
+    <h2 class="mb-2"><i class="fas fa-bullhorn"></i> Gửi phản ánh</h2>
+    <p class="text-muted">Gửi phản ánh của bạn để ban quản lý xem xét và xử lý</p>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fas fa-exclamation-circle"></i> @TempData["ErrorMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@using (Html.BeginForm("Create", "PhanAnh", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0"><i class="fas fa-edit"></i> Thông tin phản ánh</h4>
+        </div>
+        <div class="card-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TieuDe, "Tiêu đề phản ánh", new { @class = "font-weight-bold" })
+                @Html.TextBoxFor(model => model.TieuDe, new { @class = "form-control", placeholder = "Nhập tiêu đề phản ánh", required = "required" })
+                @Html.ValidationMessageFor(model => model.TieuDe, "", new { @class = "text-danger" })
+                <small class="form-text text-muted">Ví dụ: Vấn đề về điện nước, An ninh, Vệ sinh...</small>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NoiDung, "Nội dung phản ánh", new { @class = "font-weight-bold" })
+                @Html.TextAreaFor(model => model.NoiDung, new { @class = "form-control", rows = "8", placeholder = "Mô tả chi tiết vấn đề bạn muốn phản ánh...", required = "required" })
+                @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                <small class="form-text text-muted">Vui lòng mô tả chi tiết để ban quản lý có thể xử lý nhanh chóng.</small>
+            </div>
+
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-paper-plane"></i> Gửi phản ánh
+                </button>
+                <a href="@Url.Action("Index", "PhanAnh")" class="btn btn-secondary btn-lg ml-2">
+                    <i class="fas fa-list"></i> Xem danh sách phản ánh
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        // Bootstrap validation
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+}
+
