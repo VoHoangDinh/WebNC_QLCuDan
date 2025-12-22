@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\WEBNC_ADMIN\\",
+  "WorkspaceRootPath": "E:\\New folder (5)\\WEBNC_ADMIN\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1B03B50-34D2-432D-8AF3-80FB7A566833}|WEBNC_USER\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan_User.csproj|e:\\webnc_admin\\webnc_user\\baocaock_qlcudan\\views\\nguoidung\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D1B03B50-34D2-432D-8AF3-80FB7A566833}|WEBNC_USER\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan_User.csproj|e:\\new folder (5)\\webnc_admin\\webnc_user\\baocaock_qlcudan\\views\\nguoidung\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D1B03B50-34D2-432D-8AF3-80FB7A566833}|WEBNC_USER\\BaoCaoCK_QLCuDan\\BaoCaoCK_QLCuDan_User.csproj|solutionrelative:webnc_user\\baocaock_qlcudan\\views\\nguoidung\\home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -68,11 +68,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Home.cshtml",
-              "DocumentMoniker": "E:\\WEBNC_ADMIN\\WEBNC_USER\\BaoCaoCK_QLCuDan\\Views\\NguoiDung\\Home.cshtml",
+              "DocumentMoniker": "E:\\New folder (5)\\WEBNC_ADMIN\\WEBNC_USER\\BaoCaoCK_QLCuDan\\Views\\NguoiDung\\Home.cshtml",
               "RelativeDocumentMoniker": "WEBNC_USER\\BaoCaoCK_QLCuDan\\Views\\NguoiDung\\Home.cshtml",
-              "ToolTip": "E:\\WEBNC_ADMIN\\WEBNC_USER\\BaoCaoCK_QLCuDan\\Views\\NguoiDung\\Home.cshtml",
+              "ToolTip": "E:\\New folder (5)\\WEBNC_ADMIN\\WEBNC_USER\\BaoCaoCK_QLCuDan\\Views\\NguoiDung\\Home.cshtml",
               "RelativeToolTip": "WEBNC_USER\\BaoCaoCK_QLCuDan\\Views\\NguoiDung\\Home.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-22T18:26:17.804Z",
               "EditorCaption": ""
